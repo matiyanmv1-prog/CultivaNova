@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CultivaNova - Premium Mushroom Liquid Cultures & Slime Mold Starter Kits. Professional cultivation supplies.">
+    <meta name="language" content="English">
+    <title>CultivaNova - Premium Mushroom Cultures & Slime Molds</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0a0e27;
+            --secondary-dark: #1a1f3a;
+            --accent-gold: #d4af37;
+            --accent-green: #2d8f5f;
+            --text-light: #e8e8e8;
+            --text-secondary: #b0b0b0;
+            --border-color: #2a2f4a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            border-bottom: 2px solid var(--accent-gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-green));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary-dark);
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            padding: 6rem 5%;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-green));
+            color: var(--primary-dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* SECTION HEADERS */
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: var(--text-light);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-green));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        /* PRODUCTS SECTION */
+        .products-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--secondary-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 12px 24px rgba(212, 175, 55, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            font-size: 3rem;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-image::before {
+            content: '🍄';
+            position: absolute;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            font-size: 0.85rem;
+            color: var(--accent-green);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--accent-gold);
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .product-size {
+            font-size: 0.85rem;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: auto;
+        }
+
+        .product-buttons a {
+            flex: 1;
+            padding: 0.6rem 0.8rem;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--accent-gold);
+        }
+
+        .product-buttons a:hover {
+            background: transparent;
+            color: var(--accent-gold);
+        }
+
+        /* CATEGORIES */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            background: var(--secondary-dark);
+            color: var(--text-light);
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            border-color: var(--accent-gold);
+        }
+
+        /* LEGAL SECTION */
+        .legal-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+
+        .legal-section {
+            background: var(--secondary-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .legal-section h2 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .legal-section h3 {
+            color: var(--accent-green);
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .legal-section p,
+        .legal-section li {
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .legal-section ul {
+            margin-left: 2rem;
+        }
+
+        /* CONTACT SECTION */
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+
+        .contact-form {
+            background: var(--secondary-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--primary-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-green));
+            color: var(--primary-dark);
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--secondary-dark);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 5%;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent-green);
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 1rem 3%;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .hero {
+                padding: 3rem 3%;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-buttons {
+                flex-direction: column;
+            }
+
+            .filter-buttons {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div class="logo-img" id="logoDisplay">CN</div>
+                <span class="logo-text">CultivaNova</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#legal">Legal</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <h1>CultivaNova</h1>
+        <p>Premium Mushroom Liquid Cultures & Slime Mold Starter Kits for Professional Cultivators</p>
+        <a href="#products" class="cta-button">View Products</a>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section id="products" class="products-container">
+        <h2 class="section-title">Our Products</h2>
+        <p class="section-subtitle">67 premium mushroom cultures and slime mold starter kits</p>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All Products (67)</button>
+            <button class="filter-btn" data-filter="mushroom">🍄 Mushroom 10ml (32)</button>
+            <button class="filter-btn" data-filter="mushroom-20">🍄 Mushroom 20ml (32)</button>
+            <button class="filter-btn" data-filter="slime">🟡 Slime Molds (3)</button>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            <!-- PRODUCTS WILL BE INSERTED HERE BY JAVASCRIPT -->
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="legal-container">
+        <h2 class="section-title">About CultivaNova</h2>
+        <div class="legal-section">
+            <p>CultivaNova is a specialized company providing premium mushroom liquid cultures and slime mold starter kits. Our products are exclusively designed for cultivation purposes and are manufactured under strict quality standards.</p>
+            <p style="margin-top: 1rem;"><strong>Product Category:</strong> All products are classified as Risk Class 1 and designed for professional and hobbyist mushroom cultivation applications.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact-container">
+        <h2 class="section-title">Contact Us</h2>
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xreejpzl" method="POST">
+            <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject *</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+        <p style="text-align: center; color: var(--text-secondary); margin-top: 2rem;">
+            Or email us directly: <a href="mailto:matioyan.mv1@gmail.com" style="color: var(--accent-gold);">matioyan.mv1@gmail.com</a>
+        </p>
+    </section>
+
+    <!-- LEGAL SECTION -->
+    <section id="legal" class="legal-container">
+        <h2 class="section-title">Legal Information</h2>
+
+        <!-- IMPRESSUM -->
+        <div class="legal-section">
+            <h2>Impressum / Imprint</h2>
+            <h3>German Version (Deutsch):</h3>
+            <p><strong>Unternehmensname:</strong> CultivaNova</p>
+            <p><strong>Betreiber:</strong> Matiyan Velichkovski</p>
+            <p><strong>Geschäftsform:</strong> Kleingewerbe (Einzelunternehmen)</p>
+            <p><strong>Adresse:</strong> Blosweg 5, 22111 Hamburg, Germany</p>
+            <p><strong>E-Mail:</strong> matioyan.mv1@gmail.com</p>
+            <p style="margin-top: 1rem;"><strong>Verantwortlicher für den Inhalt (gemäß TMG §7 Abs. 1):</strong> Matiyan Velichkovski</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent-green);"><strong>Note:</strong> This business operates under the small business exemption (Kleinunternehmerregelung) and is not required to display tax or VAT identification numbers publicly.</p>
+
+            <h3 style="color: var(--accent-gold); margin-top: 1.5rem;">English Version:</h3>
+            <p><strong>Business Name:</strong> CultivaNova</p>
+            <p><strong>Operator:</strong> Matiyan Velichkovski</p>
+            <p><strong>Business Type:</strong> Small Business / Sole Proprietorship (Kleingewerbe)</p>
+            <p><strong>Address:</strong> Blosweg 5, 22111 Hamburg, Germany</p>
+            <p><strong>Email:</strong> matioyan.mv1@gmail.com</p>
+            <p style="margin-top: 1rem;"><strong>Content Responsible (pursuant to TMG §7 Para. 1):</strong> Matiyan Velichkovski</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent-gold);"><strong>Note:</strong> This business operates under the small business exemption (Kleinunternehmerregelung §19 UStG) and is not required to publicly display tax or VAT identification numbers.</p>
+        </div>
+
+        <!-- TERMS OF SERVICE -->
+        <div class="legal-section">
+            <h2>Allgemeine Geschäftsbedingungen (AGB) / Terms of Service</h2>
+            
+            <h3>1. Geltungsbereich / Scope</h3>
+            <p><strong>Deutsch:</strong> Diese AGB gelten für alle Geschäftsbeziehungen zwischen CultivaNova und Kunden. Alle Bestellungen sind ein Angebot des Kunden, das CultivaNova annehmen oder ablehnen kann.</p>
+            <p><strong>English:</strong> These Terms of Service apply to all business relationships between CultivaNova and customers. All orders are an offer from the customer, which CultivaNova may accept or reject.</p>
+
+            <h3>2. Produktbeschreibung / Product Description</h3>
+            <p><strong>Deutsch:</strong> Alle Produkte von CultivaNova sind ausschließlich für Züchtungszwecke bestimmt. Die Produkte sind der Risikoklasse 1 zugeordnet und erfüllen alle geltenden EU- und deutschen Sicherheitsstandards.</p>
+            <p><strong>English:</strong> All CultivaNova products are exclusively intended for cultivation purposes. Products are classified as Risk Class 1 and comply with all applicable EU and German safety standards.</p>
+
+            <h3>3. Preise und Zahlungsbedingungen / Pricing and Payment</h3>
+            <p><strong>Deutsch:</strong> Die Preise verstehen sich ohne Mehrwertsteuer (unter Kleinunternehmerregelung §19 UStG). Die Bezahlung erfolgt über eBay oder Etsy gemäß deren Zahlungsbedingungen.</p>
+            <p><strong>English:</strong> Prices are quoted without VAT (under the small business exemption §19 UStG). Payment is processed through eBay or Etsy according to their payment terms.</p>
+
+            <h3>4. Versand und Lieferung / Shipping and Delivery</h3>
+            <p><strong>Deutsch:</strong> CultivaNova ist vollständig verantwortlich für die sichere Lieferung Ihrer Bestellung bis zur bestätigten Zustellung. Bei Beschädigung oder Verlust kontaktieren Sie uns innerhalb von 48 Stunden mit Fotos, und wir ersetzen oder erstatten Ihnen die Bestellung vollständig innerhalb von 14 Tagen.</p>
+            <p><strong>English:</strong> CultivaNova is fully responsible for the safe delivery of your order until confirmed delivery. If your package arrives damaged or is lost, report damage within 48 hours with photos, and we will replace or refund your order within 14 days. We then manage all shipping company claims on your behalf.</p>
+
+            <h3>5. Widerrufsrecht / Right of Withdrawal</h3>
+            <p><strong>Deutsch:</strong> Kunden haben das Recht, ihre Bestellung innerhalb von 14 Tagen zu widerrufen (gemäß deutschem Verbraucherschutz). Eine Rückgabe ist möglich, solange die Produkte ungeöffnet sind.</p>
+            <p><strong>English:</strong> Customers have the right to withdraw their order within 14 days (according to German consumer protection law). Returns are possible as long as products remain unopened.</p>
+
+            <h3>6. Haftungsbeschränkung / Liability Limitation</h3>
+            <p><strong>Deutsch:</strong> CultivaNova haftet nicht für Schäden, die durch unsachgemäße Handhabung oder Lagerung der Produkte entstehen. Alle Produkte werden in bestem Zustand versandt.</p>
+            <p><strong>English:</strong> CultivaNova is not liable for damages resulting from improper handling or storage of products. All products are shipped in excellent condition.</p>
+
+            <h3>7. Datenschutz / Data Protection</h3>
+            <p><strong>Deutsch:</strong> Persönliche Daten werden nur für die Abwicklung von Bestellungen verwendet und nicht an Dritte weitergegeben.</p>
+            <p><strong>English:</strong> Personal data is used only for order processing and is not shared with third parties.</p>
+        </div>
+
+        <!-- PRIVACY POLICY -->
+        <div class="legal-section">
+            <h2>Datenschutzerklärung / Privacy Policy</h2>
+            
+            <h3>Verantwortlicher / Responsible Party:</h3>
+            <p>CultivaNova, matioyan.mv1@gmail.com</p>
+
+            <h3>Rechtsgrundlage / Legal Basis:</h3>
+            <p><strong>Deutsch:</strong> Diese Datenschutzerklärung erfolgt gemäß DSGVO (Datenschutz-Grundverordnung) und dem Bundesdatenschutzgesetz (BDSG).</p>
+            <p><strong>English:</strong> This Privacy Policy is issued in accordance with the GDPR (General Data Protection Regulation) and the German Federal Data Protection Act (BDSG). Data is transmitted using SSL/HTTPS encryption for security.</p>
+
+            <h3>Erhobene Daten / Data Collected:</h3>
+            <ul>
+                <li><strong>Deutsch:</strong> Name und E-Mail-Adresse (über Kontaktformular)</li>
+                <li><strong>English:</strong> Name and email address (via contact form)</li>
+                <li><strong>Deutsch:</strong> Bestelldaten (über eBay/Etsy)</li>
+                <li><strong>English:</strong> Order data (via eBay/Etsy)</li>
+                <li><strong>Deutsch:</strong> IP-Adresse (automatisch)</li>
+                <li><strong>English:</strong> IP address (automatically)</li>
+            </ul>
+
+            <h3>Verwendung / Usage:</h3>
+            <ul>
+                <li><strong>Deutsch:</strong> Bestellungsabwicklung</li>
+                <li><strong>English:</strong> Order processing</li>
+                <li><strong>Deutsch:</strong> Kundenservice</li>
+                <li><strong>English:</strong> Customer service</li>
+                <li><strong>Deutsch:</strong> Marketing (nur mit Zustimmung)</li>
+                <li><strong>English:</strong> Marketing (with consent only)</li>
+            </ul>
+
+            <h3>Speicherdauer / Data Retention:</h3>
+            <p><strong>Deutsch:</strong> Daten werden nur solange gespeichert, wie sie für die Geschäftsbeziehung notwendig sind. Nach Ablauf der Aufbewahrungsfristen (gemäß deutschem Handelsrecht) werden sie gelöscht.</p>
+            <p><strong>English:</strong> Data is stored only as long as necessary for the business relationship. After the retention period expires (according to German commercial law), data is deleted.</p>
+
+            <h3>Benutzerrechte / User Rights:</h3>
+            <p><strong>Deutsch:</strong> Sie haben das Recht, Ihre Daten zu sehen, zu korrigieren oder löschen zu lassen. Kontaktieren Sie uns unter matioyan.mv1@gmail.com</p>
+            <p><strong>English:</strong> You have the right to access, correct, or request deletion of your data. Contact us at matioyan.mv1@gmail.com</p>
+        </div>
+
+        <!-- CANCELLATION & SHIPPING POLICIES -->
+        <div class="legal-section">
+            <h2>Widerrufsrecht & Versandrichtlinien / Cancellation & Shipping Policy</h2>
+            
+            <h3>Cancellation / Widerruf:</h3>
+            <p><strong>Deutsch:</strong> Sie haben das Recht, Bestellungen innerhalb von 14 Tagen ohne Angabe von Gründen zu widerrufen. Die Frist beginnt mit dem Tag des Erhalts der Ware. Produkte müssen ungeöffnet und in Originalverpackung sein.</p>
+            <p><strong>English:</strong> You have the right to withdraw orders within 14 days without providing reasons. The period begins on the day you receive the goods. Products must remain unopened and in original packaging. Perishable goods (opened/inoculated cultures) cannot be withdrawn.</p>
+
+            <h3>Shipping / Versand:</h3>
+            <p><strong>Deutsch:</strong> Versand erfolgt innerhalb Deutschlands via Deutsche Post/DHL mit Tracking. Versandzeit: 3-5 Arbeitstage nach Bestellbestätigung. Versandkosten werden über eBay/Etsy berechnet.</p>
+            <p><strong>English:</strong> Shipping is available within Germany via German Post/DHL with tracking. Shipping time: 3-5 business days after order confirmation. Shipping costs are calculated by eBay/Etsy.</p>
+
+            <h3>International Shipping Notice:</h3>
+            <p><strong>For customers outside Germany/EU:</strong> Different consumer protection laws may apply in your country. Many countries restrict import of biological materials. Verify your local import laws before purchasing. Additional customs duties/taxes may apply at delivery. CultivaNova reserves the right to refuse shipment to any country.</p>
+        </div>
+
+        <!-- PRODUCT DISCLAIMER -->
+        <div class="legal-section">
+            <h2>Produkthaftung & Haftungsausschluss / Product Liability & Disclaimer</h2>
+            
+            <h3>Zweckbestimmung / Intended Purpose:</h3>
+            <p><strong>Deutsch:</strong> Alle Produkte von CultivaNova sind ausschließlich für Züchtungs- und Forschungszwecke bestimmt. Sie sind nicht zur menschlichen oder tierischen Konsum bestimmt.</p>
+            <p><strong>English:</strong> All CultivaNova products are exclusively intended for cultivation and research purposes. They are not intended for human or animal consumption.</p>
+
+            <h3>Risikoklasse / Risk Classification:</h3>
+            <p><strong>Deutsch:</strong> Alle Produkte gehören zur Risikoklasse 1 und entsprechen geltenden EU- und deutschen Sicherheitsstandards.</p>
+            <p><strong>English:</strong> All products are classified as Risk Class 1 and comply with applicable EU and German safety standards.</p>
+
+            <h3>Haftungsbeschränkung / Liability Limitation:</h3>
+            <p><strong>CultivaNova is not liable for:</strong></p>
+            <ul>
+                <li>Improper handling or storage</li>
+                <li>Improper use (e.g., consumption)</li>
+                <li>Customer errors in cultivation techniques</li>
+                <li>Environmental conditions (temperature, humidity)</li>
+                <li>Import seizures or customs issues (for international orders)</li>
+            </ul>
+        </div>
+
+        <!-- RIGHTS & RESPONSIBILITIES -->
+        <div class="legal-section">
+            <h2>Buyer Obligations & Rights / Pflichten & Rechte des Käufers</h2>
+            
+            <h3>Buyer Obligations / Pflichten des Käufers:</h3>
+            <ul>
+                <li>Proper handling and storage of products</li>
+                <li>Use exclusively for cultivation/research purposes</li>
+                <li>Compliance with all applicable laws and regulations</li>
+                <li>No distribution to persons under 18 years old</li>
+            </ul>
+
+            <h3>Buyer Rights / Rechte des Käufers:</h3>
+            <ul>
+                <li>Exchange of defective/contaminated products</li>
+                <li>Return within 14 days (unopened)</li>
+                <li>Customer service support</li>
+                <li>Full responsibility from CultivaNova for safe delivery</li>
+            </ul>
+        </div>
+
+        <!-- COMPLIANCE STATEMENT -->
+        <div class="legal-section">
+            <h2>Regulatory Compliance / Einhaltung von Vorschriften</h2>
+            
+            <p><strong>Deutsch - Regulatorische Compliance:</strong></p>
+            <ul>
+                <li>✓ Registriert bei Finanzamt Hamburg Mitte</li>
+                <li>✓ Angemeldet bei Berufsgenossenschaft (BGHW)</li>
+                <li>✓ Registriert bei dualer Abfallwirtschaft (LUCID/Reclay)</li>
+                <li>✓ Alle Produkte Risikoklasse 1 (keine Genehmigung erforderlich)</li>
+                <li>✓ Einhaltung aller EU- und deutschen Sicherheitsstandards</li>
+            </ul>
+
+            <p style="margin-top: 1rem;"><strong>English - Regulatory Compliance:</strong></p>
+            <ul>
+                <li>✓ Registered with Tax Office Hamburg Mitte (Finanzamt Hamburg Mitte)</li>
+                <li>✓ Registered with Professional Association (BGHW)</li>
+                <li>✓ Registered with Dual Waste Management System (LUCID/Reclay)</li>
+                <li>✓ All products classified as Risk Class 1 (no licensing required)</li>
+                <li>✓ Full compliance with EU and German safety standards</li>
+                <li>✓ HTTPS/SSL encryption enabled</li>
+                <li>✓ GDPR-compliant data protection</li>
+                <li>✓ WCAG 2.1 AA accessibility standards compliance</li>
+            </ul>
+        </div>
+
+        <!-- CONTACT FOR LEGAL -->
+        <div class="legal-section">
+            <h2>Legal Inquiries / Rechtliche Anfragen</h2>
+            
+            <p><strong>Deutsch:</strong> Bei Fragen zu rechtlichen Angelegenheiten, bitte kontaktieren Sie uns:</p>
+            <p><strong>English:</strong> For inquiries regarding legal matters, please contact us:</p>
+            <p><strong>E-Mail / Email:</strong> matioyan.mv1@gmail.com</p>
+            <p><strong>Antwortzeit / Response Time:</strong> Innerhalb von 48 Stunden / Within 48 hours</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="#legal">Legal</a>
+            <a href="#contact">Contact</a>
+            <a href="https://www.ebay.com/usr/cultivanova" target="_blank">eBay Shop</a>
+            <a href="https://www.etsy.com/shop/CultivaNova" target="_blank">Etsy Shop</a>
+        </div>
+        <p>&copy; 2026 CultivaNova. All rights reserved. | Small Business Hamburg Mitte (Kleingewerbe Hamburg Mitte)</p>
+    </footer>
+
+    <script>
+        // PRODUCT DATA
+        const products = [
+            // MUSHROOM LIQUID CULTURES - 10ml SYRINGE
+            { id: 1, name: 'Agaricus arvensis', scientific: 'Horse Mushroom', category: 'mushroom', size: '10ml' },
+            { id: 2, name: 'Coprinus comatus', scientific: 'Shaggy Ink Cap', category: 'mushroom', size: '10ml' },
+            { id: 3, name: 'Cordyceps militaris', scientific: 'Scarlet Caterpillar Club', category: 'mushroom', size: '10ml' },
+            { id: 4, name: 'Cyclocybe aegerita', scientific: 'Pioppino', category: 'mushroom', size: '10ml' },
+            { id: 5, name: 'Flammulina velutipes', scientific: 'Enoki', category: 'mushroom', size: '10ml' },
+            { id: 6, name: 'Fomes fomentarius', scientific: 'Tinder Fungus', category: 'mushroom', size: '10ml' },
+            { id: 7, name: 'Fomitopsis betulina', scientific: 'Birch Polypore', category: 'mushroom', size: '10ml' },
+            { id: 8, name: 'Ganoderma applanatum', scientific: 'Artist\'s Conk', category: 'mushroom', size: '10ml' },
+            { id: 9, name: 'Ganoderma lucidum', scientific: 'Reishi', category: 'mushroom', size: '10ml' },
+            { id: 10, name: 'Ganoderma multipileum', scientific: 'Antler Reishi', category: 'mushroom', size: '10ml' },
+            { id: 11, name: 'Grifola frondosa', scientific: 'Maitake', category: 'mushroom', size: '10ml' },
+            { id: 12, name: 'Hericium coralloides', scientific: 'Coral Tooth', category: 'mushroom', size: '10ml' },
+            { id: 13, name: 'Hericium erinaceus', scientific: 'Lion\'s Mane', category: 'mushroom', size: '10ml' },
+            { id: 14, name: 'Hypsizygus ulmarius', scientific: 'Elm Oyster', category: 'mushroom', size: '10ml' },
+            { id: 15, name: 'Inonotus obliquus', scientific: 'Chaga', category: 'mushroom', size: '10ml' },
+            { id: 16, name: 'Kuehneromyces mutabilis', scientific: 'Sheathed Woodtuft', category: 'mushroom', size: '10ml' },
+            { id: 17, name: 'Laetiporus sulphureus', scientific: 'Chicken of the Woods', category: 'mushroom', size: '10ml' },
+            { id: 18, name: 'Lentinula edodes', scientific: 'Shiitake', category: 'mushroom', size: '10ml' },
+            { id: 19, name: 'Meripilus giganteus', scientific: 'Giant Polypore', category: 'mushroom', size: '10ml' },
+            { id: 20, name: 'Panellus stipticus', scientific: 'Bitter Oyster', category: 'mushroom', size: '10ml' },
+            { id: 21, name: 'Pholiota adiposa', scientific: 'Chestnut', category: 'mushroom', size: '10ml' },
+            { id: 22, name: 'Pholiota microspora', scientific: 'Nameko', category: 'mushroom', size: '10ml' },
+            { id: 23, name: 'Pleurotus citrinopileatus', scientific: 'Golden Oyster', category: 'mushroom', size: '10ml' },
+            { id: 24, name: 'Pleurotus djamor', scientific: 'Pink Oyster', category: 'mushroom', size: '10ml' },
+            { id: 25, name: 'Pleurotus eryngii', scientific: 'King Trumpet', category: 'mushroom', size: '10ml' },
+            { id: 26, name: 'Pleurotus eunosmus', scientific: 'Tarragon Oyster', category: 'mushroom', size: '10ml' },
+            { id: 27, name: 'Pleurotus florida', scientific: 'White Oyster', category: 'mushroom', size: '10ml' },
+            { id: 28, name: 'Pleurotus ostreatus', scientific: 'Pearl Oyster', category: 'mushroom', size: '10ml' },
+            { id: 29, name: 'Pleurotus columbinus', scientific: 'Blue Oyster', category: 'mushroom', size: '10ml' },
+            { id: 30, name: 'Pleurotus pulmonarius', scientific: 'Phoenix Oyster', category: 'mushroom', size: '10ml' },
+            { id: 31, name: 'Stropharia rugosoannulata', scientific: 'Wine Cap Stropharia', category: 'mushroom', size: '10ml' },
+            { id: 32, name: 'Trametes versicolor', scientific: 'Turkey Tail', category: 'mushroom', size: '10ml' },
+
+            // MUSHROOM LIQUID CULTURES - 20ml SYRINGE
+            { id: 33, name: 'Agaricus arvensis', scientific: 'Horse Mushroom', category: 'mushroom-20', size: '20ml' },
+            { id: 34, name: 'Coprinus comatus', scientific: 'Shaggy Ink Cap', category: 'mushroom-20', size: '20ml' },
+            { id: 35, name: 'Cordyceps militaris', scientific: 'Scarlet Caterpillar Club', category: 'mushroom-20', size: '20ml' },
+            { id: 36, name: 'Cyclocybe aegerita', scientific: 'Pioppino', category: 'mushroom-20', size: '20ml' },
+            { id: 37, name: 'Flammulina velutipes', scientific: 'Enoki', category: 'mushroom-20', size: '20ml' },
+            { id: 38, name: 'Fomes fomentarius', scientific: 'Tinder Fungus', category: 'mushroom-20', size: '20ml' },
+            { id: 39, name: 'Fomitopsis betulina', scientific: 'Birch Polypore', category: 'mushroom-20', size: '20ml' },
+            { id: 40, name: 'Ganoderma applanatum', scientific: 'Artist\'s Conk', category: 'mushroom-20', size: '20ml' },
+            { id: 41, name: 'Ganoderma lucidum', scientific: 'Reishi', category: 'mushroom-20', size: '20ml' },
+            { id: 42, name: 'Ganoderma multipileum', scientific: 'Antler Reishi', category: 'mushroom-20', size: '20ml' },
+            { id: 43, name: 'Grifola frondosa', scientific: 'Maitake', category: 'mushroom-20', size: '20ml' },
+            { id: 44, name: 'Hericium coralloides', scientific: 'Coral Tooth', category: 'mushroom-20', size: '20ml' },
+            { id: 45, name: 'Hericium erinaceus', scientific: 'Lion\'s Mane', category: 'mushroom-20', size: '20ml' },
+            { id: 46, name: 'Hypsizygus ulmarius', scientific: 'Elm Oyster', category: 'mushroom-20', size: '20ml' },
+            { id: 47, name: 'Inonotus obliquus', scientific: 'Chaga', category: 'mushroom-20', size: '20ml' },
+            { id: 48, name: 'Kuehneromyces mutabilis', scientific: 'Sheathed Woodtuft', category: 'mushroom-20', size: '20ml' },
+            { id: 49, name: 'Laetiporus sulphureus', scientific: 'Chicken of the Woods', category: 'mushroom-20', size: '20ml' },
+            { id: 50, name: 'Lentinula edodes', scientific: 'Shiitake', category: 'mushroom-20', size: '20ml' },
+            { id: 51, name: 'Meripilus giganteus', scientific: 'Giant Polypore', category: 'mushroom-20', size: '20ml' },
+            { id: 52, name: 'Panellus stipticus', scientific: 'Bitter Oyster', category: 'mushroom-20', size: '20ml' },
+            { id: 53, name: 'Pholiota adiposa', scientific: 'Chestnut', category: 'mushroom-20', size: '20ml' },
+            { id: 54, name: 'Pholiota microspora', scientific: 'Nameko', category: 'mushroom-20', size: '20ml' },
+            { id: 55, name: 'Pleurotus citrinopileatus', scientific: 'Golden Oyster', category: 'mushroom-20', size: '20ml' },
+            { id: 56, name: 'Pleurotus djamor', scientific: 'Pink Oyster', category: 'mushroom-20', size: '20ml' },
+            { id: 57, name: 'Pleurotus eryngii', scientific: 'King Trumpet', category: 'mushroom-20', size: '20ml' },
+            { id: 58, name: 'Pleurotus eunosmus', scientific: 'Tarragon Oyster', category: 'mushroom-20', size: '20ml' },
+            { id: 59, name: 'Pleurotus florida', scientific: 'White Oyster', category: 'mushroom-20', size: '20ml' },
+            { id: 60, name: 'Pleurotus ostreatus', scientific: 'Pearl Oyster', category: 'mushroom-20', size: '20ml' },
+            { id: 61, name: 'Pleurotus columbinus', scientific: 'Blue Oyster', category: 'mushroom-20', size: '20ml' },
+            { id: 62, name: 'Pleurotus pulmonarius', scientific: 'Phoenix Oyster', category: 'mushroom-20', size: '20ml' },
+            { id: 63, name: 'Stropharia rugosoannulata', scientific: 'Wine Cap Stropharia', category: 'mushroom-20', size: '20ml' },
+            { id: 64, name: 'Trametes versicolor', scientific: 'Turkey Tail', category: 'mushroom-20', size: '20ml' },
+
+            // SLIME MOLDS
+            { id: 65, name: 'Badhamia utricularis', scientific: 'Hanging Slime Mold', category: 'slime', size: 'Standard' },
+            { id: 66, name: 'Badhamia vulgaris', scientific: 'Common Badhamia', category: 'slime', size: 'Standard' },
+            { id: 67, name: 'Physarum polycephalum', scientific: 'Multi-headed Slime Mold', category: 'slime', size: 'Standard' }
+        ];
+
+        // RENDER PRODUCTS
+        function renderProducts(filter = 'all') {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+
+            const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+
+            filtered.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-image">
+                        <img src="images/products/${product.id}.jpg" alt="${product.name}" onerror="this.style.display='none'">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${product.category === 'mushroom' ? '10ml Syringe' : product.category === 'mushroom-20' ? '20ml Syringe' : 'Slime Mold'}</div>
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-description">${product.scientific}</div>
+                        <div class="product-size">Size: ${product.size}</div>
+                        <div class="product-buttons">
+                            <a href="https://www.ebay.com/usr/cultivanova" target="_blank">eBay</a>
+                            <a href="https://www.etsy.com/shop/CultivaNova" target="_blank">Etsy</a>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // FILTER FUNCTIONALITY
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderProducts(btn.dataset.filter);
+            });
+        });
+
+        // SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // INITIAL RENDER
+        renderProducts();
+    </script>
+</body>
+</html>
