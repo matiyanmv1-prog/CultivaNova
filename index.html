@@ -19,6 +19,37 @@
             box-sizing: border-box;
         }
 
+        /* LIGHT MODE VARIABLES */
+        :root[data-theme="light"] {
+            /* Light backgrounds */
+            --forest-black: #f5f7f5;
+            --earth-deep: #e8ede9;
+            --moss-dark: #d8e3da;
+            --bark-brown: #c8d3ca;
+            
+            /* Light mode greens (darker for contrast) */
+            --sage-green: #3a6f4f;
+            --forest-green: #4a7a5f;
+            --moss-green: #5a886c;
+            --lichen-light: #6a9374;
+            --leaf-accent: #2a5a3f;
+            
+            /* Browns adjusted */
+            --wood-brown: #6b5335;
+            --mushroom-tan: #7a6550;
+            --mycelium-cream: #a48554;
+            --spore-beige: #98866f;
+            
+            /* Text colors for light mode */
+            --text-primary: #1a2520;
+            --text-secondary: #2d3a32;
+            --text-muted: #4a5a4c;
+            
+            /* Glass effects for light mode */
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(90, 143, 111, 0.2);
+        }
+
         :root {
             /* Natural Organic Palette - Matching Your Logo */
             --forest-black: #0a0e0a;
@@ -616,6 +647,58 @@
             letter-spacing: -0.5px;
         }
 
+        /* THEME TOGGLE SWITCH */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-toggle-icon {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover .theme-toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .theme-toggle-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-family: 'Syne', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 6px 10px;
+            }
+            
+            .theme-toggle-label {
+                display: none;
+            }
+        }
+
         .product-buttons {
             display: flex;
             gap: 0.75rem;
@@ -963,6 +1046,13 @@
     </style>
 </head>
 <body>
+    <!-- THEME TOGGLE -->
+    <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <span class="theme-toggle-icon" id="themeIcon">🌙</span>
+        <span class="theme-toggle-label" id="themeLabel">Dark Mode</span>
+    </div>
+
+    
     <!-- ANIMATED BACKGROUND -->
     <canvas class="background-canvas" id="myceliumCanvas"></canvas>
 
@@ -1658,6 +1748,47 @@
         }
 
         // FORM SUBMISSION HANDLER
+
+        // THEME TOGGLE FUNCTIONALITY
+        function toggleTheme() {
+            const root = document.documentElement;
+            const themeIcon = document.getElementById('themeIcon');
+            const themeLabel = document.getElementById('themeLabel');
+            const currentTheme = root.getAttribute('data-theme');
+            
+            if (currentTheme === 'light') {
+                // Switch to dark
+                root.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '🌙';
+                themeLabel.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                // Switch to light
+                root.setAttribute('data-theme', 'light');
+                themeIcon.textContent = '☀️';
+                themeLabel.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Load saved theme on page load
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const root = document.documentElement;
+            const themeIcon = document.getElementById('themeIcon');
+            const themeLabel = document.getElementById('themeLabel');
+            
+            root.setAttribute('data-theme', savedTheme);
+            
+            if (savedTheme === 'light') {
+                themeIcon.textContent = '☀️';
+                themeLabel.textContent = 'Light Mode';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeLabel.textContent = 'Dark Mode';
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.querySelector('.contact-form');
             const successMessage = document.getElementById('form-message');
@@ -1698,6 +1829,9 @@
                     }
                 };
             }
+
+            // Load theme
+            loadTheme();
 
             // Initialize
             initMyceliumCanvas();
