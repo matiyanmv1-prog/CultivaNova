@@ -48,12 +48,16 @@
             /* Glass effects for light mode */
             --glass-bg: rgba(255, 255, 255, 0.7);
             --glass-border: rgba(90, 143, 111, 0.2);
+            
+            /* Form input visibility */
+            --input-bg: rgba(255, 255, 255, 0.95);
+            --input-border: rgba(90, 143, 111, 0.5);
         }
 
         :root {
             /* Natural Organic Palette - Matching Your Logo */
-            --forest-black: #0a0e0a;
-            --earth-deep: #1a2520;
+            --forest-black: #040604;
+            --earth-deep: #0d1411;
             --moss-dark: #243028;
             --bark-brown: #2d3832;
             
@@ -78,6 +82,10 @@
             /* Glass Effects */
             --glass-bg: rgba(29, 40, 34, 0.65);
             --glass-border: rgba(90, 143, 111, 0.15);
+            
+            /* Form input visibility */
+            --input-bg: rgba(255, 255, 255, 0.15);
+            --input-border: rgba(90, 143, 111, 0.6);
         }
 
         html {
@@ -537,7 +545,7 @@
 
         .product-card {
             background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+            border: 2px solid var(--input-border);
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -642,6 +650,7 @@
             font-size: 1.5rem;
             font-weight: 800;
             color: var(--sage-green);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
             margin: 0.75rem 0;
             font-family: 'Syne', sans-serif;
             letter-spacing: -0.5px;
@@ -655,7 +664,7 @@
             z-index: 10000;
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
+            border: 2px solid var(--input-border);
             border-radius: 30px;
             padding: 8px 12px;
             display: flex;
@@ -751,7 +760,7 @@
             max-width: 700px;
             margin: 0 auto 3rem;
             background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+            border: 2px solid var(--input-border);
             border-radius: 24px;
             padding: 3rem;
             backdrop-filter: blur(20px);
@@ -860,7 +869,7 @@
         /* LEGAL SECTIONS */
         .legal-container {
             background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+            border: 2px solid var(--input-border);
             border-radius: 24px;
             padding: 4rem 5%;
             backdrop-filter: blur(20px);
@@ -1089,7 +1098,7 @@
                 <ul class="nav-links">
                     <li><a href="#products">Products</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="#legal">Legal</a></li>
+                    <li><a href="impressum.html">Legal</a></li>
                     <li><a href="https://www.ebay.com/usr/cultivanova" target="_blank">eBay</a></li>
                     <li><a href="https://www.etsy.com/shop/CultivaNova" target="_blank">Etsy</a></li>
                 </ul>
@@ -1099,10 +1108,10 @@
         <!-- HERO SECTION -->
         <section class="hero">
             <div class="hero-content">
-                <h1>Artisan Mushroom<br>Liquid Cultures</h1>
+                <h1>Premium Mushroom<br>Liquid Cultures</h1>
                 <p class="hero-subtitle">
-                    Hand-cultivated mycelium cultures from nature's finest specimens. 
-                    Sustainably sourced, professionally prepared, lovingly shipped.
+                    Professional mycelium cultures for cultivation and research.<br>
+                    Risk Class 1 certified • EU compliant • Sustainably produced
                 </p>
                 <div class="cta-buttons">
                     <a href="#products" class="btn btn-primary">Explore Cultures</a>
@@ -1147,7 +1156,7 @@
                 </div>
                 <div class="form-group">
                     <label for="email">Email / E-Mail *</label>
-                    <input type="email" id="email" name="email" rules="required|email" placeholder="you@example.com">
+                    <input type="email" id="email" name="email" rules="required|email" placeholder="contact.cultivanova@gmail.com">
                 </div>
                 <div class="form-group">
                     <label for="subject">Subject / Betreff *</label>
@@ -1171,248 +1180,18 @@
             </p>
         </section>
 
-        <!-- LEGAL SECTION -->
-        <section id="legal" class="reveal">
-            <h2 class="section-title">Legal Information</h2>
-            
-            <div class="legal-container">
-                <!-- IMPRESSUM -->
-                <div class="legal-section">
-                    <h2>Impressum / Imprint</h2>
-                    <h3>German Version (Deutsch):</h3>
-                    <p><strong>Unternehmensname:</strong> CultivaNova</p>
-                    <p><strong>Betreiber:</strong> Matiyan Velichkovski</p>
-                    <p><strong>Geschäftsform:</strong> Kleingewerbe (Einzelunternehmen)</p>
-                    <p><strong>Adresse:</strong> Blosweg 5, 22111 Hamburg, Germany</p>
-                    <p><strong>E-Mail:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="95fcfbf3fad5f6e0f9e1fce3f4fbfae3f4bbf6faf8">[email&#160;protected]</a></p>
-                    <p style="margin-top: 1rem;"><strong>Verantwortlicher für den Inhalt (gemäß TMG §7 Abs. 1):</strong> Matiyan Velichkovski</p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--forest-green);"><strong>Note:</strong> This business operates under the small business exemption (Kleinunternehmerregelung) and is not required to display tax or VAT identification numbers publicly.</p>
-
-                    <h3 style="color: var(--sage-green); margin-top: 1.5rem;">English Version:</h3>
-                    <p><strong>Business Name:</strong> CultivaNova</p>
-                    <p><strong>Operator:</strong> Matiyan Velichkovski</p>
-                    <p><strong>Business Type:</strong> Small Business / Sole Proprietorship (Kleingewerbe)</p>
-                    <p><strong>Address:</strong> Blosweg 5, 22111 Hamburg, Germany</p>
-                    <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1c75727a735c7f697068756a7d72736a7d327f7371">[email&#160;protected]</a></p>
-                    <p style="margin-top: 1rem;"><strong>Content Responsible (pursuant to TMG §7 Para. 1):</strong> Matiyan Velichkovski</p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--sage-green);"><strong>Note:</strong> This business operates under the small business exemption (Kleinunternehmerregelung §19 UStG) and is not required to publicly display tax or VAT identification numbers.</p>
-                </div>
-
-                <!-- ODR NOTICE (EU REQUIREMENT) -->
-                <div class="odr-notice">
-                    <h3>🇪🇺 Online Dispute Resolution / Online-Streitbeilegung</h3>
-                    <p>
-                        <strong>EN:</strong> The European Commission provides a platform for online dispute resolution (ODR):<br>
-                        <strong>DE:</strong> Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
-                    </p>
-                    <a href="https://ec.europa.eu/consumers/odr" target="_blank" class="odr-link">
-                        Visit ODR Platform / Zur OS-Plattform
-                    </a>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        <strong>EN:</strong> We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board.<br>
-                        <strong>DE:</strong> Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
-                    </p>
-                </div>
-
-                <!-- TERMS OF SERVICE -->
-                <div class="legal-section">
-                    <h2>Allgemeine Geschäftsbedingungen (AGB) / Terms of Service</h2>
-                    
-                    <h3>1. Geltungsbereich / Scope</h3>
-                    <p><strong>Deutsch:</strong> Diese AGB gelten für alle Geschäftsbeziehungen zwischen CultivaNova und Kunden. Alle Bestellungen sind ein Angebot des Kunden, das CultivaNova annehmen oder ablehnen kann.</p>
-                    <p><strong>English:</strong> These Terms of Service apply to all business relationships between CultivaNova and customers. All orders are an offer from the customer, which CultivaNova may accept or reject.</p>
-
-                    <h3>2. Produktbeschreibung / Product Description</h3>
-                    <p><strong>Deutsch:</strong> Alle Produkte von CultivaNova sind ausschließlich für Züchtungszwecke bestimmt. Die Produkte sind der Risikoklasse 1 zugeordnet und erfüllen alle geltenden EU- und deutschen Sicherheitsstandards.</p>
-                    <p><strong>English:</strong> All CultivaNova products are exclusively intended for cultivation purposes. Products are classified as Risk Class 1 and comply with all applicable EU and German safety standards.</p>
-
-                    <h3>3. Preise und Zahlungsbedingungen / Pricing and Payment</h3>
-                    <p><strong>Deutsch:</strong> Die Preise verstehen sich ohne Mehrwertsteuer (unter Kleinunternehmerregelung §19 UStG). Die Bezahlung erfolgt über eBay oder Etsy gemäß deren Zahlungsbedingungen.</p>
-                    <p><strong>English:</strong> Prices are quoted without VAT (under the small business exemption §19 UStG). Payment is processed through eBay or Etsy according to their payment terms.</p>
-
-                    <h3>4. Versand und Lieferung / Shipping and Delivery</h3>
-                    <p><strong>Deutsch:</strong> CultivaNova ist vollständig verantwortlich für die sichere Lieferung Ihrer Bestellung bis zur bestätigten Zustellung. Bei Beschädigung oder Verlust kontaktieren Sie uns innerhalb von 48 Stunden mit Fotos, und wir ersetzen oder erstatten Ihnen die Bestellung vollständig innerhalb von 14 Tagen.</p>
-                    <p><strong>English:</strong> CultivaNova is fully responsible for the safe delivery of your order until confirmed delivery. If your package arrives damaged or is lost, report damage within 48 hours with photos, and we will replace or refund your order within 14 days. We then manage all shipping company claims on your behalf.</p>
-
-                    <h3>5. Widerrufsrecht / Right of Withdrawal</h3>
-                    <p><strong>Deutsch:</strong> Kunden haben das Recht, ihre Bestellung innerhalb von 14 Tagen zu widerrufen (gemäß deutschem Verbraucherschutz). Eine Rückgabe ist möglich, solange die Produkte ungeöffnet sind.</p>
-                    <p><strong>English:</strong> Customers have the right to withdraw their order within 14 days (according to German consumer protection law). Returns are possible as long as products remain unopened.</p>
-
-                    <h3>6. Haftungsbeschränkung / Liability Limitation</h3>
-                    <p><strong>Deutsch:</strong> CultivaNova haftet nicht für Schäden, die durch unsachgemäße Handhabung oder Lagerung der Produkte entstehen. Alle Produkte werden in bestem Zustand versandt.</p>
-                    <p><strong>English:</strong> CultivaNova is not liable for damages resulting from improper handling or storage of products. All products are shipped in excellent condition.</p>
-
-                    <h3>7. Datenschutz / Data Protection</h3>
-                    <p><strong>Deutsch:</strong> Persönliche Daten werden nur für die Abwicklung von Bestellungen verwendet und nicht an Dritte weitergegeben.</p>
-                    <p><strong>English:</strong> Personal data is used only for order processing and is not shared with third parties.</p>
-                </div>
-
-                <!-- PRIVACY POLICY -->
-                <div class="legal-section">
-                    <h2>Datenschutzerklärung / Privacy Policy</h2>
-                    
-                    <h3>Verantwortlicher / Responsible Party:</h3>
-                    <p>Matiyan Velichkovski, <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c8a1a6aea788abbda4bca1bea9a6a7bea9e6aba7a5">[email&#160;protected]</a></p>
-
-                    <h3>Rechtsgrundlage / Legal Basis:</h3>
-                    <p><strong>Deutsch:</strong> Diese Datenschutzerklärung erfolgt gemäß DSGVO (Datenschutz-Grundverordnung) und dem Bundesdatenschutzgesetz (BDSG).</p>
-                    <p><strong>English:</strong> This Privacy Policy is issued in accordance with the GDPR (General Data Protection Regulation) and the German Federal Data Protection Act (BDSG). Data is transmitted using SSL/HTTPS encryption for security.</p>
-
-                    <h3>Erhobene Daten / Data Collected:</h3>
-                    <ul>
-                        <li><strong>Deutsch:</strong> Name und E-Mail-Adresse (über Kontaktformular)</li>
-                        <li><strong>English:</strong> Name and email address (via contact form)</li>
-                        <li><strong>Deutsch:</strong> Bestelldaten (über eBay/Etsy)</li>
-                        <li><strong>English:</strong> Order data (via eBay/Etsy)</li>
-                        <li><strong>Deutsch:</strong> IP-Adresse (automatisch)</li>
-                        <li><strong>English:</strong> IP address (automatically)</li>
-                        <li><strong>Deutsch:</strong> Cookies (essenzielle für Formularbetrieb)</li>
-                        <li><strong>English:</strong> Cookies (essential for form operation)</li>
-                    </ul>
-
-                    <h3>Verwendung / Usage:</h3>
-                    <ul>
-                        <li><strong>Deutsch:</strong> Bestellungsabwicklung</li>
-                        <li><strong>English:</strong> Order processing</li>
-                        <li><strong>Deutsch:</strong> Kundenservice</li>
-                        <li><strong>English:</strong> Customer service</li>
-                        <li><strong>Deutsch:</strong> Marketing (nur mit Zustimmung)</li>
-                        <li><strong>English:</strong> Marketing (with consent only)</li>
-                    </ul>
-
-                    <h3>Cookies / Cookies:</h3>
-                    <p><strong>Deutsch:</strong> Diese Website verwendet nur essenzielle Cookies für die Funktionalität des Kontaktformulars (bereitgestellt von Kwes Forms). Diese sind notwendig für die technische Funktion der Website.</p>
-                    <p><strong>English:</strong> This website uses only essential cookies for the contact form functionality (provided by Kwes Forms). These are necessary for the technical operation of the website.</p>
-
-                    <h3>Speicherdauer / Data Retention:</h3>
-                    <p><strong>Deutsch:</strong> Daten werden nur solange gespeichert, wie sie für die Geschäftsbeziehung notwendig sind. Nach Ablauf der Aufbewahrungsfristen (gemäß deutschem Handelsrecht) werden sie gelöscht.</p>
-                    <p><strong>English:</strong> Data is stored only as long as necessary for the business relationship. After the retention period expires (according to German commercial law), data is deleted.</p>
-
-                    <h3>Benutzerrechte / User Rights:</h3>
-                    <p><strong>Deutsch:</strong> Sie haben das Recht, Ihre Daten zu sehen, zu korrigieren oder löschen zu lassen. Kontaktieren Sie uns unter <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e48d8a828ba4879188908d92858a8b9285ca878b89">[email&#160;protected]</a></p>
-                    <p><strong>English:</strong> You have the right to access, correct, or request deletion of your data. Contact us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="71181f171e3112041d051807101f1e07105f121e1c">[email&#160;protected]</a></p>
-
-                    <h3>Drittanbieter / Third-Party Services:</h3>
-                    <p><strong>Deutsch:</strong> Wir verwenden Kwes Forms für unser Kontaktformular. Kwes Forms kann Cookies setzen. Weitere Informationen finden Sie in der Datenschutzerklärung von Kwes Forms.</p>
-                    <p><strong>English:</strong> We use Kwes Forms for our contact form. Kwes Forms may set cookies. For more information, please see Kwes Forms' privacy policy.</p>
-                </div>
-
-                <!-- CANCELLATION & SHIPPING -->
-                <div class="legal-section">
-                    <h2>Widerrufsrecht & Versandrichtlinien / Cancellation & Shipping Policy</h2>
-                    
-                    <h3>Cancellation / Widerruf:</h3>
-                    <p><strong>Deutsch:</strong> Sie haben das Recht, Bestellungen innerhalb von 14 Tagen ohne Angabe von Gründen zu widerrufen. Die Frist beginnt mit dem Tag des Erhalts der Ware. Produkte müssen ungeöffnet und in Originalverpackung sein.</p>
-                    <p><strong>English:</strong> You have the right to withdraw orders within 14 days without providing reasons. The period begins on the day you receive the goods. Products must remain unopened and in original packaging. Perishable goods (opened/inoculated cultures) cannot be withdrawn.</p>
-
-                    <h3>Shipping / Versand:</h3>
-                    <p><strong>Deutsch:</strong> Versand erfolgt innerhalb Deutschlands via Deutsche Post/DHL mit Tracking. Versandzeit: 3-5 Arbeitstage nach Bestellbestätigung. Versandkosten werden über eBay/Etsy berechnet.</p>
-                    <p><strong>English:</strong> Shipping is available within Germany via German Post/DHL with tracking. Shipping time: 3-5 business days after order confirmation. Shipping costs are calculated by eBay/Etsy.</p>
-
-                    <h3>International Shipping Notice:</h3>
-                    <p><strong>For customers outside Germany/EU:</strong> Different consumer protection laws may apply in your country. Many countries restrict import of biological materials. Verify your local import laws before purchasing. Additional customs duties/taxes may apply at delivery. CultivaNova reserves the right to refuse shipment to any country.</p>
-                </div>
-
-                <!-- PRODUCT LIABILITY -->
-                <div class="legal-section">
-                    <h2>Produkthaftung & Haftungsausschluss / Product Liability & Disclaimer</h2>
-                    
-                    <h3>Zweckbestimmung / Intended Purpose:</h3>
-                    <p><strong>Deutsch:</strong> Alle Produkte von CultivaNova sind ausschließlich für Züchtungs- und Forschungszwecke bestimmt. Sie sind nicht zur menschlichen oder tierischen Konsum bestimmt.</p>
-                    <p><strong>English:</strong> All CultivaNova products are exclusively intended for cultivation and research purposes. They are not intended for human or animal consumption.</p>
-
-                    <h3>Risikoklasse / Risk Classification:</h3>
-                    <p><strong>Deutsch:</strong> Alle Produkte gehören zur Risikoklasse 1 und entsprechen geltenden EU- und deutschen Sicherheitsstandards.</p>
-                    <p><strong>English:</strong> All products are classified as Risk Class 1 and comply with applicable EU and German safety standards.</p>
-
-                    <h3>Haftungsbeschränkung / Liability Limitation:</h3>
-                    <p><strong>CultivaNova is not liable for:</strong></p>
-                    <ul>
-                        <li>Improper handling or storage</li>
-                        <li>Improper use (e.g., consumption)</li>
-                        <li>Customer errors in cultivation techniques</li>
-                        <li>Environmental conditions (temperature, humidity)</li>
-                        <li>Import seizures or customs issues (for international orders)</li>
-                    </ul>
-                </div>
-
-                <!-- BUYER RIGHTS -->
-                <div class="legal-section">
-                    <h2>Buyer Obligations & Rights / Pflichten & Rechte des Käufers</h2>
-                    
-                    <h3>Buyer Obligations / Pflichten des Käufers:</h3>
-                    <ul>
-                        <li>Proper handling and storage of products</li>
-                        <li>Use exclusively for cultivation/research purposes</li>
-                        <li>Compliance with all applicable laws and regulations</li>
-                        <li>No distribution to persons under 18 years old</li>
-                    </ul>
-
-                    <h3>Buyer Rights / Rechte des Käufers:</h3>
-                    <ul>
-                        <li>Exchange of defective/contaminated products</li>
-                        <li>Return within 14 days (unopened)</li>
-                        <li>Customer service support</li>
-                        <li>Full responsibility from CultivaNova for safe delivery</li>
-                    </ul>
-                </div>
-
-                <!-- COMPLIANCE -->
-                <div class="legal-section">
-                    <h2>Regulatory Compliance / Einhaltung von Vorschriften</h2>
-                    
-                    <p><strong>Deutsch - Regulatorische Compliance:</strong></p>
-                    <ul>
-                        <li>✓ Registriert bei Finanzamt Hamburg Mitte</li>
-                        <li>✓ Angemeldet bei Berufsgenossenschaft (BGHW)</li>
-                        <li>✓ Registriert bei dualer Abfallwirtschaft (LUCID/Reclay)</li>
-                        <li>✓ Alle Produkte Risikoklasse 1 (keine Genehmigung erforderlich)</li>
-                        <li>✓ Einhaltung aller EU- und deutschen Sicherheitsstandards</li>
-                    </ul>
-
-                    <p style="margin-top: 1rem;"><strong>English - Regulatory Compliance:</strong></p>
-                    <ul>
-                        <li>✓ Registered with Tax Office Hamburg Mitte (Finanzamt Hamburg Mitte)</li>
-                        <li>✓ Registered with Professional Association (BGHW)</li>
-                        <li>✓ Registered with Dual Waste Management System (LUCID/Reclay)</li>
-                        <li>✓ All products classified as Risk Class 1 (no licensing required)</li>
-                        <li>✓ Full compliance with EU and German safety standards</li>
-                        <li>✓ HTTPS/SSL encryption enabled</li>
-                        <li>✓ GDPR-compliant data protection</li>
-                        <li>✓ WCAG 2.1 AA accessibility standards compliance</li>
-                    </ul>
-                </div>
-
-                <!-- LEGAL INQUIRIES -->
-                <div class="legal-section">
-                    <h2>Legal Inquiries / Rechtliche Anfragen</h2>
-                    
-                    <p><strong>Deutsch:</strong> Bei Fragen zu rechtlichen Angelegenheiten, bitte kontaktieren Sie uns:</p>
-                    <p><strong>English:</strong> For inquiries regarding legal matters, please contact us:</p>
-                    <p><strong>E-Mail / Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="046d6a626b44677168706d72656a6b72652a676b69">[email&#160;protected]</a></p>
-                    <p><strong>Antwortzeit / Response Time:</strong> Innerhalb von 48 Stunden / Within 48 hours</p>
-                </div>
-
-                <!-- COPYRIGHT NOTICE -->
-                <div class="legal-section">
-                    <h2>Copyright Notice / Urheberrecht</h2>
-                    <p><strong>© 2026 CultivaNova. All rights reserved.</strong></p>
-                    <p><strong>Deutsch:</strong> Alle Inhalte dieser Website sind urheberrechtlich geschützt. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung von CultivaNova.</p>
-                    <p><strong>English:</strong> All content on this website is protected by copyright. The reproduction, editing, distribution, and any kind of exploitation outside the limits of copyright law require the written consent of CultivaNova.</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- FOOTER -->
+        <!-- FOOTER -->
     <footer>
         <div class="footer-links">
-            <a href="#legal">Legal</a>
-            <a href="#contact">Contact</a>
-            <a href="https://ec.europa.eu/consumers/odr" target="_blank">ODR Platform</a>
-            <a href="https://www.ebay.com/usr/cultivanova" target="_blank">eBay Shop</a>
-            <a href="https://www.etsy.com/shop/CultivaNova" target="_blank">Etsy Shop</a>
-        </div>
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Privacy</a>
+                    <a href="agb.html">Terms</a>
+                    <a href="widerruf.html">Cancellation</a>
+                    <a href="#contact">Contact</a>
+                    <a href="https://ec.europa.eu/consumers/odr" target="_blank">ODR Platform</a>
+                    <a href="https://www.ebay.com/usr/cultivanova" target="_blank">eBay</a>
+                    <a href="https://www.etsy.com/shop/CultivaNova" target="_blank">Etsy</a>
+                </div>
         <p>&copy; 2026 CultivaNova. All rights reserved. | Small Business Hamburg Mitte (Kleingewerbe Hamburg Mitte)</p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">Designed with bioluminescent precision 🍄</p>
     </footer>
@@ -1432,12 +1211,12 @@
             { id: 5, name: 'Flammulina velutipes', scientific: 'Enoki', category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 6, name: 'Fomes fomentarius', scientific: 'Tinder Fungus', category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 7, name: 'Fomitopsis betulina', scientific: 'Birch Polypore', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 8, name: 'Ganoderma applanatum', scientific: 'Artist\'s Conk', category: 'mushroom', size: '10ml' },
+            { id: 8, name: 'Ganoderma applanatum', scientific: 'Artist\'s Conk', category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 9, name: 'Ganoderma lucidum', scientific: 'Reishi', category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 10, name: 'Ganoderma multipileum', scientific: 'Antler Reishi', category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 11, name: 'Grifola frondosa', scientific: 'Maitake', category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 12, name: 'Hericium coralloides', scientific: 'Coral Tooth', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 13, name: 'Hericium erinaceus', scientific: 'Lion\'s Mane', category: 'mushroom', size: '10ml' },
+            { id: 13, name: 'Hericium erinaceus', scientific: 'Lion\'s Mane', category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 14, name: 'Hypsizygus ulmarius', scientific: 'Elm Oyster', category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 15, name: 'Inonotus obliquus', scientific: 'Chaga', category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 16, name: 'Kuehneromyces mutabilis', scientific: 'Sheathed Woodtuft', category: 'mushroom', size: '10ml', price: '€6,99' },
@@ -1466,12 +1245,12 @@
             { id: 37, name: 'Flammulina velutipes', scientific: 'Enoki', category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 38, name: 'Fomes fomentarius', scientific: 'Tinder Fungus', category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 39, name: 'Fomitopsis betulina', scientific: 'Birch Polypore', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 40, name: 'Ganoderma applanatum', scientific: 'Artist\'s Conk', category: 'mushroom-20', size: '20ml' },
+            { id: 40, name: 'Ganoderma applanatum', scientific: 'Artist\'s Conk', category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 41, name: 'Ganoderma lucidum', scientific: 'Reishi', category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 42, name: 'Ganoderma multipileum', scientific: 'Antler Reishi', category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 43, name: 'Grifola frondosa', scientific: 'Maitake', category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 44, name: 'Hericium coralloides', scientific: 'Coral Tooth', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 45, name: 'Hericium erinaceus', scientific: 'Lion\'s Mane', category: 'mushroom-20', size: '20ml' },
+            { id: 45, name: 'Hericium erinaceus', scientific: 'Lion\'s Mane', category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 46, name: 'Hypsizygus ulmarius', scientific: 'Elm Oyster', category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 47, name: 'Inonotus obliquus', scientific: 'Chaga', category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 48, name: 'Kuehneromyces mutabilis', scientific: 'Sheathed Woodtuft', category: 'mushroom-20', size: '20ml', price: '€10,99' },
@@ -1679,7 +1458,7 @@
                             ctx.moveTo(nodes[i].x, nodes[i].y);
                             ctx.lineTo(nodes[j].x, nodes[j].y);
                             ctx.strokeStyle = `rgba(90, 143, 111, ${0.2 - distance / 750})`;
-                            ctx.lineWidth = 1;
+                            ctx.lineWidth = 2.5;
                             ctx.stroke();
                         }
                     }
