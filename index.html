@@ -48,16 +48,12 @@
             /* Glass effects for light mode */
             --glass-bg: rgba(255, 255, 255, 0.7);
             --glass-border: rgba(90, 143, 111, 0.2);
-            
-            /* Form input visibility */
-            --input-bg: rgba(255, 255, 255, 0.95);
-            --input-border: rgba(90, 143, 111, 0.5);
         }
 
         :root {
             /* Natural Organic Palette - Matching Your Logo */
-            --forest-black: #040604;
-            --earth-deep: #0d1411;
+            --forest-black: #0a0e0a;
+            --earth-deep: #1a2520;
             --moss-dark: #243028;
             --bark-brown: #2d3832;
             
@@ -82,10 +78,6 @@
             /* Glass Effects */
             --glass-bg: rgba(29, 40, 34, 0.65);
             --glass-border: rgba(90, 143, 111, 0.15);
-            
-            /* Form input visibility */
-            --input-bg: rgba(255, 255, 255, 0.15);
-            --input-border: rgba(90, 143, 111, 0.6);
         }
 
         html {
@@ -252,105 +244,93 @@
             background: var(--glass-bg);
             backdrop-filter: blur(20px) saturate(180%);
             border-bottom: 1px solid var(--glass-border);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
 
         nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 1.5rem;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .logo-container:hover {
-            transform: scale(1.05);
+            transform: translateY(-2px);
         }
 
-        /* Custom Logo Image Support */
         .logo-image {
-            width: 70px;
-            height: 70px;
+            width: 50px;
+            height: 50px;
             object-fit: contain;
-            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .logo-image.loaded {
-            display: block;
-        }
-
-        .logo-image.loaded ~ .logo-icon {
-            display: none; /* Hide CN when logo loads */
+            opacity: 1;
         }
 
         .logo-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--sage-green), var(--forest-green));
+            background: linear-gradient(135deg, var(--sage-green), var(--moss-green));
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 900;
-            font-family: 'Orbitron', sans-serif;
-            color: var(--void-black);
-            font-size: 24px;
-            box-shadow: 0 0 30px rgba(90, 143, 111, 0.3);
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 30px rgba(90, 143, 111, 0.3); }
-            50% { box-shadow: 0 0 50px rgba(90, 143, 111, 0.8), 0 0 80px rgba(57, 255, 20, 0.4); }
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--forest-black);
+            box-shadow: 0 5px 15px rgba(90, 143, 111, 0.3);
         }
 
         .logo-text {
-            font-size: 28px;
-            font-weight: 800;
             font-family: 'Syne', sans-serif;
-            background: linear-gradient(135deg, var(--sage-green), var(--forest-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sage-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
             list-style: none;
+            gap: 2rem;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
             color: var(--text-primary);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
+            font-weight: 500;
             position: relative;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            font-size: 0.85rem;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--glow-cyan), var(--glow-green));
+            background: var(--sage-green);
             transition: width 0.3s ease;
         }
 
@@ -362,72 +342,75 @@
             width: 100%;
         }
 
+        /* THEME TOGGLE */
+        .theme-toggle {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            z-index: 1001;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(90, 143, 111, 0.2);
+        }
+
+        .theme-toggle-icon {
+            font-size: 1.3rem;
+        }
+
+        .theme-toggle-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
         /* HERO SECTION */
         .hero {
-            padding: 8rem 5% 6rem;
             text-align: center;
-            max-width: 1400px;
-            margin: 0 auto;
+            padding: 8rem 5% 6rem;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(90, 143, 111, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: breathe 4s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes breathe {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+            background: linear-gradient(180deg, var(--forest-black) 0%, var(--earth-deep) 100%);
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
+            max-width: 900px;
+            z-index: 10;
         }
 
         .hero h1 {
-            font-family: 'Syne', sans-serif;
+            font-family: 'Syne', serif;
             font-size: 4.5rem;
             font-weight: 800;
+            line-height: 1.15;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--sage-green), var(--forest-green), var(--lichen-light));
+            background: linear-gradient(135deg, var(--sage-green), var(--lichen-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -2px;
-            line-height: 1.1;
-            animation: fadeInUp 1s ease-out;
+            text-shadow: 0 0 40px rgba(90, 143, 111, 0.3);
         }
 
         .hero-subtitle {
             font-size: 1.3rem;
             color: var(--text-secondary);
             margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            line-height: 1.8;
         }
 
         .cta-buttons {
@@ -435,33 +418,27 @@
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.4s both;
         }
 
         .btn {
-            padding: 1rem 2.5rem;
-            border: none;
+            padding: 1rem 3rem;
             border-radius: 12px;
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            font-weight: 600;
             text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
             display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--sage-green), var(--moss-green));
-            color: var(--void-black);
-            box-shadow: 0 10px 30px rgba(90, 143, 111, 0.25);
+            color: var(--forest-black);
+            box-shadow: 0 10px 30px rgba(90, 143, 111, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(90, 143, 111, 0.5);
+            box-shadow: 0 15px 40px rgba(90, 143, 111, 0.4);
         }
 
         .btn-secondary {
@@ -471,98 +448,96 @@
         }
 
         .btn-secondary:hover {
-            background: var(--glow-cyan);
-            color: var(--void-black);
-            box-shadow: 0 10px 30px rgba(90, 143, 111, 0.25);
+            background: var(--sage-green);
+            color: var(--forest-black);
+            transform: translateY(-3px);
         }
 
-        /* SECTION STYLING */
+        /* SECTIONS */
         section {
-            padding: 5rem 5%;
             max-width: 1400px;
             margin: 0 auto;
+            padding: 6rem 5%;
         }
 
         .section-title {
-            font-family: 'Syne', sans-serif;
+            font-family: 'Syne', serif;
             font-size: 3rem;
-            font-weight: 800;
             text-align: center;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--sage-green), var(--forest-green));
+            background: linear-gradient(135deg, var(--sage-green), var(--moss-green));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -1px;
         }
 
         .section-subtitle {
             text-align: center;
+            font-size: 1.2rem;
             color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* PRODUCTS SECTION */
+        /* FILTER BUTTONS */
         .filter-buttons {
             display: flex;
-            justify-content: center;
             gap: 1rem;
-            margin-bottom: 3rem;
+            justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 3rem;
         }
 
         .filter-btn {
             padding: 0.75rem 2rem;
-            background: var(--glass-bg);
+            border-radius: 50px;
             border: 2px solid var(--glass-border);
-            border-radius: 30px;
+            background: var(--glass-bg);
             color: var(--text-primary);
-            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
 
         .filter-btn:hover,
         .filter-btn.active {
             background: linear-gradient(135deg, var(--sage-green), var(--moss-green));
-            border-color: var(--sage-green);
-            color: var(--void-black);
+            color: var(--forest-black);
+            border-color: transparent;
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(90, 143, 111, 0.3);
         }
 
+        /* PRODUCTS GRID */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
         .product-card {
             background: var(--glass-bg);
-            border: 2px solid var(--input-border);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(20px);
-            cursor: pointer;
+            position: relative;
         }
 
         .product-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(90, 143, 111, 0.15);
             border-color: var(--sage-green);
-            box-shadow: 0 20px 60px rgba(90, 143, 111, 0.2);
         }
 
         .product-image {
             width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--deep-space), var(--midnight));
+            height: 300px;
+            background: linear-gradient(135deg, var(--moss-dark), var(--earth-deep));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -571,10 +546,8 @@
         }
 
         .product-image-placeholder {
-            font-size: 4rem;
+            font-size: 6rem;
             opacity: 0.3;
-            position: absolute;
-            z-index: 1;
         }
 
         .product-image img {
@@ -585,196 +558,128 @@
             top: 0;
             left: 0;
             opacity: 0;
-            transition: opacity 0.6s ease-in-out;
-            z-index: 2;
+            transition: opacity 0.4s ease;
         }
 
         .product-image img.active {
             opacity: 1;
         }
 
-        /* Image counter badge */
         .product-image-counter {
             position: absolute;
             bottom: 10px;
             right: 10px;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(10, 14, 10, 0.8);
             color: var(--sage-green);
-            padding: 5px 12px;
-            border-radius: 14px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            z-index: 10;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            border: 1px solid var(--sage-green);
-        }
-
-        .product-card:hover .product-image-counter {
-            opacity: 1;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
         }
 
         .product-info {
-            padding: 1.5rem;
+            padding: 2rem;
         }
 
         .product-category {
-            font-size: 0.75rem;
+            color: var(--sage-green);
+            font-size: 0.85rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--sage-green);
-            font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
         .product-name {
             font-family: 'Syne', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
             color: var(--text-primary);
         }
 
         .product-description {
-            font-size: 0.9rem;
             color: var(--text-secondary);
+            font-size: 0.95rem;
             margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--sage-green);
+            margin-bottom: 0.5rem;
         }
 
         .product-size {
-            font-size: 0.85rem;
             color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-        .product-price {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--sage-green);
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-            margin: 0.75rem 0;
-            font-family: 'Syne', sans-serif;
-            letter-spacing: -0.5px;
-        }
-
-        /* THEME TOGGLE SWITCH */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 10000;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--input-border);
-            border-radius: 30px;
-            padding: 8px 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .theme-toggle:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .theme-toggle-icon {
-            font-size: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .theme-toggle:hover .theme-toggle-icon {
-            transform: rotate(180deg);
-        }
-
-        .theme-toggle-label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            font-family: 'Syne', sans-serif;
-        }
-
-        @media (max-width: 768px) {
-            .theme-toggle {
-                top: 10px;
-                right: 10px;
-                padding: 6px 10px;
-            }
-            
-            .theme-toggle-label {
-                display: none;
-            }
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
         }
 
         .product-buttons {
             display: flex;
-            gap: 0.75rem;
+            gap: 1rem;
         }
 
         .product-buttons a {
             flex: 1;
-            padding: 0.65rem;
+            padding: 0.75rem 1.5rem;
             text-align: center;
+            background: linear-gradient(135deg, var(--sage-green), var(--moss-green));
+            color: var(--forest-black);
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
-            font-size: 0.9rem;
             transition: all 0.3s ease;
         }
 
-        .product-buttons a:first-child {
-            background: linear-gradient(135deg, var(--sage-green), var(--moss-green));
-            color: var(--void-black);
-        }
-
-        .product-buttons a:first-child:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(90, 143, 111, 0.4);
-        }
-
-        .product-buttons a:last-child {
-            background: transparent;
-            border: 2px solid var(--glass-border);
-            color: var(--text-primary);
-        }
-
-        .product-buttons a:last-child:hover {
-            border-color: var(--forest-green);
-            color: var(--forest-green);
+        .product-buttons a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(90, 143, 111, 0.3);
         }
 
         /* CONTACT FORM */
+        #contact {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 4rem 5%;
+        }
+
         .contact-intro {
+            max-width: 800px;
+            margin: 0 auto 3rem;
             text-align: center;
+        }
+
+        .contact-intro p {
+            margin-bottom: 1rem;
             color: var(--text-secondary);
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
             line-height: 1.8;
         }
 
         .contact-form {
             max-width: 700px;
-            margin: 0 auto 3rem;
-            background: var(--glass-bg);
-            border: 2px solid var(--input-border);
-            border-radius: 24px;
+            margin: 0 auto;
+            background: var(--moss-dark);
             padding: 3rem;
-            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
+            color: var(--sage-green);
             font-weight: 600;
-            color: var(--text-primary);
             font-size: 0.95rem;
         }
 
@@ -782,9 +687,9 @@
         .form-group textarea {
             width: 100%;
             padding: 1rem;
-            background: var(--deep-space);
-            border: 2px solid var(--slate);
-            border-radius: 12px;
+            background: var(--earth-deep);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
             color: var(--text-primary);
             font-family: 'DM Sans', sans-serif;
             font-size: 1rem;
@@ -795,7 +700,7 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--sage-green);
-            box-shadow: 0 0 0 4px rgba(90, 143, 111, 0.1);
+            box-shadow: 0 0 0 3px rgba(90, 143, 111, 0.1);
         }
 
         .form-group textarea {
@@ -807,52 +712,37 @@
             width: 100%;
             padding: 1.2rem;
             background: linear-gradient(135deg, var(--sage-green), var(--moss-green));
+            color: var(--forest-black);
             border: none;
             border-radius: 12px;
-            color: var(--void-black);
-            font-family: 'DM Sans', sans-serif;
             font-weight: 700;
             font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(90, 143, 111, 0.4);
+            box-shadow: 0 10px 30px rgba(90, 143, 111, 0.3);
         }
 
         #form-message {
+            display: none;
             max-width: 700px;
             margin: 2rem auto;
             padding: 1.5rem;
-            background: var(--glass-bg);
+            background: rgba(90, 143, 111, 0.15);
             border: 2px solid var(--sage-green);
-            border-radius: 16px;
+            border-radius: 12px;
+            color: var(--text-primary);
             text-align: center;
-            color: var(--forest-green);
-            backdrop-filter: blur(20px);
-            display: none;
-            animation: slideIn 0.5s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .contact-email {
             text-align: center;
+            margin-top: 3rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            margin-top: 2rem;
         }
 
         .contact-email a {
@@ -863,114 +753,12 @@
         }
 
         .contact-email a:hover {
-            color: var(--forest-green);
-        }
-
-        /* LEGAL SECTIONS */
-        .legal-container {
-            background: var(--glass-bg);
-            border: 2px solid var(--input-border);
-            border-radius: 24px;
-            padding: 4rem 5%;
-            backdrop-filter: blur(20px);
-            margin: 3rem 0;
-        }
-
-        .legal-section {
-            margin-bottom: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid var(--slate);
-        }
-
-        .legal-section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .legal-section h2 {
-            font-family: 'Syne', sans-serif;
-            font-size: 2rem;
-            color: var(--sage-green);
-            margin-bottom: 1.5rem;
-        }
-
-        .legal-section h3 {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.3rem;
-            color: var(--forest-green);
-            margin: 1.5rem 0 1rem;
-        }
-
-        .legal-section p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-
-        .legal-section ul {
-            margin-left: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .legal-section li {
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .legal-section a {
-            color: var(--sage-green);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .legal-section a:hover {
-            color: var(--forest-green);
-        }
-
-        .legal-section strong {
-            color: var(--text-primary);
-        }
-
-        /* ODR NOTICE */
-        .odr-notice {
-            background: linear-gradient(135deg, rgba(90, 143, 111, 0.1), rgba(57, 255, 20, 0.1));
-            border: 2px solid var(--sage-green);
-            border-radius: 16px;
-            padding: 2rem;
-            margin: 2rem 0;
-            text-align: center;
-        }
-
-        .odr-notice h3 {
-            color: var(--sage-green);
-            margin-bottom: 1rem;
-        }
-
-        .odr-notice p {
-            margin-bottom: 1rem;
-        }
-
-        .odr-link {
-            display: inline-block;
-            padding: 0.75rem 2rem;
-            background: linear-gradient(135deg, var(--sage-green), var(--moss-green));
-            color: var(--void-black);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-        }
-
-        .odr-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(90, 143, 111, 0.4);
+            color: var(--lichen-light);
         }
 
         /* FOOTER */
         footer {
-            background: var(--deep-space);
+            background: var(--earth-deep);
             border-top: 1px solid var(--glass-border);
             padding: 3rem 5%;
             text-align: center;
@@ -980,14 +768,13 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-bottom: 2rem;
             flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
 
         .footer-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-weight: 600;
             transition: color 0.3s ease;
             font-size: 0.95rem;
         }
@@ -1004,7 +791,7 @@
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
 
             .hero-subtitle {
@@ -1038,6 +825,11 @@
 
             .cookie-btn {
                 flex: 1;
+            }
+
+            .theme-toggle {
+                top: 80px;
+                right: 20px;
             }
         }
 
@@ -1098,9 +890,12 @@
                 <ul class="nav-links">
                     <li><a href="#products">Products</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="impressum.html">Legal</a></li>
                     <li><a href="https://www.ebay.com/usr/cultivanova" target="_blank">eBay</a></li>
                     <li><a href="https://www.etsy.com/shop/CultivaNova" target="_blank">Etsy</a></li>
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="datenschutz.html">Privacy</a></li>
+                    <li><a href="agb.html">Terms</a></li>
+                    <li><a href="widerruf.html">Cancellation</a></li>
                 </ul>
             </nav>
         </header>
@@ -1108,10 +903,10 @@
         <!-- HERO SECTION -->
         <section class="hero">
             <div class="hero-content">
-                <h1>Premium Mushroom<br>Liquid Cultures</h1>
+                <h1>Artisan Mushroom<br>Liquid Cultures</h1>
                 <p class="hero-subtitle">
-                    Professional mycelium cultures for cultivation and research.<br>
-                    Risk Class 1 certified • EU compliant • Sustainably produced
+                    Hand-cultivated mycelium cultures from nature's finest specimens. 
+                    Sustainably sourced, professionally prepared, lovingly shipped.
                 </p>
                 <div class="cta-buttons">
                     <a href="#products" class="btn btn-primary">Explore Cultures</a>
@@ -1139,13 +934,13 @@
 
         <!-- CONTACT SECTION -->
         <section id="contact" class="reveal">
-            <h2 class="section-title">Contact Us / Kontakt</h2>
+            <h2 class="section-title">Kontakt / Contact Us</h2>
             <div class="contact-intro">
                 <p>
-                    <strong>English:</strong> Have questions about our mushroom growing supplies? Fill out the form below and we'll get back to you within 24 hours.
+                    <strong>Deutsch:</strong> Haben Sie Fragen zu unseren Pilzzuchtprodukten? Füllen Sie das Formular aus und wir melden uns innerhalb von 24 Stunden bei Ihnen.
                 </p>
                 <p>
-                    <strong>Deutsch:</strong> Haben Sie Fragen zu unseren Pilzzuchtprodukten? Füllen Sie das Formular aus und wir melden uns innerhalb von 24 Stunden bei Ihnen.
+                    <strong>English:</strong> Have questions about our mushroom growing supplies? Fill out the form below and we'll get back to you within 24 hours.
                 </p>
             </div>
 
@@ -1156,7 +951,7 @@
                 </div>
                 <div class="form-group">
                     <label for="email">Email / E-Mail *</label>
-                    <input type="email" id="email" name="email" rules="required|email" placeholder="contact.cultivanova@gmail.com">
+                    <input type="email" id="email" name="email" rules="required|email" placeholder="you@example.com">
                 </div>
                 <div class="form-group">
                     <label for="subject">Subject / Betreff *</label>
@@ -1170,34 +965,34 @@
             </form>
 
             <div id="form-message">
-                <strong>✓ English:</strong> Thank you! Your message has been sent successfully. We'll respond within 24 hours.<br>
-                <strong>✓ Deutsch:</strong> Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir antworten innerhalb von 24 Stunden.
+                <strong>✓ Deutsch:</strong> Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir antworten innerhalb von 24 Stunden.<br>
+                <strong>✓ English:</strong> Thank you! Your message has been sent successfully. We'll respond within 24 hours.
             </div>
 
             <p class="contact-email">
-                <strong>Or email us directly / Oder direkt per E-Mail:</strong><br>
-                <a href="/cdn-cgi/l/email-protection#244d4a424b64475148504d52454a4b52450a474b49"><span class="__cf_email__" data-cfemail="aac3c4ccc5eac9dfc6dec3dccbc4c5dccb84c9c5c7">[email&#160;protected]</span></a>
+                <strong>Oder direkt per E-Mail / Or email us directly:</strong><br>
+                <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a>
             </p>
         </section>
 
-        <!-- FOOTER -->
     <footer>
         <div class="footer-links">
-                    <a href="impressum.html">Impressum</a>
-                    <a href="datenschutz.html">Privacy</a>
-                    <a href="agb.html">Terms</a>
-                    <a href="widerruf.html">Cancellation</a>
-                    <a href="#contact">Contact</a>
-                    <a href="https://ec.europa.eu/consumers/odr" target="_blank">ODR Platform</a>
-                    <a href="https://www.ebay.com/usr/cultivanova" target="_blank">eBay</a>
-                    <a href="https://www.etsy.com/shop/CultivaNova" target="_blank">Etsy</a>
-                </div>
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Privacy</a>
+            <a href="agb.html">Terms</a>
+            <a href="widerruf.html">Cancellation</a>
+            <a href="#contact">Contact</a>
+            <a href="https://ec.europa.eu/consumers/odr" target="_blank">ODR Platform</a>
+            <a href="https://www.ebay.com/usr/cultivanova" target="_blank">eBay Shop</a>
+            <a href="https://www.etsy.com/shop/CultivaNova" target="_blank">Etsy Shop</a>
+        </div>
         <p>&copy; 2026 CultivaNova. All rights reserved. | Small Business Hamburg Mitte (Kleingewerbe Hamburg Mitte)</p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">Designed with bioluminescent precision 🍄</p>
     </footer>
+    </div>
 
     <!-- KWES FORM SCRIPT -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://kwesforms.com/v2/kf-script.js" defer></script>
+    <script src="https://kwesforms.com/v2/kf-script.js" defer></script>
 
     <!-- MAIN JAVASCRIPT -->
     <script>
@@ -1211,12 +1006,12 @@
             { id: 5, name: 'Flammulina velutipes', scientific: 'Enoki', category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 6, name: 'Fomes fomentarius', scientific: 'Tinder Fungus', category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 7, name: 'Fomitopsis betulina', scientific: 'Birch Polypore', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 8, name: 'Ganoderma applanatum', scientific: 'Artist\'s Conk', category: 'mushroom', size: '10ml', price: '€6,99' },
+            { id: 8, name: 'Ganoderma applanatum', scientific: "Artist's Conk", category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 9, name: 'Ganoderma lucidum', scientific: 'Reishi', category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 10, name: 'Ganoderma multipileum', scientific: 'Antler Reishi', category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 11, name: 'Grifola frondosa', scientific: 'Maitake', category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 12, name: 'Hericium coralloides', scientific: 'Coral Tooth', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 13, name: 'Hericium erinaceus', scientific: 'Lion\'s Mane', category: 'mushroom', size: '10ml', price: '€6,99' },
+            { id: 13, name: 'Hericium erinaceus', scientific: "Lion's Mane", category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 14, name: 'Hypsizygus ulmarius', scientific: 'Elm Oyster', category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 15, name: 'Inonotus obliquus', scientific: 'Chaga', category: 'mushroom', size: '10ml', price: '€6,99' },
             { id: 16, name: 'Kuehneromyces mutabilis', scientific: 'Sheathed Woodtuft', category: 'mushroom', size: '10ml', price: '€6,99' },
@@ -1245,12 +1040,12 @@
             { id: 37, name: 'Flammulina velutipes', scientific: 'Enoki', category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 38, name: 'Fomes fomentarius', scientific: 'Tinder Fungus', category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 39, name: 'Fomitopsis betulina', scientific: 'Birch Polypore', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 40, name: 'Ganoderma applanatum', scientific: 'Artist\'s Conk', category: 'mushroom-20', size: '20ml', price: '€10,99' },
+            { id: 40, name: 'Ganoderma applanatum', scientific: "Artist's Conk", category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 41, name: 'Ganoderma lucidum', scientific: 'Reishi', category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 42, name: 'Ganoderma multipileum', scientific: 'Antler Reishi', category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 43, name: 'Grifola frondosa', scientific: 'Maitake', category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 44, name: 'Hericium coralloides', scientific: 'Coral Tooth', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 45, name: 'Hericium erinaceus', scientific: 'Lion\'s Mane', category: 'mushroom-20', size: '20ml', price: '€10,99' },
+            { id: 45, name: 'Hericium erinaceus', scientific: "Lion's Mane", category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 46, name: 'Hypsizygus ulmarius', scientific: 'Elm Oyster', category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 47, name: 'Inonotus obliquus', scientific: 'Chaga', category: 'mushroom-20', size: '20ml', price: '€10,99' },
             { id: 48, name: 'Kuehneromyces mutabilis', scientific: 'Sheathed Woodtuft', category: 'mushroom-20', size: '20ml', price: '€10,99' },
@@ -1274,7 +1069,7 @@
             // SLIME MOLDS
             { id: 65, name: 'Badhamia utricularis', scientific: 'Hanging Slime Mold', category: 'slime', size: 'Standard', price: '€3,99' },
             { id: 66, name: 'Badhamia vulgaris', scientific: 'Common Badhamia', category: 'slime', size: 'Standard', price: '€3,99' },
-            { id: 67, name: 'Physarum polycephalum', scientific: 'Multi-headed Slime Mold', category: 'slime', size: 'Standard', price: '€3,99' }
+            { id: 67, name: 'Physarum polycephalum', scientific: 'The Blob', category: 'slime', size: 'Standard', price: '€3,99' }
         ];
 
         // RENDER PRODUCTS WITH MULTIPLE IMAGES
@@ -1356,29 +1151,20 @@
                 
                 // Multiple images - set up rotation
                 counter.textContent = `1/${validImages.length}`;
-                
                 let currentIndex = 0;
-                let rotationInterval = null;
-                
-                // Start rotation on hover
-                card.addEventListener('mouseenter', () => {
-                    if (rotationInterval) return;
-                    
-                    rotationInterval = setInterval(() => {
+                let interval;
+
+                imageContainer.addEventListener('mouseenter', () => {
+                    interval = setInterval(() => {
                         validImages[currentIndex].classList.remove('active');
                         currentIndex = (currentIndex + 1) % validImages.length;
                         validImages[currentIndex].classList.add('active');
                         counter.textContent = `${currentIndex + 1}/${validImages.length}`;
-                    }, 2000); // Change image every 2 seconds
+                    }, 800);
                 });
-                
-                // Stop rotation when mouse leaves
-                card.addEventListener('mouseleave', () => {
-                    if (rotationInterval) {
-                        clearInterval(rotationInterval);
-                        rotationInterval = null;
-                    }
-                    // Reset to first image
+
+                imageContainer.addEventListener('mouseleave', () => {
+                    clearInterval(interval);
                     validImages.forEach((img, idx) => {
                         img.classList.toggle('active', idx === 0);
                     });
@@ -1458,7 +1244,7 @@
                             ctx.moveTo(nodes[i].x, nodes[i].y);
                             ctx.lineTo(nodes[j].x, nodes[j].y);
                             ctx.strokeStyle = `rgba(90, 143, 111, ${0.2 - distance / 750})`;
-                            ctx.lineWidth = 2.5;
+                            ctx.lineWidth = 1;
                             ctx.stroke();
                         }
                     }
