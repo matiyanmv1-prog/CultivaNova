@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum - CultivaNova</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest-black: #0a0e0a;
+            --earth-deep: #1a2520;
+            --moss-dark: #243028;
+            --bark-brown: #2d3832;
+            
+            --sage-green: #5a8f6f;
+            --forest-green: #6b9a7f;
+            --moss-green: #7ba89c;
+            --lichen-light: #8fbd94;
+            
+            --text-primary: #e8ede9;
+            --text-secondary: #b8c5ba;
+            --text-muted: #8a998c;
+            
+            --glass-bg: rgba(29, 40, 34, 0.65);
+            --glass-border: rgba(90, 143, 111, 0.15);
+        }
+
+        :root[data-theme="light"] {
+            --forest-black: #f5f7f5;
+            --earth-deep: #e8ede9;
+            --moss-dark: #d8e3da;
+            --bark-brown: #c8d3ca;
+            
+            --sage-green: #3a6f4f;
+            --forest-green: #4a7a5f;
+            --moss-green: #5a886c;
+            --lichen-light: #6a9374;
+            
+            --text-primary: #1a2520;
+            --text-secondary: #2d3a32;
+            --text-muted: #4a5a4c;
+            
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(90, 143, 111, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom, var(--forest-black) 0%, var(--earth-deep) 100%);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--glass-border);
+        }
+
+        h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--sage-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .legal-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            color: var(--forest-green);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .info-block {
+            margin-bottom: 2rem;
+        }
+
+        .info-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .label {
+            font-weight: 600;
+            color: var(--sage-green);
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .value {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        a {
+            color: var(--sage-green);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--lichen-light);
+        }
+
+        .note {
+            background: rgba(90, 143, 111, 0.1);
+            border-left: 3px solid var(--sage-green);
+            padding: 1rem 1.5rem;
+            margin-top: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .note p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+            background: rgba(90, 143, 111, 0.15);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .legal-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to CultivaNova</a>
+
+        <header>
+            <h1>Impressum</h1>
+            <p class="subtitle">Legal Notice / Legal Information</p>
+        </header>
+
+        <div class="legal-content">
+            <h2>Angaben gemäß § 5 TMG (Information according to § 5 TMG)</h2>
+            
+            <div class="info-block">
+                <div class="label">Betreiber / Operator</div>
+                <div class="value">Matiyan Velichkovski</div>
+            </div>
+
+            <div class="info-block">
+                <div class="label">Unternehmensname / Business Name</div>
+                <div class="value">CultivaNova</div>
+            </div>
+
+            <div class="info-block">
+                <div class="label">Geschäftsform / Business Type</div>
+                <div class="value">Kleingewerbe / Small Business (Sole Proprietorship)</div>
+            </div>
+
+            <div class="info-block">
+                <div class="label">Adresse / Address</div>
+                <div class="value">
+                    Blosweg 5<br>
+                    22111 Hamburg<br>
+                    Germany / Deutschland
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="label">Kontakt / Contact</div>
+                <div class="value">
+                    E-Mail: <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="label">Umsatzsteuer-ID / VAT ID</div>
+                <div class="value">DE457566425</div>
+            </div>
+
+            <div class="note">
+                <p><strong>Hinweis zur Kleinunternehmerregelung (§ 19 UStG):</strong><br>
+                Dieses Unternehmen unterliegt der Kleinunternehmerregelung. Gemäß § 19 UStG wird keine Umsatzsteuer auf Kundenverkäufe berechnet.</p>
+                
+                <p style="margin-top: 0.75rem;"><strong>Note on Small Business Exemption (§ 19 UStG):</strong><br>
+                This business operates under the small business exemption. According to § 19 UStG, no VAT is charged on customer sales.</p>
+            </div>
+        </div>
+
+        <div class="legal-content">
+            <h2>Verantwortlich für den Inhalt (Responsible for Content)</h2>
+            
+            <p><strong>Gemäß § 55 Abs. 2 RStV / According to § 55 para. 2 RStV:</strong></p>
+            
+            <div class="info-block" style="margin-top: 1.5rem;">
+                <div class="value">
+                    Matiyan Velichkovski<br>
+                    Blosweg 5<br>
+                    22111 Hamburg<br>
+                    Germany / Deutschland
+                </div>
+            </div>
+        </div>
+
+        <div class="legal-content">
+            <h2>Hinweis / Notice</h2>
+            
+            <p><strong>Deutsch:</strong> Diese Website dient als Informationskatalog für CultivaNova-Produkte. Über diese Website werden keine direkten Verkäufe abgewickelt. Alle Käufe erfolgen über unsere offiziellen eBay- und Etsy-Marktplatz-Shops, für die deren jeweilige Bedingungen, Richtlinien und Zahlungsabwicklung gelten.</p>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> This website serves as an informational catalog for CultivaNova products. No direct sales are processed through this website. All purchases are conducted through our official eBay and Etsy marketplace shops, where their respective terms, policies, and payment processing apply.</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 CultivaNova. All 

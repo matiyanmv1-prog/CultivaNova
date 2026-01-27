@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung / Privacy Policy - CultivaNova</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest-black: #0a0e0a;
+            --earth-deep: #1a2520;
+            --moss-dark: #243028;
+            --bark-brown: #2d3832;
+            
+            --sage-green: #5a8f6f;
+            --forest-green: #6b9a7f;
+            --moss-green: #7ba89c;
+            --lichen-light: #8fbd94;
+            
+            --text-primary: #e8ede9;
+            --text-secondary: #b8c5ba;
+            --text-muted: #8a998c;
+            
+            --glass-bg: rgba(29, 40, 34, 0.65);
+            --glass-border: rgba(90, 143, 111, 0.15);
+        }
+
+        :root[data-theme="light"] {
+            --forest-black: #f5f7f5;
+            --earth-deep: #e8ede9;
+            --moss-dark: #d8e3da;
+            --bark-brown: #c8d3ca;
+            
+            --sage-green: #3a6f4f;
+            --forest-green: #4a7a5f;
+            --moss-green: #5a886c;
+            --lichen-light: #6a9374;
+            
+            --text-primary: #1a2520;
+            --text-secondary: #2d3a32;
+            --text-muted: #4a5a4c;
+            
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(90, 143, 111, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom, var(--forest-black) 0%, var(--earth-deep) 100%);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--glass-border);
+        }
+
+        h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--sage-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .legal-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            color: var(--forest-green);
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.3rem;
+            color: var(--sage-green);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        a {
+            color: var(--sage-green);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--lichen-light);
+        }
+
+        .highlight-box {
+            background: rgba(90, 143, 111, 0.1);
+            border-left: 3px solid var(--sage-green);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+            background: rgba(90, 143, 111, 0.15);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .legal-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Zurück zu CultivaNova / Back to CultivaNova</a>
+
+        <header>
+            <h1>Datenschutzerklärung</h1>
+            <p class="subtitle">Privacy Policy</p>
+        </header>
+
+        <div class="legal-content">
+            <h2>1. Verantwortliche Stelle / Responsible Party</h2>
+            
+            <p><strong>Deutsch:</strong> Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p>
+            
+            <div style="margin: 1rem 0; padding: 1rem; background: rgba(90, 143, 111, 0.05); border-radius: 8px;">
+                <strong>Matiyan Velichkovski / CultivaNova</strong><br>
+                Blosweg 5<br>
+                22111 Hamburg<br>
+                Germany<br>
+                E-Mail: <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a>
+            </div>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> Responsible for data processing on this website:</p>
+            
+            <div style="margin: 1rem 0; padding: 1rem; background: rgba(90, 143, 111, 0.05); border-radius: 8px;">
+                <strong>Matiyan Velichkovski / CultivaNova</strong><br>
+                Blosweg 5<br>
+                22111 Hamburg<br>
+                Germany<br>
+                Email: <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a>
+            </div>
+        </div>
+
+        <div class="legal-content">
+            <h2>2. Erhebung und Speicherung personenbezogener Daten / Collection and Storage of Personal Data</h2>
+            
+            <h3>Kontaktformular / Contact Form</h3>
+            <p><strong>Deutsch:</strong> Wenn Sie unser Kontaktformular absenden, erfassen wir:</p>
+            <ul>
+                <li>Ihren Namen</li>
+                <li>Ihre E-Mail-Adresse</li>
+                <li>Betreffzeile</li>
+                <li>Ihre Nachricht</li>
+            </ul>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> When you submit our contact form, we collect:</p>
+            <ul>
+                <li>Your name</li>
+                <li>Your email address</li>
+                <li>Subject line</li>
+                <li>Your message</li>
+            </ul>
+
+            <h3>Technische Daten / Technical Data</h3>
+            <p><strong>Deutsch:</strong> Automatisch erfasst von Kwes Forms (unserem Formulardienst):</p>
+            <ul>
+                <li>IP-Adresse</li>
+                <li>Browser- und Geräteinformationen</li>
+                <li>Zeitstempel der Übermittlung</li>
+            </ul>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> Automatically collected by Kwes Forms (our form service):</p>
+            <ul>
+                <li>IP address</li>
+                <li>Browser and device information</li>
+                <li>Submission timestamp</li>
+            </ul>
+        </div>
+
+        <div class="legal-content">
+            <h2>3. Zweck der Datenverarbeitung / Purpose of Data Processing</h2>
+            
+            <div class="highlight-box">
+                <p><strong>Deutsch:</strong> Wir verwenden Ihre Daten NUR, um auf Ihre Anfragen zu antworten. Wir nutzen Ihre Daten nicht für Marketing, Newsletter oder andere Zwecke.</p>
+            
+                <p style="margin-top: 1.5rem;"><strong>English:</strong> We use your data ONLY to respond to your inquiries. We do not use your data for marketing, newsletters, or any other purposes.</p>
+            </div>
+        </div>
+
+        <div class="legal-content">
+            <h2>4. Rechtsgrundlage / Legal Basis</h2>
+            
+            <p><strong>Deutsch:</strong> Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen).</p>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> Processing is based on Article 6 (1) (f) GDPR (legitimate interest in responding to inquiries).</p>
+        </div>
+
+        <div class="legal-content">
+            <h2>5. Drittanbieter-Dienst / Third-Party Service</h2>
+            
+            <h3>Kwes Forms</h3>
+            <p><strong>Deutsch:</strong> Unser Kontaktformular wird von <strong>Kwes Forms</strong> verarbeitet, einem Drittanbieter für die Formularabwicklung. Sie speichern Übermittlungen in unserem Auftrag. Kwes Forms ist DSGVO-konform.</p>
+            
+            <p><strong>Datenschutzerklärung:</strong> <a href="https://kwesforms.com/privacy" target="_blank">https://kwesforms.com/privacy</a></p>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> Our contact form is processed by <strong>Kwes Forms</strong>, a third-party form handling service. They store submissions on our behalf. Kwes Forms is GDPR compliant.</p>
+            
+            <p><strong>Privacy Policy:</strong> <a href="https://kwesforms.com/privacy" target="_blank">https://kwesforms.com/privacy</a></p>
+        </div>
+
+        <div class="legal-content">
+            <h2>6. Datenspeicherung / Data Retention</h2>
+            
+            <div class="highlight-box">
+                <p><strong>Deutsch:</strong> Kontaktformular-Übermittlungen werden bis zu <strong>6 Monate</strong> nach Lösung Ihrer Anfrage aufbewahrt und dann dauerhaft gelöscht. Wir speichern Formulardaten nicht auf eigenen Servern.</p>
+                
+                <p style="margin-top: 1.5rem;"><strong>English:</strong> Contact form submissions are retained for up to <strong>6 months</strong> after your inquiry is resolved, then permanently deleted. We do not store form data on our own servers.</p>
+            </div>
+        </div>
+
+        <div class="legal-content">
+            <h2>7. Keine Cookies oder Tracking / No Cookies or Tracking</h2>
+            
+            <p><strong>Deutsch:</strong> Diese Website nutzt NICHT:</p>
+            <ul>
+                <li>❌ Marketing-Cookies</li>
+                <li>❌ Tracking-Pixel</li>
+                <li>❌ Google Analytics</li>
+                <li>❌ Facebook-Pixel</li>
+                <li>❌ Werbe- oder Verhaltens-Tracking</li>
+            </ul>
+
+            <p><strong>Nur technisch notwendige Cookies</strong> für die Kontaktformularfunktion (Sitzungs-Cookies) werden verwendet.</p>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> This website does NOT use:</p>
+            <ul>
+                <li>❌ Marketing cookies</li>
+                <li>❌ Tracking pixels</li>
+                <li>❌ Google Analytics</li>
+                <li>❌ Facebook Pixel</li>
+                <li>❌ Any advertising or behavioral tracking</li>
+            </ul>
+
+            <p><strong>Only technically necessary cookies</strong> for the contact form functionality (session cookies) are used.</p>
+        </div>
+
+        <div class="legal-content">
+            <h2>8. Ihre Rechte / Your Rights (DSGVO / GDPR)</h2>
+            
+            <p><strong>Deutsch:</strong> Sie haben folgende Rechte:</p>
+            <ul>
+                <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO) - Kopien Ihrer Daten anfordern</li>
+                <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO) - Unrichtige Daten korrigieren</li>
+                <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO) - Löschung Ihrer Daten verlangen</li>
+                <li><strong>Recht auf Einschränkung</strong> (Art. 18 DSGVO) - Nutzung Ihrer Daten einschränken</li>
+                <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO) - Daten in maschinenlesbarem Format erhalten</li>
+                <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO) - Datenverarbeitung widersprechen</li>
+            </ul>
+
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> You have the following rights:</p>
+            <ul>
+                <li><strong>Right to access</strong> (Art. 15 GDPR) - Request copies of your data</li>
+                <li><strong>Right to correction</strong> (Art. 16 GDPR) - Correct inaccurate data</li>
+                <li><strong>Right to deletion</strong> (Art. 17 GDPR) - Request deletion of your data</li>
+                <li><strong>Right to restriction</strong> (Art. 18 GDPR) - Limit how we use your data</li>
+                <li><strong>Right to data portability</strong> (Art. 20 GDPR) - Receive your data in machine-readable format</li>
+                <li><strong>Right to object</strong> (Art. 21 GDPR) - Object to data processing</li>
+            </ul>
+
+            <div class="highlight-box" style="margin-top: 2rem;">
+                <p><strong>Um diese Rechte auszuüben / To exercise these rights:</strong><br>
+                Kontaktieren Sie uns unter / Contact us at: <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a></p>
+                <p style="margin-top: 0.5rem;"><strong>Deutsch:</strong> Wir antworten innerhalb von 30 Tagen. | <strong>English:</strong> We will respond within 30 days.</p>
+            </div>
+        </div>
+
+        <div class="legal-content">
+            <h2>9. Beschwerderecht / Right to Lodge a Complaint</h2>
+            
+            <p><strong>Deutsch:</strong> Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. In Hamburg:</p>
+            
+            <div style="margin: 1rem 0; padding: 1rem; background: rgba(90, 143, 111, 0.05); border-radius: 8px;">
+                <strong>Der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit</strong><br>
+                Kurt-Schumacher-Allee 3<br>
+                20097 Hamburg, Germany<br>
+                Website: <a href="https://datenschutz-hamburg.de" target="_blank">datenschutz-hamburg.de</a>
+            </div>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> You have the right to lodge a complaint with a data protection supervisory authority. In Hamburg:</p>
+            
+            <div style="margin: 1rem 0; padding: 1rem; background: rgba(90, 143, 111, 0.05); border-radius: 8px;">
+                <strong>Hamburg Commissioner for Data Protection and Freedom of Information</strong><br>
+                Kurt-Schumacher-Allee 3<br>
+                20097 Hamburg, Germany<br>
+                Website: <a href="https://datenschutz-hamburg.de" target="_blank">datenschutz-hamburg.de</a>
+            </div>
+        </div>
+
+        <div class="legal-content">
+            <h2>10. Wichtige Hinweise / Important Notes</h2>
+            
+            <div class="highlight-box">
+                <p><strong>Deutsch:</strong></p>
+                <ul>
+                    <li>Diese Website ist <strong>KEIN</strong> E-Commerce-Shop</li>
+                    <li>Auf dieser Seite werden keine Bestellungen abgewickelt</li>
+                    <li>Es werden hier keine Zahlungsdaten erhoben</li>
+                    <li>Für Käufe besuchen Sie bitte unsere eBay- und Etsy-Shops</li>
+                    <li>Marktplatz-Transaktionen unterliegen deren jeweiligen Datenschutzrichtlinien</li>
+                </ul>
+                
+                <p style="margin-top: 1.5rem;"><strong>English:</strong></p>
+                <ul>
+                    <li>This website is <strong>NOT</strong> an e-commerce shop</li>
+                    <li>No orders are processed on this site</li>
+                    <li>No payment data is collected here</li>
+                    <li>For purchases, please visit our eBay and Etsy shops</li>
+                    <li>Marketplace transactions are governed by their respective privacy policies</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="legal-content">
+            <h2>11. Änderungen dieser Datenschutzerklärung / Changes to This Privacy Policy</h2>
+            
+            <p><strong>Deutsch:</strong> Wir behalten uns vor, diese Datenschutzerklärung zu aktualisieren. Die aktuelle Version finden Sie immer auf dieser Seite.</p>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> We reserve the right to update this privacy policy. The current version can always be found on this page.</p>
+            
+            <p style="margin-top: 1.5rem;"><strong>Letzte Aktualisierung / Last Updated:</strong> January 27, 2026</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 CultivaNova. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

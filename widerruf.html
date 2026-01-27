@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widerrufsbelehrung / Cancellation Policy - CultivaNova</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest-black: #0a0e0a;
+            --earth-deep: #1a2520;
+            --moss-dark: #243028;
+            --bark-brown: #2d3832;
+            
+            --sage-green: #5a8f6f;
+            --forest-green: #6b9a7f;
+            --moss-green: #7ba89c;
+            --lichen-light: #8fbd94;
+            
+            --text-primary: #e8ede9;
+            --text-secondary: #b8c5ba;
+            --text-muted: #8a998c;
+            
+            --glass-bg: rgba(29, 40, 34, 0.65);
+            --glass-border: rgba(90, 143, 111, 0.15);
+        }
+
+        :root[data-theme="light"] {
+            --forest-black: #f5f7f5;
+            --earth-deep: #e8ede9;
+            --moss-dark: #d8e3da;
+            --bark-brown: #c8d3ca;
+            
+            --sage-green: #3a6f4f;
+            --forest-green: #4a7a5f;
+            --moss-green: #5a886c;
+            --lichen-light: #6a9374;
+            
+            --text-primary: #1a2520;
+            --text-secondary: #2d3a32;
+            --text-muted: #4a5a4c;
+            
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(90, 143, 111, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom, var(--forest-black) 0%, var(--earth-deep) 100%);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--glass-border);
+        }
+
+        h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--sage-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .legal-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            color: var(--forest-green);
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        a {
+            color: var(--sage-green);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--lichen-light);
+        }
+
+        .highlight-box {
+            background: rgba(90, 143, 111, 0.15);
+            border: 2px solid var(--sage-green);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .note {
+            background: rgba(90, 143, 111, 0.1);
+            border-left: 3px solid var(--sage-green);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .marketplace-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--sage-green), var(--moss-green));
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+        }
+
+        .marketplace-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(90, 143, 111, 0.3);
+            color: white;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+            background: rgba(90, 143, 111, 0.15);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .legal-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Zurück zu CultivaNova / Back to CultivaNova</a>
+
+        <header>
+            <h1>Widerrufsbelehrung</h1>
+            <p class="subtitle">Cancellation Policy / Right of Withdrawal</p>
+        </header>
+
+        <div class="legal-content">
+            <h2>⚠️ Wichtiger Hinweis / Important Notice</h2>
+            
+            <div class="highlight-box">
+                <p><strong>Deutsch:</strong></p>
+                <p>Diese Website (cultivanova.com) dient ausschließlich als Informationskatalog. Wir wickeln KEINE Verkäufe, Zahlungen oder Versendungen über diese Website ab. Alle Stornierungen und Rücksendungen müssen über den Marktplatz abgewickelt werden, auf dem Sie Ihren Kauf getätigt haben (eBay oder Etsy).</p>
+                
+                <p style="margin-top: 1.5rem;"><strong>English:</strong></p>
+                <p>This website (cultivanova.com) operates as an informational catalog only. We do NOT process sales, payments, or shipments through this website. All cancellations and returns must be handled through the marketplace where you made your purchase (eBay or Etsy).</p>
+            </div>
+        </div>
+
+        <div class="legal-content">
+            <h2>Widerrufsrecht nach EU-Recht / Right of Withdrawal under EU Law</h2>
+            
+            <p><strong>Deutsch:</strong> Nach EU-Verbraucherrecht (Richtlinie 2011/83/EU) haben Sie das Recht, binnen vierzehn Tagen ohne Angabe von Gründen einen Vertrag zu widerrufen.</p>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> Under EU consumer law (Directive 2011/83/EU), you have the right to withdraw from a contract within fourteen days without giving any reason.</p>
+            
+            <div class="note">
+                <p><strong>Deutsch:</strong> Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag, an dem Sie oder ein von Ihnen benannter Dritter die Waren in Besitz genommen haben.</p>
+                
+                <p style="margin-top: 0.75rem;"><strong>English:</strong> The withdrawal period expires fourteen days after the day on which you or a third party other than the carrier acquires physical possession of the goods.</p>
+            </div>
+        </div>
+
+        <div class="legal-content">
+            <h2>Wo haben Sie gekauft? / Where Did You Purchase?</h2>
+            
+            <p><strong>Deutsch:</strong> Um Ihr Widerrufsrecht auszuüben oder eine Rücksendung einzuleiten, folgen Sie bitte dem Verfahren des Marktplatzes, auf dem Sie gekauft haben:</p>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> To exercise your right of withdrawal or initiate a return, please follow the process of the marketplace where you purchased:</p>
+        </div>
+
+        <div class="legal-content">
+            <h2>eBay-Käufe / eBay Purchases</h2>
+            
+            <p><strong>Deutsch:</strong></p>
+            <ul>
+                <li>Melden Sie sich bei Ihrem eBay-Konto an</li>
+                <li>Gehen Sie zu "Kaufübersicht"</li>
+                <li>Wählen Sie die CultivaNova-Bestellung aus</li>
+                <li>Klicken Sie auf "Artikel zurücksenden" oder "Verkäufer kontaktieren"</li>
+                <li>Folgen Sie dem eBay-Rückgabeprozess</li>
+            </ul>
+            
+            <p><strong>eBay-Rückgaberichtlinie:</strong> <a href="https://www.ebay.de/help/buying/returns-refunds/returning-item?id=4041" target="_blank">eBay Rücksendungen & Erstattungen</a></p>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong></p>
+            <ul>
+                <li>Log in to your eBay account</li>
+                <li>Go to "Purchase History"</li>
+                <li>Select the CultivaNova order</li>
+                <li>Click "Return this item" or "Contact seller"</li>
+                <li>Follow eBay's return process</li>
+            </ul>
+            
+            <p><strong>eBay Return Policy:</strong> <a href="https://www.ebay.com/help/buying/returns-refunds/returning-item?id=4041" target="_blank">eBay Returns & Refunds</a></p>
+            
+            <a href="https://www.ebay.com/usr/cultivanova" target="_blank" class="marketplace-link">Besuchen Sie unseren eBay Shop / Visit Our eBay Shop →</a>
+        </div>
+
+        <div class="legal-content">
+            <h2>Etsy-Käufe / Etsy Purchases</h2>
+            
+            <p><strong>Deutsch:</strong></p>
+            <ul>
+                <li>Melden Sie sich bei Ihrem Etsy-Konto an</li>
+                <li>Gehen Sie zu "Käufe und Bewertungen"</li>
+                <li>Wählen Sie die CultivaNova-Bestellung aus</li>
+                <li>Klicken Sie auf "Hilfe bei Bestellung" oder "Shop kontaktieren"</li>
+                <li>Folgen Sie dem Etsy-Rückgabeprozess</li>
+            </ul>
+            
+            <p><strong>Etsy-Rückgaberichtlinie:</strong> <a href="https://www.etsy.com/de/legal/buyers/?ref=list#returns" target="_blank">Etsy Rücksendungen & Umtausch</a></p>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong></p>
+            <ul>
+                <li>Log in to your Etsy account</li>
+                <li>Go to "Purchases and reviews"</li>
+                <li>Select the CultivaNova order</li>
+                <li>Click "Help with order" or "Contact shop"</li>
+                <li>Follow Etsy's return process</li>
+            </ul>
+            
+            <p><strong>Etsy Return Policy:</strong> <a href="https://www.etsy.com/legal/buyers/?ref=list#returns" target="_blank">Etsy Returns & Exchanges</a></p>
+            
+            <a href="https://www.etsy.com/shop/CultivaNova" target="_blank" class="marketplace-link">Besuchen Sie unseren Etsy Shop / Visit Our Etsy Shop →</a>
+        </div>
+
+        <div class="legal-content">
+            <h2>Direkter Kontakt / Direct Contact</h2>
+            
+            <p><strong>Deutsch:</strong> Wenn Sie Unterstützung bei einer Rücksendung oder Stornierung benötigen, können Sie uns auch direkt kontaktieren:</p>
+            
+            <p><strong>E-Mail:</strong> <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a></p>
+            
+            <p>Bitte angeben:</p>
+            <ul>
+                <li>Bestellnummer</li>
+                <li>Marktplatz (eBay oder Etsy)</li>
+                <li>Grund für Rücksendung (optional)</li>
+                <li>Ihre bevorzugte Lösung</li>
+            </ul>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> If you need assistance with a return or cancellation, you may also contact us directly:</p>
+            
+            <p><strong>Email:</strong> <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a></p>
+            
+            <p>Please include:</p>
+            <ul>
+                <li>Order number</li>
+                <li>Marketplace (eBay or Etsy)</li>
+                <li>Reason for return (optional)</li>
+                <li>Your preferred resolution</li>
+            </ul>
+        </div>
+
+        <div class="legal-content">
+            <h2>Rücksendekosten / Return Shipping Costs</h2>
+            
+            <p><strong>Deutsch:</strong> Rücksendekosten werden in der Regel vom Käufer getragen, es sei denn, die Ware ist mangelhaft oder die Rücksendung erfolgt aus einem anderen Grund, für den der Verkäufer verantwortlich ist. Spezifische Rückgabebedingungen finden Sie in den Richtlinien der jeweiligen Plattform (eBay/Etsy).</p>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> Return shipping costs are generally borne by the buyer, unless the goods are defective or the return is for another reason for which the seller is responsible. Specific return terms can be found in the policies of the respective platform (eBay/Etsy).</p>
+        </div>
+
+        <div class="legal-content">
+            <h2>Ausschluss des Widerrufsrechts / Exclusions from Right of Withdrawal</h2>
+            
+            <p><strong>Deutsch:</strong> Gemäß § 312g Abs. 2 Nr. 2 BGB gilt das Widerrufsrecht nicht für Waren, die nach der Lieferung aus Gründen des Gesundheitsschutzes oder der Hygiene nicht zur Rücksendung geeignet sind, wenn ihre Versiegelung nach der Lieferung entfernt wurde.</p>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> According to § 312g para. 2 no. 2 BGB, the right of withdrawal does not apply to goods which, after delivery, are unsuitable for return for reasons of health protection or hygiene if their seal has been removed after delivery.</p>
+            
+            <div class="note">
+                <p><strong>Wichtig / Important:</strong></p>
+                
+                <p><strong>Deutsch:</strong> Sobald die sterile Verpackung geöffnet wurde, können Produkte aus Hygienegründen von der Rückgabe ausgeschlossen sein. Bitte kontaktieren Sie uns oder den Marktplatz, wenn Sie Fragen zu Ihrer spezifischen Situation haben.</p>
+                
+                <p style="margin-top: 0.75rem;"><strong>English:</strong> Once sterile packaging has been opened, products may be excluded from return for hygiene reasons. Please contact us or the marketplace if you have questions about your specific situation.</p>
+            </div>
+        </div>
+
+        <div class="legal-content">
+            <h2>Erstattungen / Refunds</h2>
+            
+            <p><strong>Deutsch:</strong> Erstattungen werden gemäß den Richtlinien der jeweiligen Plattform (eBay/Etsy) bearbeitet. In der Regel erfolgt die Erstattung innerhalb von 14 Tagen nach Erhalt der zurückgesendeten Waren.</p>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> Refunds are processed according to the policies of the respective platform (eBay/Etsy). Typically, refunds are issued within 14 days of receiving the returned goods.</p>
+        </div>
+
+        <div class="legal-content">
+            <h2>Kontakt für Fragen / Contact for Questions</h2>
+            
+            <p><strong>Deutsch:</strong> Bei Fragen zum Widerrufsrecht oder zu Rücksendungen kontaktieren Sie uns bitte:</p>
+            
+            <div style="margin: 1rem 0; padding: 1rem; background: rgba(90, 143, 111, 0.05); border-radius: 8px;">
+                <strong>CultivaNova</strong><br>
+                Matiyan Velichkovski<br>
+                Blosweg 5<br>
+                22111 Hamburg<br>
+                Germany<br>
+                E-Mail: <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a>
+            </div>
+            
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> For questions about the right of withdrawal or returns, please contact us:</p>
+            
+            <div style="margin: 1rem 0; padding: 1rem; background: rgba(90, 143, 111, 0.05); border-radius: 8px;">
+                <strong>CultivaNova</strong><br>
+                Matiyan Velichkovski<br>
+                Blosweg 5<br>
+                22111 Hamburg<br>
+                Germany<br>
+                Email: <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>Letzte Aktualisierung / Last Updated:</strong> January 27, 2026</p>
+            <p>&copy; 2026 CultivaNova. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
