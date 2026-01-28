@@ -518,6 +518,30 @@
             margin-top: 3rem;
         }
 
+        /* CATEGORY SECTION HEADERS */
+        .category-section-header {
+            grid-column: 1 / -1;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding: 1.5rem 0;
+            border-bottom: 2px solid var(--sage-green);
+        }
+
+        .category-section-header:first-child {
+            margin-top: 0;
+        }
+
+        .category-section-header h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--sage-green);
+            text-align: center;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
         .product-card {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
@@ -611,6 +635,29 @@
             font-weight: 700;
             color: var(--sage-green);
             margin-bottom: 0.5rem;
+        }
+
+        .product-price-dual {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .price-option {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--sage-green);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .size-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
         }
 
         .product-size {
@@ -924,8 +971,7 @@
 
             <div class="filter-buttons">
                 <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
-                <button class="filter-btn" onclick="filterProducts('mushroom')">10ml Syringes</button>
-                <button class="filter-btn" onclick="filterProducts('mushroom-20')">20ml Syringes</button>
+                <button class="filter-btn" onclick="filterProducts('mushroom')">Liquid Cultures</button>
                 <button class="filter-btn" onclick="filterProducts('slime')">Slime Molds</button>
             </div>
 
@@ -971,7 +1017,7 @@
 
             <p class="contact-email">
                 <strong>Oder direkt per E-Mail / Or email us directly:</strong><br>
-                <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a>
+                <a href="/cdn-cgi/l/email-protection#eb8884859f8a889fc5889e879f829d8a85849d8aab8c868a8287c5888486"><span class="__cf_email__" data-cfemail="5f3c30312b3e3c2b713c2a332b36293e3130293e1f38323e3633713c3032">[email&#160;protected]</span></a>
             </p>
         </section>
 
@@ -992,79 +1038,45 @@
     </div>
 
     <!-- KWES FORM SCRIPT -->
-    <script src="https://kwesforms.com/v2/kf-script.js" defer></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://kwesforms.com/v2/kf-script.js" defer></script>
 
     <!-- MAIN JAVASCRIPT -->
     <script>
         // PRODUCT DATA
         const products = [
-            // MUSHROOM LIQUID CULTURES - 10ml SYRINGE
-            { id: 1, name: 'Agaricus arvensis', scientific: 'Horse Mushroom', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 2, name: 'Coprinus comatus', scientific: 'Shaggy Ink Cap', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 3, name: 'Cordyceps militaris', scientific: 'Scarlet Caterpillar Club', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 4, name: 'Cyclocybe aegerita', scientific: 'Pioppino', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 5, name: 'Flammulina velutipes', scientific: 'Enoki', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 6, name: 'Fomes fomentarius', scientific: 'Tinder Fungus', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 7, name: 'Fomitopsis betulina', scientific: 'Birch Polypore', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 8, name: 'Ganoderma applanatum', scientific: "Artist's Conk", category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 9, name: 'Ganoderma lucidum', scientific: 'Reishi', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 10, name: 'Ganoderma multipileum', scientific: 'Antler Reishi', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 11, name: 'Grifola frondosa', scientific: 'Maitake', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 12, name: 'Hericium coralloides', scientific: 'Coral Tooth', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 13, name: 'Hericium erinaceus', scientific: "Lion's Mane", category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 14, name: 'Hypsizygus ulmarius', scientific: 'Elm Oyster', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 15, name: 'Inonotus obliquus', scientific: 'Chaga', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 16, name: 'Kuehneromyces mutabilis', scientific: 'Sheathed Woodtuft', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 17, name: 'Laetiporus sulphureus', scientific: 'Chicken of the Woods', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 18, name: 'Lentinula edodes', scientific: 'Shiitake', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 19, name: 'Meripilus giganteus', scientific: 'Giant Polypore', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 20, name: 'Panellus stipticus', scientific: 'Bitter Oyster', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 21, name: 'Pholiota adiposa', scientific: 'Chestnut', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 22, name: 'Pholiota microspora', scientific: 'Nameko', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 23, name: 'Pleurotus citrinopileatus', scientific: 'Golden Oyster', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 24, name: 'Pleurotus djamor', scientific: 'Pink Oyster', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 25, name: 'Pleurotus eryngii', scientific: 'King Trumpet', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 26, name: 'Pleurotus eunosmus', scientific: 'Tarragon Oyster', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 27, name: 'Pleurotus florida', scientific: 'White Oyster', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 28, name: 'Pleurotus ostreatus', scientific: 'Pearl Oyster', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 29, name: 'Pleurotus columbinus', scientific: 'Blue Oyster', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 30, name: 'Pleurotus pulmonarius', scientific: 'Phoenix Oyster', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 31, name: 'Stropharia rugosoannulata', scientific: 'Wine Cap Stropharia', category: 'mushroom', size: '10ml', price: '€6,99' },
-            { id: 32, name: 'Trametes versicolor', scientific: 'Turkey Tail', category: 'mushroom', size: '10ml', price: '€6,99' },
-
-            // MUSHROOM LIQUID CULTURES - 20ml SYRINGE
-            { id: 33, name: 'Agaricus arvensis', scientific: 'Horse Mushroom', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 34, name: 'Coprinus comatus', scientific: 'Shaggy Ink Cap', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 35, name: 'Cordyceps militaris', scientific: 'Scarlet Caterpillar Club', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 36, name: 'Cyclocybe aegerita', scientific: 'Pioppino', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 37, name: 'Flammulina velutipes', scientific: 'Enoki', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 38, name: 'Fomes fomentarius', scientific: 'Tinder Fungus', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 39, name: 'Fomitopsis betulina', scientific: 'Birch Polypore', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 40, name: 'Ganoderma applanatum', scientific: "Artist's Conk", category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 41, name: 'Ganoderma lucidum', scientific: 'Reishi', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 42, name: 'Ganoderma multipileum', scientific: 'Antler Reishi', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 43, name: 'Grifola frondosa', scientific: 'Maitake', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 44, name: 'Hericium coralloides', scientific: 'Coral Tooth', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 45, name: 'Hericium erinaceus', scientific: "Lion's Mane", category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 46, name: 'Hypsizygus ulmarius', scientific: 'Elm Oyster', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 47, name: 'Inonotus obliquus', scientific: 'Chaga', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 48, name: 'Kuehneromyces mutabilis', scientific: 'Sheathed Woodtuft', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 49, name: 'Laetiporus sulphureus', scientific: 'Chicken of the Woods', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 50, name: 'Lentinula edodes', scientific: 'Shiitake', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 51, name: 'Meripilus giganteus', scientific: 'Giant Polypore', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 52, name: 'Panellus stipticus', scientific: 'Bitter Oyster', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 53, name: 'Pholiota adiposa', scientific: 'Chestnut', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 54, name: 'Pholiota microspora', scientific: 'Nameko', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 55, name: 'Pleurotus citrinopileatus', scientific: 'Golden Oyster', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 56, name: 'Pleurotus djamor', scientific: 'Pink Oyster', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 57, name: 'Pleurotus eryngii', scientific: 'King Trumpet', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 58, name: 'Pleurotus eunosmus', scientific: 'Tarragon Oyster', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 59, name: 'Pleurotus florida', scientific: 'White Oyster', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 60, name: 'Pleurotus ostreatus', scientific: 'Pearl Oyster', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 61, name: 'Pleurotus columbinus', scientific: 'Blue Oyster', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 62, name: 'Pleurotus pulmonarius', scientific: 'Phoenix Oyster', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 63, name: 'Stropharia rugosoannulata', scientific: 'Wine Cap Stropharia', category: 'mushroom-20', size: '20ml', price: '€10,99' },
-            { id: 64, name: 'Trametes versicolor', scientific: 'Turkey Tail', category: 'mushroom-20', size: '20ml', price: '€10,99' },
+            // MUSHROOM LIQUID CULTURES - Combined sizes (10ml and 20ml)
+            { id: 1, name: 'Agaricus arvensis', scientific: 'Horse Mushroom', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 2, name: 'Coprinus comatus', scientific: 'Shaggy Ink Cap', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 3, name: 'Cordyceps militaris', scientific: 'Scarlet Caterpillar Club', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 4, name: 'Cyclocybe aegerita', scientific: 'Pioppino', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 5, name: 'Flammulina velutipes', scientific: 'Enoki', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 6, name: 'Fomes fomentarius', scientific: 'Tinder Fungus', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 7, name: 'Fomitopsis betulina', scientific: 'Birch Polypore', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 8, name: 'Ganoderma applanatum', scientific: "Artist's Conk", category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 9, name: 'Ganoderma lucidum', scientific: 'Reishi', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 10, name: 'Ganoderma multipileum', scientific: 'Antler Reishi', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 11, name: 'Grifola frondosa', scientific: 'Maitake', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 12, name: 'Hericium coralloides', scientific: 'Coral Tooth', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 13, name: 'Hericium erinaceus', scientific: "Lion's Mane", category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 14, name: 'Hypsizygus ulmarius', scientific: 'Elm Oyster', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 15, name: 'Inonotus obliquus', scientific: 'Chaga', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 16, name: 'Kuehneromyces mutabilis', scientific: 'Sheathed Woodtuft', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 17, name: 'Laetiporus sulphureus', scientific: 'Chicken of the Woods', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 18, name: 'Lentinula edodes', scientific: 'Shiitake', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 19, name: 'Meripilus giganteus', scientific: 'Giant Polypore', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 20, name: 'Panellus stipticus', scientific: 'Bitter Oyster', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 21, name: 'Pholiota adiposa', scientific: 'Chestnut', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 22, name: 'Pholiota microspora', scientific: 'Nameko', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 23, name: 'Pleurotus citrinopileatus', scientific: 'Golden Oyster', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 24, name: 'Pleurotus djamor', scientific: 'Pink Oyster', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 25, name: 'Pleurotus eryngii', scientific: 'King Trumpet', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 26, name: 'Pleurotus eunosmus', scientific: 'Tarragon Oyster', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 27, name: 'Pleurotus florida', scientific: 'White Oyster', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 28, name: 'Pleurotus ostreatus', scientific: 'Pearl Oyster', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 29, name: 'Pleurotus columbinus', scientific: 'Blue Oyster', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 30, name: 'Pleurotus pulmonarius', scientific: 'Phoenix Oyster', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 31, name: 'Stropharia rugosoannulata', scientific: 'Wine Cap Stropharia', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
+            { id: 32, name: 'Trametes versicolor', scientific: 'Turkey Tail', category: 'mushroom', price10ml: '€6,99', price20ml: '€10,99' },
 
             // SLIME MOLDS
             { id: 65, name: 'Badhamia utricularis', scientific: 'Hanging Slime Mold', category: 'slime', size: 'Standard', price: '€3,99' },
@@ -1077,43 +1089,38 @@
             const grid = document.getElementById('productsGrid');
             grid.innerHTML = '';
 
-            const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+            if (filter === 'all') {
+                // Group products by category and add section separators
+                const categories = [
+                    { name: 'Liquid Cultures', filter: 'mushroom', title: 'Mushroom Liquid Cultures' },
+                    { name: 'Slime Molds', filter: 'slime', title: 'Slime Mold Starter Kits' }
+                ];
 
-            filtered.forEach((product, index) => {
-                const card = document.createElement('div');
-                card.className = 'product-card reveal';
-                card.style.animationDelay = `${index * 0.05}s`;
-                
-                // Load up to 10 images per product
-                const maxImages = 10;
-                const imageHTML = [];
-                for (let i = 1; i <= maxImages; i++) {
-                    imageHTML.push(`<img src="images/products/product-${product.id}-${i}.jpg" alt="${product.name}" class="${i === 1 ? 'active' : ''}" onerror="this.remove()">`);
-                }
-                
-                card.innerHTML = `
-                    <div class="product-image">
-                        <div class="product-image-placeholder">🍄</div>
-                        ${imageHTML.join('')}
-                        <div class="product-image-counter"></div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">${product.category === 'mushroom' ? '10ml Syringe' : product.category === 'mushroom-20' ? '20ml Syringe' : 'Slime Mold'}</div>
-                        <div class="product-name">${product.name}</div>
-                        <div class="product-description">${product.scientific}</div>
-                        <div class="product-price">${product.price}</div>
-                        <div class="product-size">Size: ${product.size}</div>
-                        <div class="product-buttons">
-                            <a href="https://www.ebay.com/usr/cultivanova" target="_blank">eBay</a>
-                            <a href="https://www.etsy.com/shop/CultivaNova" target="_blank">Etsy</a>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
-                
-                // Setup image rotation
-                setTimeout(() => setupImageRotation(card), 100);
-            });
+                categories.forEach(category => {
+                    const categoryProducts = products.filter(p => p.category === category.filter);
+                    
+                    if (categoryProducts.length > 0) {
+                        // Add section header
+                        const sectionHeader = document.createElement('div');
+                        sectionHeader.className = 'category-section-header';
+                        sectionHeader.innerHTML = `<h3>${category.title}</h3>`;
+                        grid.appendChild(sectionHeader);
+
+                        // Add products for this category
+                        categoryProducts.forEach((product, index) => {
+                            const card = createProductCard(product, index);
+                            grid.appendChild(card);
+                        });
+                    }
+                });
+            } else {
+                // Filtered view - no section separators
+                const filtered = products.filter(p => p.category === filter);
+                filtered.forEach((product, index) => {
+                    const card = createProductCard(product, index);
+                    grid.appendChild(card);
+                });
+            }
 
             // Trigger reveal animations
             setTimeout(() => {
@@ -1121,6 +1128,68 @@
                     el.classList.add('active');
                 });
             }, 100);
+        }
+
+        // CREATE PRODUCT CARD (extracted for reusability)
+        function createProductCard(product, index) {
+            const card = document.createElement('div');
+            card.className = 'product-card reveal';
+            card.style.animationDelay = `${index * 0.05}s`;
+            
+            // Load up to 10 images per product
+            const maxImages = 10;
+            const imageHTML = [];
+            for (let i = 1; i <= maxImages; i++) {
+                imageHTML.push(`<img src="images/products/product-${product.id}-${i}.jpg" alt="${product.name}" class="${i === 1 ? 'active' : ''}" onerror="this.remove()">`);
+            }
+            
+            // Display different content for mushroom vs slime mold products
+            let priceHTML, sizeHTML, categoryLabel;
+            
+            if (product.category === 'mushroom') {
+                // Mushroom products show both sizes and prices
+                categoryLabel = 'Liquid Culture';
+                priceHTML = `
+                    <div class="product-price-dual">
+                        <div class="price-option">
+                            <span class="size-label">10ml:</span> ${product.price10ml}
+                        </div>
+                        <div class="price-option">
+                            <span class="size-label">20ml:</span> ${product.price20ml}
+                        </div>
+                    </div>
+                `;
+                sizeHTML = '';
+            } else {
+                // Slime mold products show single size and price
+                categoryLabel = 'Slime Mold';
+                priceHTML = `<div class="product-price">${product.price}</div>`;
+                sizeHTML = `<div class="product-size">Size: ${product.size}</div>`;
+            }
+            
+            card.innerHTML = `
+                <div class="product-image">
+                    <div class="product-image-placeholder">🍄</div>
+                    ${imageHTML.join('')}
+                    <div class="product-image-counter"></div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">${categoryLabel}</div>
+                    <div class="product-name">${product.name}</div>
+                    <div class="product-description">${product.scientific}</div>
+                    ${priceHTML}
+                    ${sizeHTML}
+                    <div class="product-buttons">
+                        <a href="https://www.ebay.com/usr/cultivanova" target="_blank">eBay</a>
+                        <a href="https://www.etsy.com/shop/CultivaNova" target="_blank">Etsy</a>
+                    </div>
+                </div>
+            `;
+            
+            // Setup image rotation
+            setTimeout(() => setupImageRotation(card), 100);
+            
+            return card;
         }
 
         // AUTOMATIC IMAGE ROTATION ON HOVER
@@ -1399,14 +1468,72 @@
             loadTheme();
 
             // Initialize
+            renderProducts();
             initMyceliumCanvas();
             createSpores();
-            renderProducts('all');
             showCookieConsent();
             revealOnScroll();
 
-            window.addEventListener('scroll', revealOnScroll);
+            // REMOVE HASH FROM URL AFTER NAVIGATION
+            // This keeps the smooth scroll behavior but removes the hash from the URL
+            window.addEventListener('hashchange', function() {
+                // Wait a moment for the scroll to complete
+                setTimeout(function() {
+                    // Remove the hash from the URL without affecting the history
+                    try {
+                        history.replaceState(null, null, window.location.pathname);
+                    } catch (e) {
+                        // Silently catch security errors in preview/iframe environments
+                    }
+                }, 100);
+            });
+
+            // Also handle initial page load with hash
+            if (window.location.hash) {
+                setTimeout(function() {
+                    try {
+                        history.replaceState(null, null, window.location.pathname);
+                    } catch (e) {
+                        // Silently catch security errors in preview/iframe environments
+                    }
+                }, 100);
+            }
+
+            // Add smooth scroll behavior for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') {
+                        // If clicking the logo, scroll to top
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        try {
+                            history.replaceState(null, null, window.location.pathname);
+                        } catch (err) {
+                            // Silently catch security errors in preview/iframe environments
+                        }
+                        e.preventDefault();
+                        return;
+                    }
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // Remove hash after scrolling
+                        setTimeout(function() {
+                            try {
+                                history.replaceState(null, null, window.location.pathname);
+                            } catch (err) {
+                                // Silently catch security errors in preview/iframe environments
+                            }
+                        }, 100);
+                    }
+                });
+            });
         });
+
+        // SCROLL EVENT
+        window.addEventListener('scroll', revealOnScroll);
     </script>
 </body>
 </html>
