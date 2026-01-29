@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -185,6 +185,13 @@
             font-size: 0.9rem;
         }
 
+        .contact-box {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(90, 143, 111, 0.05);
+            border-radius: 8px;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 2rem 1.5rem;
@@ -199,14 +206,21 @@
             }
         }
     </style>
+    <script>
+        // Load theme from localStorage
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="back-link">← Zurück zu CultivaNova / Back to CultivaNova</a>
+        <a href="index.html" class="back-link">← Back to CultivaNova</a>
 
         <header>
             <h1>Widerrufsbelehrung</h1>
-            <p class="subtitle">Cancellation Policy / Right of Withdrawal</p>
+            <p class="subtitle">Cancellation Policy</p>
         </header>
 
         <div class="legal-content">
@@ -268,7 +282,7 @@
             
             <p><strong>eBay Return Policy:</strong> <a href="https://www.ebay.com/help/buying/returns-refunds/returning-item?id=4041" target="_blank">eBay Returns & Refunds</a></p>
             
-            <a href="https://www.ebay.com/usr/cultivanova" target="_blank" class="marketplace-link">Besuchen Sie unseren eBay Shop / Visit Our eBay Shop →</a>
+            <a href="https://www.ebay.com/usr/cultivanova" target="_blank" class="marketplace-link">Visit Our eBay Shop →</a>
         </div>
 
         <div class="legal-content">
@@ -296,7 +310,7 @@
             
             <p><strong>Etsy Return Policy:</strong> <a href="https://www.etsy.com/legal/buyers/?ref=list#returns" target="_blank">Etsy Returns & Exchanges</a></p>
             
-            <a href="https://www.etsy.com/shop/CultivaNova" target="_blank" class="marketplace-link">Besuchen Sie unseren Etsy Shop / Visit Our Etsy Shop →</a>
+            <a href="https://www.etsy.com/shop/CultivaNova" target="_blank" class="marketplace-link">Visit Our Etsy Shop →</a>
         </div>
 
         <div class="legal-content">
@@ -364,7 +378,7 @@
             
             <p><strong>Deutsch:</strong> Bei Fragen zum Widerrufsrecht oder zu Rücksendungen kontaktieren Sie uns bitte:</p>
             
-            <div style="margin: 1rem 0; padding: 1rem; background: rgba(90, 143, 111, 0.05); border-radius: 8px;">
+            <div class="contact-box">
                 <strong>CultivaNova</strong><br>
                 Matiyan Velichkovski<br>
                 Blosweg 5<br>
@@ -375,7 +389,7 @@
             
             <p style="margin-top: 1.5rem;"><strong>English:</strong> For questions about the right of withdrawal or returns, please contact us:</p>
             
-            <div style="margin: 1rem 0; padding: 1rem; background: rgba(90, 143, 111, 0.05); border-radius: 8px;">
+            <div class="contact-box">
                 <strong>CultivaNova</strong><br>
                 Matiyan Velichkovski<br>
                 Blosweg 5<br>
@@ -386,8 +400,8 @@
         </div>
 
         <footer>
-            <p><strong>Letzte Aktualisierung / Last Updated:</strong> January 27, 2026</p>
-            <p>&copy; 2026 CultivaNova. All rights reserved.</p>
+            <p>© 2026 CultivaNova. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">Last updated: January 2026</p>
         </footer>
     </div>
 </body>

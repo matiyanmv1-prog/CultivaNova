@@ -1,11 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="CultivaNova - Premium Mushroom Liquid Cultures & Slime Mold Starter Kits. Professional cultivation supplies.">
     <meta name="language" content="English">
     <title>CultivaNova - Premium Mushroom Cultures & Slime Molds</title>
+    
+    <!--
+    ============================================================================
+    CULTIVANOVA WEBSITE - FILE STRUCTURE GUIDE
+    ============================================================================
+    
+    REQUIRED FOLDER STRUCTURE:
+    /
+    ├── index.html (this file)
+    ├── impressum.html (German legal - Impressum)
+    ├── datenschutz.html (German legal - Privacy Policy)
+    ├── agb.html (German legal - Terms & Conditions)
+    ├── widerruf.html (German legal - Cancellation Policy)
+    ├── images/
+    │   ├── logo.png (or logo.svg - your logo file)
+    │   └── products/
+    │       ├── product-1-1.jpg (Product ID 1, Image 1)
+    │       ├── product-1-2.jpg (Product ID 1, Image 2)
+    │       ├── product-2-1.jpg (Product ID 2, Image 1)
+    │       └── ... (up to 10 images per product: product-{ID}-{1-10}.jpg)
+    └── testimonials/
+        ├── testimonial-1.json
+        ├── testimonial-2.json
+        └── ... (testimonial-{1-6}.json)
+    
+    PRODUCT IMAGES:
+    - Format: product-{id}-{number}.jpg
+    - Product IDs match the 'id' field in the products array below
+    - Each product can have up to 10 images (numbered 1-10)
+    - Images auto-rotate on hover if multiple exist
+    - Missing images gracefully fallback to mushroom emoji placeholder
+    
+    TESTIMONIAL JSON FORMAT:
+    {
+        "rating": 5,          // 1-5 stars (required)
+        "text": "Review...",  // Review text (required)
+        "author": "Name",     // Customer name (required)
+        "platform": "eBay"    // Must include "eBay" or "Etsy" (required for legal)
+    }
+    
+    LOGO:
+    - Place logo.png or logo.svg in /images/ folder
+    - Fallback: tries .svg if .png fails, then hides if both fail
+    - Recommended size: 50x50px minimum
+    
+    ============================================================================
+    -->
     
     <!-- Google Fonts - Distinctive Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,37 +66,7 @@
             box-sizing: border-box;
         }
 
-        /* LIGHT MODE VARIABLES */
-        :root[data-theme="light"] {
-            /* Light backgrounds */
-            --forest-black: #f5f7f5;
-            --earth-deep: #e8ede9;
-            --moss-dark: #d8e3da;
-            --bark-brown: #c8d3ca;
-            
-            /* Light mode greens (darker for contrast) */
-            --sage-green: #3a6f4f;
-            --forest-green: #4a7a5f;
-            --moss-green: #5a886c;
-            --lichen-light: #6a9374;
-            --leaf-accent: #2a5a3f;
-            
-            /* Browns adjusted */
-            --wood-brown: #6b5335;
-            --mushroom-tan: #7a6550;
-            --mycelium-cream: #a48554;
-            --spore-beige: #98866f;
-            
-            /* Text colors for light mode */
-            --text-primary: #1a2520;
-            --text-secondary: #2d3a32;
-            --text-muted: #4a5a4c;
-            
-            /* Glass effects for light mode */
-            --glass-bg: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(90, 143, 111, 0.2);
-        }
-
+        /* DEFAULT DARK MODE VARIABLES */
         :root {
             /* Natural Organic Palette - Matching Your Logo */
             --forest-black: #0a0e0a;
@@ -78,6 +95,43 @@
             /* Glass Effects */
             --glass-bg: rgba(29, 40, 34, 0.65);
             --glass-border: rgba(90, 143, 111, 0.15);
+            
+            /* Additional colors (previously missing) */
+            --slate: #4a5568;
+        }
+
+        /* LIGHT MODE VARIABLES - Must come after default to override */
+        :root[data-theme="light"] {
+            /* Light backgrounds */
+            --forest-black: #f5f7f5;
+            --earth-deep: #e8ede9;
+            --moss-dark: #d8e3da;
+            --bark-brown: #c8d3ca;
+            
+            /* Light mode greens (darker for contrast) */
+            --sage-green: #3a6f4f;
+            --forest-green: #4a7a5f;
+            --moss-green: #5a886c;
+            --lichen-light: #6a9374;
+            --leaf-accent: #2a5a3f;
+            
+            /* Browns adjusted */
+            --wood-brown: #6b5335;
+            --mushroom-tan: #7a6550;
+            --mycelium-cream: #a48554;
+            --spore-beige: #98866f;
+            
+            /* Text colors for light mode */
+            --text-primary: #1a2520;
+            --text-secondary: #2d3a32;
+            --text-muted: #4a5a4c;
+            
+            /* Glass effects for light mode */
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(90, 143, 111, 0.2);
+            
+            /* Additional colors for light mode */
+            --slate: #718096;
         }
 
         html {
@@ -87,7 +141,7 @@
 
         body {
             font-family: 'DM Sans', -apple-system, sans-serif;
-            background: var(--void-black);
+            background: var(--forest-black);
             color: var(--text-primary);
             line-height: 1.7;
             overflow-x: hidden;
@@ -121,9 +175,9 @@
             position: absolute;
             width: 3px;
             height: 3px;
-            background: var(--glow-cyan);
+            background: var(--sage-green);
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--glow-cyan);
+            box-shadow: 0 0 10px var(--sage-green);
             animation: float linear infinite;
             opacity: 0;
         }
@@ -149,91 +203,6 @@
         .content {
             position: relative;
             z-index: 10;
-        }
-
-        /* COOKIE CONSENT BANNER */
-        .cookie-consent {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(135deg, var(--deep-space) 0%, var(--midnight) 100%);
-            border-top: 2px solid var(--glow-cyan);
-            padding: 1.5rem 5%;
-            z-index: 10000;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 -10px 40px rgba(90, 143, 111, 0.1);
-            transform: translateY(100%);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .cookie-consent.show {
-            transform: translateY(0);
-        }
-
-        .cookie-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .cookie-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .cookie-text h3 {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--sage-green);
-        }
-
-        .cookie-text p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .cookie-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .cookie-btn {
-            padding: 0.75rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .cookie-accept {
-            background: linear-gradient(135deg, var(--sage-green), var(--moss-green));
-            color: var(--void-black);
-        }
-
-        .cookie-accept:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(90, 143, 111, 0.3);
-        }
-
-        .cookie-decline {
-            background: transparent;
-            color: var(--text-secondary);
-            border: 2px solid var(--slate);
-        }
-
-        .cookie-decline:hover {
-            border-color: var(--sage-green);
-            color: var(--sage-green);
         }
 
         /* HEADER & NAVIGATION */
@@ -283,26 +252,34 @@
         }
 
         .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--sage-green), var(--moss-green));
+            width: 55px;
+            height: 55px;
+            background: rgba(90, 143, 111, 0.1);
+            border: 2px solid rgba(90, 143, 111, 0.3);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Syne', sans-serif;
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--forest-black);
-            box-shadow: 0 5px 15px rgba(90, 143, 111, 0.3);
+            font-family: 'Georgia', serif;
+            font-weight: 600;
+            font-style: italic;
+            font-size: 1.4rem;
+            background: linear-gradient(90deg, #5a8f6f 0%, #5a8f6f 50%, #6b9ac4 50%, #6b9ac4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            box-shadow: 0 5px 15px rgba(90, 143, 111, 0.2);
         }
 
         .logo-text {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--sage-green);
-            text-transform: uppercase;
+            font-family: 'Georgia', serif;
+            font-size: 1.7rem;
+            font-weight: 500;
+            font-style: italic;
+            background: linear-gradient(90deg, #5a8f6f 0%, #5a8f6f 52%, #6b9ac4 52%, #6b9ac4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             letter-spacing: 1px;
         }
 
@@ -371,6 +348,49 @@
         }
 
         .theme-toggle-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        /* SCROLL TO TOP BUTTON */
+        .scroll-to-top {
+            position: fixed;
+            top: 160px;
+            right: 30px;
+            z-index: 1001;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(90, 143, 111, 0.2);
+        }
+
+        .scroll-to-top-icon {
+            font-size: 1.3rem;
+        }
+
+        .scroll-to-top-label {
             font-weight: 600;
             color: var(--text-primary);
             font-size: 0.9rem;
@@ -458,6 +478,8 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 6rem 5%;
+            position: relative;
+            z-index: 10;
         }
 
         .section-title {
@@ -804,13 +826,6 @@
         }
 
         /* FOOTER */
-        footer {
-            background: var(--earth-deep);
-            border-top: 1px solid var(--glass-border);
-            padding: 3rem 5%;
-            text-align: center;
-        }
-
         .footer-links {
             display: flex;
             justify-content: center;
@@ -862,21 +877,32 @@
                 padding: 2rem;
             }
 
-            .cookie-content {
-                flex-direction: column;
-            }
-
-            .cookie-buttons {
-                width: 100%;
-            }
-
-            .cookie-btn {
-                flex: 1;
-            }
-
             .theme-toggle {
                 top: 80px;
                 right: 20px;
+            }
+
+            .scroll-to-top {
+                top: 140px;
+                right: 20px;
+            }
+
+            .trust-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .loading-text {
+                font-size: 1.2rem;
+            }
+
+            .footer-description {
+                font-size: 0.9rem;
             }
         }
 
@@ -891,13 +917,349 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ENHANCED PRODUCT CARD ANIMATIONS */
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--sage-green), var(--moss-green));
+            border-radius: 22px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .product-card:hover::before {
+            opacity: 0.5;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(90, 143, 111, 0.3);
+        }
+
+        /* IMAGE ZOOM ON HOVER */
+        .product-image img {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover .product-image img.active {
+            transform: scale(1.1);
+        }
+
+        /* TRUST INDICATORS SECTION */
+        .trust-section {
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, var(--earth-deep) 0%, var(--moss-dark) 100%);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .trust-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .trust-item {
+            padding: 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .trust-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--sage-green);
+            box-shadow: 0 10px 30px rgba(90, 143, 111, 0.2);
+        }
+
+        .trust-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .trust-item h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            color: var(--sage-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* TESTIMONIALS SECTION */
+        .testimonials-section {
+            padding: 5rem 5%;
+            background: var(--forest-black);
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-size: 4rem;
+            color: var(--sage-green);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--sage-green);
+            box-shadow: 0 15px 40px rgba(90, 143, 111, 0.2);
+        }
+
+        .testimonial-rating {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--sage-green);
+            font-size: 0.95rem;
+        }
+
+        .testimonial-platform {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* GRADIENT OVERLAYS ON SECTIONS */
+        section {
+            position: relative;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(90, 143, 111, 0.02) 50%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* IMPROVED TYPOGRAPHY */
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--sage-green), var(--moss-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        /* PARALLAX EFFECT */
+        .background-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.4;
+            will-change: transform;
+        }
+
+        /* CUSTOM SVG MUSHROOM ICON */
+        .mushroom-icon {
+            display: inline-block;
+            width: 1.5em;
+            height: 1.5em;
+            vertical-align: middle;
+        }
+
+        /* FOOTER IMPROVEMENTS */
+        footer {
+            background: linear-gradient(135deg, var(--forest-black) 0%, var(--earth-deep) 50%, var(--moss-dark) 100%);
+            color: var(--text-secondary);
+            padding: 3rem 5% 2rem;
+            text-align: center;
+            border-top: 2px solid var(--sage-green);
+            position: relative;
+            z-index: 10;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--sage-green), transparent);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Georgia', serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            font-style: italic;
+            background: linear-gradient(90deg, #5a8f6f 0%, #5a8f6f 52%, #6b9ac4 52%, #6b9ac4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-description {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
     </style>
+    
+    <!-- GLOBAL FUNCTIONS - MUST LOAD BEFORE BODY -->
+    <script>
+        function toggleTheme() {
+            const root = document.documentElement;
+            const themeIcon = document.getElementById('themeIcon');
+            const themeLabel = document.getElementById('themeLabel');
+            const currentTheme = root.getAttribute('data-theme');
+            
+            if (currentTheme === 'light') {
+                root.setAttribute('data-theme', 'dark');
+                if (themeIcon) themeIcon.textContent = '🌙';
+                if (themeLabel) themeLabel.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                root.setAttribute('data-theme', 'light');
+                if (themeIcon) themeIcon.textContent = '☀️';
+                if (themeLabel) themeLabel.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        function filterProducts(category, event) {
+            if (window.renderProducts) {
+                window.renderProducts(category);
+            }
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+        }
+
+        function acceptCookies() {
+            // Cookie banner removed - not legally required for essential cookies only
+        }
+
+        function declineCookies() {
+            // Cookie banner removed - not legally required for essential cookies only
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function handleScrollToTopVisibility() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            const productsSection = document.getElementById('products');
+            
+            if (!scrollToTopBtn || !productsSection) return;
+            
+            const productsSectionTop = productsSection.getBoundingClientRect().top + window.pageYOffset;
+            const scrollPosition = window.pageYOffset;
+            
+            if (scrollPosition >= productsSectionTop - 100) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        }
+    </script>
 </head>
 <body>
+    <!-- SVG ICONS -->
+    <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <symbol id="mushroom-icon" viewBox="0 0 64 64">
+                <path fill="currentColor" d="M32 8c-12 0-20 8-20 18 0 6 3 11 8 14v16c0 3 2 6 6 6h12c4 0 6-3 6-6V40c5-3 8-8 8-14 0-10-8-18-20-18z"/>
+                <ellipse fill="currentColor" opacity="0.3" cx="20" cy="18" rx="4" ry="5"/>
+                <ellipse fill="currentColor" opacity="0.3" cx="44" cy="18" rx="4" ry="5"/>
+                <circle fill="currentColor" opacity="0.4" cx="32" cy="14" r="3"/>
+            </symbol>
+        </defs>
+    </svg>
+
     <!-- THEME TOGGLE -->
     <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
-        <span class="theme-toggle-icon" id="themeIcon">🌙</span>
-        <span class="theme-toggle-label" id="themeLabel">Dark Mode</span>
+        <span class="theme-toggle-icon" id="themeIcon">☀️</span>
+        <span class="theme-toggle-label" id="themeLabel">Light Mode</span>
+    </div>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <div class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+        <span class="scroll-to-top-icon">↑</span>
+        <span class="scroll-to-top-label">Top</span>
     </div>
 
     
@@ -906,23 +1268,6 @@
 
     <!-- SPORE PARTICLES -->
     <div class="spores-container" id="sporesContainer"></div>
-
-    <!-- COOKIE CONSENT BANNER -->
-    <div class="cookie-consent" id="cookieConsent">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                <h3>🍄 Cookie Notice / Cookie-Hinweis</h3>
-                <p>
-                    <strong>EN:</strong> We use essential cookies for our contact form. By continuing, you consent to their use.<br>
-                    <strong>DE:</strong> Wir verwenden essenzielle Cookies für unser Kontaktformular. Durch Fortfahren stimmen Sie deren Nutzung zu.
-                </p>
-            </div>
-            <div class="cookie-buttons">
-                <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept / Akzeptieren</button>
-                <button class="cookie-btn cookie-decline" onclick="declineCookies()">Decline / Ablehnen</button>
-            </div>
-        </div>
-    </div>
 
     <!-- MAIN CONTENT -->
     <div class="content">
@@ -970,75 +1315,124 @@
             </p>
 
             <div class="filter-buttons">
-                <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
-                <button class="filter-btn" onclick="filterProducts('mushroom')">Liquid Cultures</button>
-                <button class="filter-btn" onclick="filterProducts('slime')">Slime Molds</button>
+                <button class="filter-btn active" onclick="filterProducts('all', event)">All Products</button>
+                <button class="filter-btn" onclick="filterProducts('mushroom', event)">Liquid Cultures</button>
+                <button class="filter-btn" onclick="filterProducts('slime', event)">Slime Molds</button>
             </div>
 
             <div class="products-grid" id="productsGrid"></div>
         </section>
 
+        <!-- TRUST INDICATORS SECTION -->
+        <section class="trust-section">
+            <div class="trust-grid">
+                <div class="trust-item reveal">
+                    <div class="trust-icon">🛒</div>
+                    <h3>Secure Marketplace Checkout</h3>
+                    <p>All purchases through trusted platforms: eBay & Etsy with buyer protection</p>
+                </div>
+                <div class="trust-item reveal">
+                    <div class="trust-icon">🚚</div>
+                    <h3>Fast DHL Shipping</h3>
+                    <p>Professional packaging with DHL express delivery across Europe</p>
+                </div>
+                <div class="trust-item reveal">
+                    <div class="trust-icon">
+                        <svg class="mushroom-icon" style="width: 3rem; height: 3rem; color: var(--sage-green);">
+                            <use href="#mushroom-icon"></use>
+                        </svg>
+                    </div>
+                    <h3>Quality Guaranteed</h3>
+                    <p>Hand-cultivated from premium specimens with rigorous quality control</p>
+                </div>
+                <div class="trust-item reveal">
+                    <div class="trust-icon">🌱</div>
+                    <h3>Sustainably Sourced</h3>
+                    <p>Eco-friendly cultivation practices supporting environmental conservation</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section class="testimonials-section reveal" id="testimonials" style="display: none;">
+            <div class="testimonials-container">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <p class="section-subtitle">Genuine verified reviews from eBay and Etsy customers</p>
+                
+                <div class="testimonials-grid" id="testimonialsGrid">
+                    <!-- Testimonials loaded dynamically from /testimonials/ folder -->
+                </div>
+                
+                <p class="testimonials-disclaimer" style="text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-top: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <strong>Legal Notice:</strong> All reviews are genuine testimonials from verified eBay and Etsy purchases. Reviews are displayed in their original form and represent the personal opinions of actual customers. Source attribution is provided for each review in compliance with German consumer protection law (UWG §5b).
+                </p>
+            </div>
+        </section>
+
         <!-- CONTACT SECTION -->
         <section id="contact" class="reveal">
-            <h2 class="section-title">Kontakt / Contact Us</h2>
+            <h2 class="section-title">Contact Us</h2>
             <div class="contact-intro">
                 <p>
-                    <strong>Deutsch:</strong> Haben Sie Fragen zu unseren Pilzzuchtprodukten? Füllen Sie das Formular aus und wir melden uns innerhalb von 24 Stunden bei Ihnen.
-                </p>
-                <p>
-                    <strong>English:</strong> Have questions about our mushroom growing supplies? Fill out the form below and we'll get back to you within 24 hours.
+                    Have questions about our mushroom growing supplies? Fill out the form below and we'll get back to you within 24 hours.
                 </p>
             </div>
 
             <form method="POST" class="contact-form" action="https://kwesforms.com/api/f/zItEqYiGj688nHGpYTOP">
                 <div class="form-group">
                     <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" rules="required|max:255" placeholder="John Doe">
+                    <input type="text" id="name" name="name" required placeholder="John Doe">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email / E-Mail *</label>
-                    <input type="email" id="email" name="email" rules="required|email" placeholder="you@example.com">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="you@example.com">
                 </div>
                 <div class="form-group">
-                    <label for="subject">Subject / Betreff *</label>
-                    <input type="text" id="subject" name="subject" rules="required|max:255" placeholder="e.g., Question about liquid cultures">
+                    <label for="subject">Subject *</label>
+                    <input type="text" id="subject" name="subject" required placeholder="e.g., Question about liquid cultures">
                 </div>
                 <div class="form-group">
-                    <label for="message">Message / Nachricht *</label>
-                    <textarea id="message" name="message" rules="required|min:10|max:5000" placeholder="Tell us what you're interested in..."></textarea>
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required placeholder="Tell us what you're interested in..."></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Send Message / Nachricht senden</button>
+                <button type="submit" class="submit-btn">Send Message</button>
             </form>
 
             <div id="form-message">
-                <strong>✓ Deutsch:</strong> Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir antworten innerhalb von 24 Stunden.<br>
-                <strong>✓ English:</strong> Thank you! Your message has been sent successfully. We'll respond within 24 hours.
+                <strong>✓ Thank you!</strong> Your message has been sent successfully. We'll respond within 24 hours.
             </div>
 
             <p class="contact-email">
-                <strong>Oder direkt per E-Mail / Or email us directly:</strong><br>
-                <a href="/cdn-cgi/l/email-protection#eb8884859f8a889fc5889e879f829d8a85849d8aab8c868a8287c5888486"><span class="__cf_email__" data-cfemail="5f3c30312b3e3c2b713c2a332b36293e3130293e1f38323e3633713c3032">[email&#160;protected]</span></a>
+                <strong>Or email us directly:</strong><br>
+                <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a>
             </p>
         </section>
 
     <footer>
-        <div class="footer-links">
-            <a href="impressum.html">Impressum</a>
-            <a href="datenschutz.html">Privacy</a>
-            <a href="agb.html">Terms</a>
-            <a href="widerruf.html">Cancellation</a>
-            <a href="#contact">Contact</a>
-            <a href="https://ec.europa.eu/consumers/odr" target="_blank">ODR Platform</a>
-            <a href="https://www.ebay.com/usr/cultivanova" target="_blank">eBay Shop</a>
-            <a href="https://www.etsy.com/shop/CultivaNova" target="_blank">Etsy Shop</a>
+        <div class="footer-content">
+            <div class="footer-logo">CultivaNova</div>
+            <p class="footer-description">
+                Premium mushroom liquid cultures and slime mold starter kits. 
+                Hand-cultivated from nature's finest specimens, sustainably sourced and professionally prepared.
+            </p>
+            <div class="footer-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Privacy</a>
+                <a href="agb.html">Terms</a>
+                <a href="widerruf.html">Cancellation</a>
+                <a href="#contact">Contact</a>
+                <a href="https://ec.europa.eu/consumers/odr" target="_blank">ODR Platform</a>
+                <a href="https://www.ebay.com/usr/cultivanova" target="_blank">eBay Shop</a>
+                <a href="https://www.etsy.com/shop/CultivaNova" target="_blank">Etsy Shop</a>
+            </div>
+            <p style="margin-top: 2rem;">&copy; 2026 CultivaNova. All rights reserved. | Small Business Hamburg Mitte (Kleingewerbe Hamburg Mitte)</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">Designed with bioluminescent precision 🍄</p>
         </div>
-        <p>&copy; 2026 CultivaNova. All rights reserved. | Small Business Hamburg Mitte (Kleingewerbe Hamburg Mitte)</p>
-        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Designed with bioluminescent precision 🍄</p>
     </footer>
     </div>
 
     <!-- KWES FORM SCRIPT -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://kwesforms.com/v2/kf-script.js" defer></script>
+    <script src="https://kwesforms.com/v2/kf-script.js" defer></script>
 
     <!-- MAIN JAVASCRIPT -->
     <script>
@@ -1087,6 +1481,8 @@
         // RENDER PRODUCTS WITH MULTIPLE IMAGES
         function renderProducts(filter = 'all') {
             const grid = document.getElementById('productsGrid');
+            if (!grid) return;
+            
             grid.innerHTML = '';
 
             if (filter === 'all') {
@@ -1129,6 +1525,9 @@
                 });
             }, 100);
         }
+        
+        // Make renderProducts globally accessible
+        window.renderProducts = renderProducts;
 
         // CREATE PRODUCT CARD (extracted for reusability)
         function createProductCard(product, index) {
@@ -1243,20 +1642,11 @@
             }, 500);
         }
 
-                // CATEGORY FILTER
-        function filterProducts(category) {
-            renderProducts(category);
-            
-            // Update active button
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-        }
-
         // MYCELIUM NETWORK CANVAS ANIMATION
         function initMyceliumCanvas() {
             const canvas = document.getElementById('myceliumCanvas');
+            if (!canvas) return;
+            
             const ctx = canvas.getContext('2d');
             
             canvas.width = window.innerWidth;
@@ -1333,6 +1723,8 @@
         // SPORE PARTICLES
         function createSpores() {
             const container = document.getElementById('sporesContainer');
+            if (!container) return;
+            
             const sporeCount = 20;
 
             for (let i = 0; i < sporeCount; i++) {
@@ -1360,54 +1752,9 @@
             });
         }
 
-        // COOKIE CONSENT
-        function showCookieConsent() {
-            const consent = localStorage.getItem('cookieConsent');
-            if (!consent) {
-                setTimeout(() => {
-                    document.getElementById('cookieConsent').classList.add('show');
-                }, 1000);
-            }
-        }
-
-        function acceptCookies() {
-            localStorage.setItem('cookieConsent', 'accepted');
-            document.getElementById('cookieConsent').classList.remove('show');
-        }
-
-        function declineCookies() {
-            localStorage.setItem('cookieConsent', 'declined');
-            document.getElementById('cookieConsent').classList.remove('show');
-            // If declined, you may want to disable non-essential features
-        }
-
-        // FORM SUBMISSION HANDLER
-
-        // THEME TOGGLE FUNCTIONALITY
-        function toggleTheme() {
-            const root = document.documentElement;
-            const themeIcon = document.getElementById('themeIcon');
-            const themeLabel = document.getElementById('themeLabel');
-            const currentTheme = root.getAttribute('data-theme');
-            
-            if (currentTheme === 'light') {
-                // Switch to dark
-                root.setAttribute('data-theme', 'dark');
-                themeIcon.textContent = '🌙';
-                themeLabel.textContent = 'Dark Mode';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                // Switch to light
-                root.setAttribute('data-theme', 'light');
-                themeIcon.textContent = '☀️';
-                themeLabel.textContent = 'Light Mode';
-                localStorage.setItem('theme', 'light');
-            }
-        }
-
         // Load saved theme on page load
         function loadTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const savedTheme = localStorage.getItem('theme') || 'light';
             const root = document.documentElement;
             const themeIcon = document.getElementById('themeIcon');
             const themeLabel = document.getElementById('themeLabel');
@@ -1415,12 +1762,98 @@
             root.setAttribute('data-theme', savedTheme);
             
             if (savedTheme === 'light') {
-                themeIcon.textContent = '☀️';
-                themeLabel.textContent = 'Light Mode';
+                if (themeIcon) themeIcon.textContent = '☀️';
+                if (themeLabel) themeLabel.textContent = 'Light Mode';
             } else {
-                themeIcon.textContent = '🌙';
-                themeLabel.textContent = 'Dark Mode';
+                if (themeIcon) themeIcon.textContent = '🌙';
+                if (themeLabel) themeLabel.textContent = 'Dark Mode';
             }
+        }
+
+        // LOAD TESTIMONIALS FROM FILES
+        async function loadTestimonials() {
+            const grid = document.getElementById('testimonialsGrid');
+            const section = document.getElementById('testimonials');
+            if (!grid || !section) return;
+
+            // List of testimonial files to load
+            // Add more files here as you create them in /testimonials/ folder
+            const testimonialFiles = [
+                'testimonials/testimonial-1.json',
+                'testimonials/testimonial-2.json',
+                'testimonials/testimonial-3.json',
+                'testimonials/testimonial-4.json',
+                'testimonials/testimonial-5.json',
+                'testimonials/testimonial-6.json'
+            ];
+
+            let loadedCount = 0;
+
+            for (const file of testimonialFiles) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) continue; // Skip if file doesn't exist
+                    
+                    const data = await response.json();
+                    
+                    // Validate required fields for legal compliance
+                    if (!data.rating || !data.text || !data.author || !data.platform) {
+                        console.warn(`Testimonial ${file} missing required fields. Skipping.`);
+                        continue;
+                    }
+                    
+                    // Ensure platform attribution exists for legal compliance
+                    if (!data.platform.includes('eBay') && !data.platform.includes('Etsy')) {
+                        console.warn(`Testimonial ${file} must specify eBay or Etsy as platform source. Skipping.`);
+                        continue;
+                    }
+                    
+                    const card = createTestimonialCard(data);
+                    grid.appendChild(card);
+                    loadedCount++;
+                } catch (error) {
+                    // Silently skip missing or invalid files
+                    console.log(`Could not load ${file}`);
+                }
+            }
+
+            // Only show testimonials section if we have reviews
+            if (loadedCount > 0) {
+                section.style.display = 'block';
+                // Trigger reveal animation after showing
+                setTimeout(() => {
+                    section.classList.add('active');
+                }, 100);
+            }
+            // If no testimonials, section stays hidden - no placeholder needed
+        }
+
+        // CREATE TESTIMONIAL CARD
+        function createTestimonialCard(data) {
+            const card = document.createElement('div');
+            card.className = 'testimonial-card reveal';
+            
+            const stars = '★'.repeat(data.rating) + '☆'.repeat(5 - data.rating);
+            
+            card.innerHTML = `
+                <div class="testimonial-rating">${stars}</div>
+                <p class="testimonial-text">${data.text}</p>
+                <p class="testimonial-author">${data.author}</p>
+                <p class="testimonial-platform">${data.platform}</p>
+            `;
+            
+            return card;
+        }
+
+        // PARALLAX SCROLL EFFECT
+        function initParallax() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const canvas = document.getElementById('myceliumCanvas');
+                if (canvas) {
+                    canvas.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+            });
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -1431,9 +1864,11 @@
                 form.addEventListener('submit', function(e) {
                     // Show success message after form submits
                     setTimeout(function() {
-                        successMessage.style.display = 'block';
-                        // Scroll to message
-                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        if (successMessage) {
+                            successMessage.style.display = 'block';
+                            // Scroll to message
+                            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
                     }, 300);
                     
                     // Clear form
@@ -1443,7 +1878,9 @@
                     
                     // Hide success message after 8 seconds
                     setTimeout(function() {
-                        successMessage.style.display = 'none';
+                        if (successMessage) {
+                            successMessage.style.display = 'none';
+                        }
                     }, 8000);
                 });
             }
@@ -1467,12 +1904,19 @@
             // Load theme
             loadTheme();
 
-            // Initialize
+            // Initialize all features
             renderProducts();
             initMyceliumCanvas();
             createSpores();
-            showCookieConsent();
             revealOnScroll();
+            loadTestimonials(); // Load testimonials from files
+            initParallax(); // Initialize parallax scrolling
+
+            // Add scroll event listener for reveal animations and scroll-to-top button
+            window.addEventListener('scroll', function() {
+                revealOnScroll();
+                handleScrollToTopVisibility();
+            });
 
             // REMOVE HASH FROM URL AFTER NAVIGATION
             // This keeps the smooth scroll behavior but removes the hash from the URL
@@ -1509,7 +1953,7 @@
                         try {
                             history.replaceState(null, null, window.location.pathname);
                         } catch (err) {
-                            // Silently catch security errors in preview/iframe environments
+                            // Silently catch security errors
                         }
                         e.preventDefault();
                         return;
@@ -1518,22 +1962,19 @@
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         e.preventDefault();
-                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        // Remove hash after scrolling
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                        // Remove hash from URL after scrolling
                         setTimeout(function() {
                             try {
                                 history.replaceState(null, null, window.location.pathname);
                             } catch (err) {
-                                // Silently catch security errors in preview/iframe environments
+                                // Silently catch security errors
                             }
                         }, 100);
                     }
                 });
             });
         });
-
-        // SCROLL EVENT
-        window.addEventListener('scroll', revealOnScroll);
     </script>
 </body>
 </html>

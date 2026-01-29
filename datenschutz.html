@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -181,10 +181,17 @@
             }
         }
     </style>
+    <script>
+        // Load theme from localStorage
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="back-link">← Zurück zu CultivaNova / Back to CultivaNova</a>
+        <a href="index.html" class="back-link">← Back to CultivaNova</a>
 
         <header>
             <h1>Datenschutzerklärung</h1>
@@ -192,26 +199,16 @@
         </header>
 
         <div class="legal-content">
-            <h2>1. Verantwortliche Stelle / Responsible Party</h2>
+            <h2>1. Verantwortlicher / Data Controller</h2>
             
-            <p><strong>Deutsch:</strong> Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p>
-            
-            <div style="margin: 1rem 0; padding: 1rem; background: rgba(90, 143, 111, 0.05); border-radius: 8px;">
-                <strong>Matiyan Velichkovski / CultivaNova</strong><br>
+            <div class="highlight-box">
+                <p><strong>CultivaNova</strong><br>
+                Matiyan Velichkovski<br>
                 Blosweg 5<br>
                 22111 Hamburg<br>
-                Germany<br>
-                E-Mail: <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a>
-            </div>
-            
-            <p style="margin-top: 1.5rem;"><strong>English:</strong> Responsible for data processing on this website:</p>
-            
-            <div style="margin: 1rem 0; padding: 1rem; background: rgba(90, 143, 111, 0.05); border-radius: 8px;">
-                <strong>Matiyan Velichkovski / CultivaNova</strong><br>
-                Blosweg 5<br>
-                22111 Hamburg<br>
-                Germany<br>
-                Email: <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a>
+                Germany</p>
+                
+                <p style="margin-top: 1rem;"><strong>E-Mail:</strong> <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a></p>
             </div>
         </div>
 
@@ -304,7 +301,7 @@
                 <li>❌ Werbe- oder Verhaltens-Tracking</li>
             </ul>
 
-            <p><strong>Nur technisch notwendige Cookies</strong> für die Kontaktformularfunktion (Sitzungs-Cookies) werden verwendet.</p>
+            <p><strong>Nur technisch notwendige Cookies</strong> für die Kontaktformularfunktion (Sitzungs-Cookies) werden verwendet. Diese erfordern keine Einwilligung gemäß § 25 TTDSG.</p>
             
             <p style="margin-top: 1.5rem;"><strong>English:</strong> This website does NOT use:</p>
             <ul>
@@ -315,7 +312,7 @@
                 <li>❌ Any advertising or behavioral tracking</li>
             </ul>
 
-            <p><strong>Only technically necessary cookies</strong> for the contact form functionality (session cookies) are used.</p>
+            <p><strong>Only technically necessary cookies</strong> for the contact form functionality (session cookies) are used. These do not require consent under § 25 TTDSG.</p>
         </div>
 
         <div class="legal-content">
@@ -399,13 +396,12 @@
             
             <p><strong>Deutsch:</strong> Wir behalten uns vor, diese Datenschutzerklärung zu aktualisieren. Die aktuelle Version finden Sie immer auf dieser Seite.</p>
             
-            <p style="margin-top: 1.5rem;"><strong>English:</strong> We reserve the right to update this privacy policy. The current version can always be found on this page.</p>
-            
-            <p style="margin-top: 1.5rem;"><strong>Letzte Aktualisierung / Last Updated:</strong> January 27, 2026</p>
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> We reserve the right to update this privacy policy. The current version will always be available on this page.</p>
         </div>
 
         <footer>
-            <p>&copy; 2026 CultivaNova. All rights reserved.</p>
+            <p>© 2026 CultivaNova. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">Last updated: January 2026</p>
         </footer>
     </div>
 </body>

@@ -1,191 +1,345 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Allgemeine Geschäftsbedingungen / Terms of Service - CultivaNova</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --forest-black: #0a0e0a;
+            --earth-deep: #1a2520;
+            --moss-dark: #243028;
+            --bark-brown: #2d3832;
+            
+            --sage-green: #5a8f6f;
+            --forest-green: #6b9a7f;
+            --moss-green: #7ba89c;
+            --lichen-light: #8fbd94;
+            
+            --text-primary: #e8ede9;
+            --text-secondary: #b8c5ba;
+            --text-muted: #8a998c;
+            
+            --glass-bg: rgba(29, 40, 34, 0.65);
+            --glass-border: rgba(90, 143, 111, 0.15);
+        }
+
+        :root[data-theme="light"] {
+            --forest-black: #f5f7f5;
+            --earth-deep: #e8ede9;
+            --moss-dark: #d8e3da;
+            --bark-brown: #c8d3ca;
+            
+            --sage-green: #3a6f4f;
+            --forest-green: #4a7a5f;
+            --moss-green: #5a886c;
+            --lichen-light: #6a9374;
+            
+            --text-primary: #1a2520;
+            --text-secondary: #2d3a32;
+            --text-muted: #4a5a4c;
+            
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(90, 143, 111, 0.2);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: #b8d4c2;
-            background: #0a0e0a;
-            padding: 2rem;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom, var(--forest-black) 0%, var(--earth-deep) 100%);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        .container {
             max-width: 900px;
             margin: 0 auto;
+            padding: 3rem 2rem;
         }
-        
+
+        header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--glass-border);
+        }
+
         h1 {
-            color: #5a8f6f;
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--sage-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .legal-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
             margin-bottom: 2rem;
-            font-size: 2rem;
         }
-        
+
         h2 {
-            color: #7dad90;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            color: var(--forest-green);
+            margin-bottom: 1.5rem;
         }
-        
+
         p {
             margin-bottom: 1rem;
+            color: var(--text-primary);
         }
-        
+
         ul {
             margin-left: 2rem;
             margin-bottom: 1rem;
         }
-        
-        strong {
-            color: #9ec5ab;
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
         }
-        
+
         a {
-            color: #5a8f6f;
+            color: var(--sage-green);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
-        
+
         a:hover {
-            text-decoration: underline;
+            color: var(--lichen-light);
         }
-        
+
+        .highlight-box {
+            background: rgba(90, 143, 111, 0.15);
+            border: 2px solid var(--sage-green);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
         .note {
             background: rgba(90, 143, 111, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
+            border-left: 3px solid var(--sage-green);
+            padding: 1rem 1.5rem;
             margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+            background: rgba(90, 143, 111, 0.15);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .legal-content {
+                padding: 1.5rem;
+            }
         }
     </style>
+    <script>
+        // Load theme from localStorage
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
 </head>
 <body>
-    <h1>Allgemeine Geschäftsbedingungen / Terms of Service</h1>
-    
-    <div class="note">
-        <h2 style="margin-top: 0;">⚠️ Wichtiger Hinweis / Important Notice</h2>
-        
-        <p><strong>Deutsch:</strong> Diese Website (cultivanova.com) dient ausschließlich als Informationskatalog und Marketingplattform. Wir wickeln KEINE Verkäufe, Zahlungen oder Versendungen über diese Website ab.</p>
-        
-        <p style="margin-top: 1rem;"><strong>English:</strong> This website (cultivanova.com) operates as an informational catalog and marketing platform only. We do NOT process sales, payments, or shipments through this website.</p>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to CultivaNova</a>
+
+        <header>
+            <h1>Allgemeine Geschäftsbedingungen</h1>
+            <p class="subtitle">Terms of Service</p>
+        </header>
+
+        <div class="legal-content">
+            <h2>⚠️ Wichtiger Hinweis / Important Notice</h2>
+            
+            <div class="highlight-box">
+                <p><strong>Deutsch:</strong> Diese Website (cultivanova.com) dient ausschließlich als Informationskatalog und Marketingplattform. Wir wickeln KEINE Verkäufe, Zahlungen oder Versendungen über diese Website ab.</p>
+                
+                <p style="margin-top: 1rem;"><strong>English:</strong> This website (cultivanova.com) operates as an informational catalog and marketing platform only. We do NOT process sales, payments, or shipments through this website.</p>
+            </div>
+        </div>
+
+        <div class="legal-content">
+            <h2>1. Geltungsbereich / Scope</h2>
+            
+            <p><strong>Deutsch:</strong> Diese Bedingungen gelten für die Nutzung dieser Website. Diese Website dient der Darstellung unseres Produktkatalogs und der Bereitstellung von Kontaktinformationen. Alle Produktkäufe müssen über unsere offiziellen Marktplatz-Shops erfolgen.</p>
+            
+            <p style="margin-top: 1rem;"><strong>English:</strong> These terms apply to the use of this website. This website serves to display our product catalog and provide contact information. All product purchases must be made through our official marketplace shops.</p>
+        </div>
+
+        <div class="legal-content">
+            <h2>2. Wo können Sie kaufen? / Where Can You Purchase?</h2>
+            
+            <p><strong>Deutsch:</strong> Alle CultivaNova-Produkte sind ausschließlich erhältlich über:</p>
+            
+            <ul>
+                <li><strong>eBay:</strong> <a href="https://www.ebay.com/usr/cultivanova" target="_blank">ebay.com/usr/cultivanova</a></li>
+                <li><strong>Etsy:</strong> <a href="https://www.etsy.com/shop/CultivaNova" target="_blank">etsy.com/shop/CultivaNova</a></li>
+            </ul>
+            
+            <p style="margin-top: 1rem;"><strong>English:</strong> All CultivaNova products are available for purchase exclusively through:</p>
+            
+            <ul>
+                <li><strong>eBay:</strong> <a href="https://www.ebay.com/usr/cultivanova" target="_blank">ebay.com/usr/cultivanova</a></li>
+                <li><strong>Etsy:</strong> <a href="https://www.etsy.com/shop/CultivaNova" target="_blank">etsy.com/shop/CultivaNova</a></li>
+            </ul>
+            
+            <div class="note">
+                <p><strong>Deutsch:</strong> Wenn Sie über eBay oder Etsy einkaufen, gelten deren jeweilige Allgemeine Geschäftsbedingungen, Datenschutzrichtlinien, Zahlungsabwicklungen und Versandrichtlinien. Bitte lesen Sie deren Richtlinien vor dem Kauf.</p>
+                
+                <p style="margin-top: 1rem;"><strong>English:</strong> When you purchase through eBay or Etsy, their respective terms and conditions, privacy policies, payment processing, and shipping policies apply. Please review their policies before making a purchase.</p>
+            </div>
+        </div>
+
+        <div class="legal-content">
+            <h2>3. Produktinformationen / Product Information</h2>
+            
+            <p><strong>Deutsch:</strong> Auf dieser Website angezeigte Produktinformationen (Beschreibungen, Preise, Bilder) dienen zu Informationszwecken. Obwohl wir uns um Genauigkeit bemühen, beziehen Sie sich bitte auf die offiziellen Marktplatz-Angebote für aktuelle und verbindliche Informationen.</p>
+            
+            <p><strong>Angezeigte Preise:</strong></p>
+            <ul>
+                <li>10ml Flüssigkulturen: €6,99</li>
+                <li>20ml Flüssigkulturen: €10,99</li>
+                <li>Schleimpilzkulturen: €3,99</li>
+            </ul>
+            
+            <p style="margin-top: 1rem;"><strong>English:</strong> Product information displayed on this website (descriptions, prices, images) is provided for informational purposes. While we strive for accuracy, please refer to the official marketplace listings for current and binding information.</p>
+            
+            <p><strong>Prices shown:</strong></p>
+            <ul>
+                <li>10ml Liquid Cultures: €6,99</li>
+                <li>20ml Liquid Cultures: €10,99</li>
+                <li>Slime Mold Cultures: €3,99</li>
+            </ul>
+        </div>
+
+        <div class="legal-content">
+            <h2>4. Produktverwendung / Product Use</h2>
+            
+            <p><strong>Deutsch:</strong> Alle CultivaNova-Produkte sind:</p>
+            <ul>
+                <li>Ausschließlich für Zucht- und Forschungszwecke bestimmt</li>
+                <li>Als Risikoklasse 1 (geringes Risiko) eingestuft</li>
+                <li>Konform mit allen geltenden EU- und deutschen Sicherheitsstandards</li>
+                <li>Nicht zum menschlichen Verzehr bestimmt</li>
+            </ul>
+            
+            <p style="margin-top: 1rem;"><strong>English:</strong> All CultivaNova products are:</p>
+            <ul>
+                <li>Intended exclusively for cultivation and research purposes</li>
+                <li>Classified as Risk Class 1 (low risk)</li>
+                <li>Compliant with all applicable EU and German safety standards</li>
+                <li>Not intended for human consumption</li>
+            </ul>
+        </div>
+
+        <div class="legal-content">
+            <h2>5. Kontakt / Contact</h2>
+            
+            <p><strong>Deutsch:</strong> Sie können das Kontaktformular auf dieser Website verwenden, um sich über Produkte zu erkundigen, Fragen zu stellen oder Informationen anzufordern. Wir antworten auf berechtigte Anfragen innerhalb einer angemessenen Frist.</p>
+            
+            <p><strong>Kontakt-E-Mail:</strong> <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a></p>
+            
+            <p style="margin-top: 1rem;"><strong>English:</strong> You may use the contact form on this website to inquire about products, ask questions, or request information. We will respond to legitimate inquiries within a reasonable timeframe.</p>
+            
+            <p><strong>Contact email:</strong> <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a></p>
+        </div>
+
+        <div class="legal-content">
+            <h2>6. Haftungsausschluss / Disclaimer</h2>
+            
+            <p><strong>Deutsch:</strong> CultivaNova übernimmt keine Haftung für:</p>
+            <ul>
+                <li>Missbrauch oder unsachgemäße Handhabung der Produkte</li>
+                <li>Ergebnisse, die durch externe Faktoren (Umgebungsbedingungen, Benutzerfehler) beeinflusst werden</li>
+                <li>Schäden durch unsachgemäße Lagerung oder Transport</li>
+            </ul>
+            
+            <p style="margin-top: 1rem;"><strong>English:</strong> CultivaNova assumes no liability for:</p>
+            <ul>
+                <li>Misuse or improper handling of products</li>
+                <li>Results affected by external factors (environmental conditions, user error)</li>
+                <li>Damage from improper storage or transport</li>
+            </ul>
+        </div>
+
+        <div class="legal-content">
+            <h2>7. Links zu Drittanbietern / Third-Party Links</h2>
+            
+            <p><strong>Deutsch:</strong> Diese Website enthält Links zu Websites Dritter (eBay, Etsy). Wir sind nicht verantwortlich für den Inhalt, die Datenschutzpraktiken oder die Nutzungsbedingungen dieser externen Websites.</p>
+            
+            <p style="margin-top: 1rem;"><strong>English:</strong> This website contains links to third-party websites (eBay, Etsy). We are not responsible for the content, privacy practices, or terms of service of these external sites.</p>
+        </div>
+
+        <div class="legal-content">
+            <h2>8. Änderungen / Changes</h2>
+            
+            <p><strong>Deutsch:</strong> Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern. Änderungen werden auf dieser Seite mit aktualisiertem Datum veröffentlicht.</p>
+            
+            <p style="margin-top: 1rem;"><strong>English:</strong> We reserve the right to modify these terms at any time. Changes will be posted on this page with an updated date.</p>
+        </div>
+
+        <div class="legal-content">
+            <h2>9. Anwendbares Recht / Applicable Law</h2>
+            
+            <p><strong>Deutsch:</strong> Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Gerichtsstand, soweit gesetzlich zulässig, ist Hamburg.</p>
+            
+            <p style="margin-top: 1rem;"><strong>English:</strong> German law applies, excluding the UN Convention on Contracts for the International Sale of Goods. Jurisdiction, where legally permissible, is Hamburg.</p>
+        </div>
+
+        <footer>
+            <p>© 2026 CultivaNova. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">Last updated: January 2026</p>
+        </footer>
     </div>
-    
-    <h2>1. Geltungsbereich / Scope</h2>
-    
-    <p><strong>Deutsch:</strong> Diese Bedingungen gelten für die Nutzung dieser Website. Diese Website dient der Darstellung unseres Produktkatalogs und der Bereitstellung von Kontaktinformationen. Alle Produktkäufe müssen über unsere offiziellen Marktplatz-Shops erfolgen.</p>
-    
-    <p style="margin-top: 1rem;"><strong>English:</strong> These terms apply to the use of this website. This website serves to display our product catalog and provide contact information. All product purchases must be made through our official marketplace shops.</p>
-    
-    <h2>2. Wo können Sie kaufen? / Where Can You Purchase?</h2>
-    
-    <p><strong>Deutsch:</strong> Alle CultivaNova-Produkte sind ausschließlich erhältlich über:</p>
-    
-    <ul>
-        <li><strong>eBay:</strong> <a href="https://www.ebay.com/usr/cultivanova" target="_blank">ebay.com/usr/cultivanova</a></li>
-        <li><strong>Etsy:</strong> <a href="https://www.etsy.com/shop/CultivaNova" target="_blank">etsy.com/shop/CultivaNova</a></li>
-    </ul>
-    
-    <p style="margin-top: 1rem;"><strong>English:</strong> All CultivaNova products are available for purchase exclusively through:</p>
-    
-    <ul>
-        <li><strong>eBay:</strong> <a href="https://www.ebay.com/usr/cultivanova" target="_blank">ebay.com/usr/cultivanova</a></li>
-        <li><strong>Etsy:</strong> <a href="https://www.etsy.com/shop/CultivaNova" target="_blank">etsy.com/shop/CultivaNova</a></li>
-    </ul>
-    
-    <div class="note">
-        <p><strong>Deutsch:</strong> Wenn Sie über eBay oder Etsy einkaufen, gelten deren jeweilige Allgemeine Geschäftsbedingungen, Datenschutzrichtlinien, Zahlungsabwicklungen und Versandrichtlinien. Bitte lesen Sie deren Richtlinien vor dem Kauf.</p>
-        
-        <p style="margin-top: 1rem;"><strong>English:</strong> When you purchase through eBay or Etsy, their respective terms and conditions, privacy policies, payment processing, and shipping policies apply. Please review their policies before making a purchase.</p>
-    </div>
-    
-    <h2>3. Produktinformationen / Product Information</h2>
-    
-    <p><strong>Deutsch:</strong> Auf dieser Website angezeigte Produktinformationen (Beschreibungen, Preise, Bilder) dienen zu Informationszwecken. Obwohl wir uns um Genauigkeit bemühen, beziehen Sie sich bitte auf die offiziellen Marktplatz-Angebote für aktuelle und verbindliche Informationen.</p>
-    
-    <p><strong>Angezeigte Preise:</strong></p>
-    <ul>
-        <li>10ml Flüssigkulturen: €6,99</li>
-        <li>20ml Flüssigkulturen: €10,99</li>
-        <li>Schleimpilzkulturen: €3,99</li>
-    </ul>
-    
-    <p style="margin-top: 1rem;"><strong>English:</strong> Product information displayed on this website (descriptions, prices, images) is provided for informational purposes. While we strive for accuracy, please refer to the official marketplace listings for current and binding information.</p>
-    
-    <p><strong>Prices shown:</strong></p>
-    <ul>
-        <li>10ml Liquid Cultures: €6,99</li>
-        <li>20ml Liquid Cultures: €10,99</li>
-        <li>Slime Mold Cultures: €3,99</li>
-    </ul>
-    
-    <h2>4. Produktverwendung / Product Use</h2>
-    
-    <p><strong>Deutsch:</strong> Alle CultivaNova-Produkte sind:</p>
-    <ul>
-        <li>Ausschließlich für Zucht- und Forschungszwecke bestimmt</li>
-        <li>Als Risikoklasse 1 (geringes Risiko) eingestuft</li>
-        <li>Konform mit allen geltenden EU- und deutschen Sicherheitsstandards</li>
-        <li>Nicht zum menschlichen Verzehr bestimmt</li>
-    </ul>
-    
-    <p style="margin-top: 1rem;"><strong>English:</strong> All CultivaNova products are:</p>
-    <ul>
-        <li>Intended exclusively for cultivation and research purposes</li>
-        <li>Classified as Risk Class 1 (low risk)</li>
-        <li>Compliant with all applicable EU and German safety standards</li>
-        <li>Not intended for human consumption</li>
-    </ul>
-    
-    <h2>5. Kontakt / Contact</h2>
-    
-    <p><strong>Deutsch:</strong> Sie können das Kontaktformular auf dieser Website verwenden, um sich über Produkte zu erkundigen, Fragen zu stellen oder Informationen anzufordern. Wir antworten auf berechtigte Anfragen innerhalb einer angemessenen Frist.</p>
-    
-    <p><strong>Kontakt-E-Mail:</strong> contact.cultivanova@gmail.com</p>
-    
-    <p style="margin-top: 1rem;"><strong>English:</strong> You may use the contact form on this website to inquire about products, ask questions, or request information. We will respond to legitimate inquiries within a reasonable timeframe.</p>
-    
-    <p><strong>Contact email:</strong> contact.cultivanova@gmail.com</p>
-    
-    <h2>6. Haftungsausschluss / Disclaimer</h2>
-    
-    <p><strong>Deutsch:</strong> CultivaNova übernimmt keine Haftung für:</p>
-    <ul>
-        <li>Missbrauch oder unsachgemäße Handhabung der Produkte</li>
-        <li>Ergebnisse, die durch externe Faktoren (Umgebungsbedingungen, Benutzerfehler) beeinflusst werden</li>
-        <li>Schäden durch unsachgemäße Lagerung oder Transport</li>
-    </ul>
-    
-    <p style="margin-top: 1rem;"><strong>English:</strong> CultivaNova assumes no liability for:</p>
-    <ul>
-        <li>Misuse or improper handling of products</li>
-        <li>Results affected by external factors (environmental conditions, user error)</li>
-        <li>Damage from improper storage or transport</li>
-    </ul>
-    
-    <h2>7. Links zu Drittanbietern / Third-Party Links</h2>
-    
-    <p><strong>Deutsch:</strong> Diese Website enthält Links zu Websites Dritter (eBay, Etsy). Wir sind nicht verantwortlich für den Inhalt, die Datenschutzpraktiken oder die Nutzungsbedingungen dieser externen Websites.</p>
-    
-    <p style="margin-top: 1rem;"><strong>English:</strong> This website contains links to third-party websites (eBay, Etsy). We are not responsible for the content, privacy practices, or terms of service of these external sites.</p>
-    
-    <h2>8. Änderungen / Changes</h2>
-    
-    <p><strong>Deutsch:</strong> Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern. Änderungen werden auf dieser Seite mit aktualisiertem Datum veröffentlicht.</p>
-    
-    <p style="margin-top: 1rem;"><strong>English:</strong> We reserve the right to modify these terms at any time. Changes will be posted on this page with an updated date.</p>
-    
-    <p style="margin-top: 1.5rem;"><strong>Letzte Aktualisierung / Last Updated:</strong> January 27, 2026</p>
-    
-    <h2>9. Anwendbares Recht / Applicable Law</h2>
-    
-    <p><strong>Deutsch:</strong> Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Gerichtsstand, soweit gesetzlich zulässig, ist Hamburg.</p>
-    
-    <p style="margin-top: 1rem;"><strong>English:</strong> German law applies, excluding the UN Convention on Contracts for the International Sale of Goods. Jurisdiction, where legally permissible, is Hamburg.</p>
-    
 </body>
 </html>
