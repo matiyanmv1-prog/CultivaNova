@@ -276,11 +276,15 @@
             font-size: 1.7rem;
             font-weight: 500;
             font-style: italic;
-            background: linear-gradient(90deg, #5a8f6f 0%, #5a8f6f 52%, #6b9ac4 52%, #6b9ac4 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             letter-spacing: 1px;
+        }
+
+        .logo-text .logo-green {
+            color: #5a8f6f;
+        }
+
+        .logo-text .logo-blue {
+            color: #6b9ac4;
         }
 
         .nav-links {
@@ -1161,12 +1165,16 @@
             font-size: 2.2rem;
             font-weight: 500;
             font-style: italic;
-            background: linear-gradient(90deg, #5a8f6f 0%, #5a8f6f 52%, #6b9ac4 52%, #6b9ac4 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             margin-bottom: 1.5rem;
             letter-spacing: 1px;
+        }
+
+        .footer-logo .logo-green {
+            color: #5a8f6f;
+        }
+
+        .footer-logo .logo-blue {
+            color: #6b9ac4;
         }
 
         .footer-description {
@@ -1277,7 +1285,7 @@
                 <div class="logo-container" onclick="window.location.href='#'">
                     <img src="images/logo.png" alt="CultivaNova Logo" class="logo-image" id="logoImage">
                     <div class="logo-icon">CN</div>
-                    <div class="logo-text">CultivaNova</div>
+                    <div class="logo-text"><span class="logo-green">Cultiva</span><span class="logo-blue">Nova</span></div>
                 </div>
                 <ul class="nav-links">
                     <li><a href="#products">Products</a></li>
@@ -1295,10 +1303,10 @@
         <!-- HERO SECTION -->
         <section class="hero">
             <div class="hero-content">
-                <h1>Artisan Mushroom<br>Liquid Cultures</h1>
+                <h1>Artisan Mycology<br>& Protistology</h1>
                 <p class="hero-subtitle">
-                    Hand-cultivated mycelium cultures from nature's finest specimens. 
-                    Sustainably sourced, professionally prepared, lovingly shipped.
+                    Premium mushroom liquid cultures and slime mold starter kits. 
+                    Hand-cultivated from nature's finest specimens, sustainably sourced, professionally prepared, and lovingly shipped worldwide.
                 </p>
                 <div class="cta-buttons">
                     <a href="#products" class="btn btn-primary">Explore Cultures</a>
@@ -1334,7 +1342,7 @@
                 <div class="trust-item reveal">
                     <div class="trust-icon">🚚</div>
                     <h3>Fast DHL Shipping</h3>
-                    <p>Professional packaging with DHL express delivery across Europe</p>
+                    <p>Professional packaging with DHL International Premium delivery around the world</p>
                 </div>
                 <div class="trust-item reveal">
                     <div class="trust-icon">
@@ -1404,16 +1412,16 @@
 
             <p class="contact-email">
                 <strong>Or email us directly:</strong><br>
-                <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a>
+                <a href="/cdn-cgi/l/email-protection#33505c5d475250471d50465f475a45525d5c455273545e525a5f1d505c5e"><span class="__cf_email__" data-cfemail="b9dad6d7cdd8dacd97daccd5cdd0cfd8d7d6cfd8f9ded4d8d0d597dad6d4">[email&#160;protected]</span></a>
             </p>
         </section>
 
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">CultivaNova</div>
+            <div class="footer-logo"><span class="logo-green">Cultiva</span><span class="logo-blue">Nova</span></div>
             <p class="footer-description">
-                Premium mushroom liquid cultures and slime mold starter kits. 
-                Hand-cultivated from nature's finest specimens, sustainably sourced and professionally prepared.
+                Hand-cultivated mycelium cultures and slime mold starter kits from nature's finest specimens. 
+                Sustainably sourced, professionally prepared, and shipped worldwide with care.
             </p>
             <div class="footer-links">
                 <a href="impressum.html">Impressum</a>
@@ -1432,7 +1440,7 @@
     </div>
 
     <!-- KWES FORM SCRIPT -->
-    <script src="https://kwesforms.com/v2/kf-script.js" defer></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://kwesforms.com/v2/kf-script.js" defer></script>
 
     <!-- MAIN JAVASCRIPT -->
     <script>
@@ -1967,7 +1975,7 @@
                         setTimeout(function() {
                             try {
                                 history.replaceState(null, null, window.location.pathname);
-                            } catch (err) {
+                                      } catch (e) {
                                 // Silently catch security errors
                             }
                         }, 100);
