@@ -1412,8 +1412,22 @@
 
             <p class="contact-email">
                 <strong>Or email us directly:</strong><br>
-                <a href="/cdn-cgi/l/email-protection#33505c5d475250471d50465f475a45525d5c455273545e525a5f1d505c5e"><span class="__cf_email__" data-cfemail="b9dad6d7cdd8dacd97daccd5cdd0cfd8d7d6cfd8f9ded4d8d0d597dad6d4">[email&#160;protected]</span></a>
+                <a id="contact-email-link" href="#" onclick="return false;"></a>
             </p>
+            <script>
+                // Simple email obfuscation (assembles email on page load to avoid bots)
+                (function() {
+                    var user = 'contact.cultivanova';
+                    var domain = 'gmail.com';
+                    var emailLink = document.getElementById('contact-email-link');
+                    if (emailLink) {
+                        var email = user + '@' + domain;
+                        emailLink.href = 'mailto:' + email;
+                        emailLink.textContent = email;
+                        emailLink.onclick = null;
+                    }
+                })();
+            </script>
         </section>
 
     <footer>
@@ -1440,7 +1454,7 @@
     </div>
 
     <!-- KWES FORM SCRIPT -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://kwesforms.com/v2/kf-script.js" defer></script>
+    <script src="https://kwesforms.com/v2/kf-script.js" defer></script>
 
     <!-- MAIN JAVASCRIPT -->
     <script>
