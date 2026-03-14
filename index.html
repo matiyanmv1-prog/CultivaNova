@@ -1600,23 +1600,31 @@
         window.renderProducts = renderProducts;
 
         // CREATE PRODUCT CARD (extracted for reusability)
+        // IMAGE FORMAT FALLBACK
+        // Tries jpg → jpeg → png → webp in order, removes img if all fail
+        function loadImageWithFormats(img, basePath) {
+            const formats = ['jpg', 'jpeg', 'png', 'webp'];
+            let fi = 0;
+            img.onerror = function() {
+                fi++;
+                if (fi < formats.length) {
+                    img.src = basePath + '.' + formats[fi];
+                } else {
+                    img.remove();
+                }
+            };
+            img.src = basePath + '.' + formats[0];
+        }
+
         function createProductCard(product, index) {
             const card = document.createElement('div');
             card.className = 'product-card reveal';
             card.style.animationDelay = `${index * 0.05}s`;
-            
-            // Load up to 10 images per product
-            const maxImages = 10;
-            const imageHTML = [];
-            for (let i = 1; i <= maxImages; i++) {
-                imageHTML.push(`<img src="images/products/product-${product.id}-${i}.jpg" alt="${product.name}" class="${i === 1 ? 'active' : ''}" onerror="this.remove()">`);
-            }
-            
+
             // Display different content for mushroom vs slime mold products
             let priceHTML, sizeHTML, categoryLabel;
-            
+
             if (product.category === 'mushroom') {
-                // Mushroom products show both sizes and prices
                 categoryLabel = 'Liquid Culture';
                 priceHTML = `
                     <div class="product-price-dual">
@@ -1630,16 +1638,15 @@
                 `;
                 sizeHTML = '';
             } else {
-                // Slime mold products show single size and price
                 categoryLabel = 'Slime Mold';
                 priceHTML = `<div class="product-price">${product.price}</div>`;
                 sizeHTML = `<div class="product-size">Size: ${product.size}</div>`;
             }
-            
+
+            // Build card HTML without images first
             card.innerHTML = `
                 <div class="product-image">
                     <div class="product-image-placeholder">🍄</div>
-                    ${imageHTML.join('')}
                     <div class="product-image-counter"></div>
                 </div>
                 <div class="product-info">
@@ -1654,10 +1661,42 @@
                     </div>
                 </div>
             `;
-            
+
+            // Add images with multi-format support
+            const imageContainer = card.querySelector('.product-image');
+            const counter = card.querySelector('.product-image-counter');
+            const maxImages = 10;
+
+            // Individual product images (up to 10)
+            for (let i = 1; i <= maxImages; i++) {
+                const img = document.createElement('img');
+                img.alt = product.name;
+                if (i === 1) img.className = 'active';
+                imageContainer.insertBefore(img, counter);
+                loadImageWithFormats(img, `images/products/product-${product.id}-${i}`);
+            }
+
+            // Shared fallback images — always appended after individual photos
+            if (product.category === 'mushroom') {
+                const img10 = document.createElement('img');
+                img10.alt = product.name + ' 10ml syringe';
+                imageContainer.insertBefore(img10, counter);
+                loadImageWithFormats(img10, 'images/products/syringe-10ml');
+
+                const img20 = document.createElement('img');
+                img20.alt = product.name + ' 20ml syringe';
+                imageContainer.insertBefore(img20, counter);
+                loadImageWithFormats(img20, 'images/products/syringe-20ml');
+            } else {
+                const imgPip = document.createElement('img');
+                imgPip.alt = product.name + ' pipette';
+                imageContainer.insertBefore(imgPip, counter);
+                loadImageWithFormats(imgPip, 'images/products/pipette');
+            }
+
             // Setup image rotation
             setTimeout(() => setupImageRotation(card), 100);
-            
+
             return card;
         }
 
@@ -1678,10 +1717,16 @@
                     // No images, keep placeholder
                     return;
                 }
-                
+
+                // Ensure first valid image is active (handles case where
+                // individual product images failed and only shared images remain)
+                validImages.forEach((img, idx) => {
+                    img.classList.toggle('active', idx === 0);
+                });
+
                 // Hide placeholder
                 if (placeholder) placeholder.style.display = 'none';
-                
+
                 if (validImages.length === 1) {
                     // Only one image, no rotation needed
                     return;
