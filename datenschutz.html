@@ -182,7 +182,6 @@
         }
     </style>
     <script>
-        // Load theme from localStorage
         (function() {
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
@@ -198,23 +197,24 @@
             <p class="subtitle">Privacy Policy</p>
         </header>
 
+        <!-- ═══ 1. DATA CONTROLLER ═══ -->
         <div class="legal-content">
             <h2>1. Verantwortlicher / Data Controller</h2>
-            
+
             <div class="highlight-box">
                 <p><strong>CultivaNova</strong><br>
                 Matiyan Velichkovski<br>
                 Blosweg 5<br>
                 22111 Hamburg<br>
-                Germany</p>
-                
+                Deutschland / Germany</p>
                 <p style="margin-top: 1rem;"><strong>E-Mail:</strong> <a href="mailto:contact.cultivanova@gmail.com">contact.cultivanova@gmail.com</a></p>
             </div>
         </div>
 
+        <!-- ═══ 2. DATA COLLECTED ═══ -->
         <div class="legal-content">
             <h2>2. Erhebung und Speicherung personenbezogener Daten / Collection and Storage of Personal Data</h2>
-            
+
             <h3>Kontaktformular / Contact Form</h3>
             <p><strong>Deutsch:</strong> Wenn Sie unser Kontaktformular absenden, erfassen wir:</p>
             <ul>
@@ -223,7 +223,7 @@
                 <li>Betreffzeile</li>
                 <li>Ihre Nachricht</li>
             </ul>
-            
+
             <p style="margin-top: 1.5rem;"><strong>English:</strong> When you submit our contact form, we collect:</p>
             <ul>
                 <li>Your name</li>
@@ -239,7 +239,7 @@
                 <li>Browser- und Geräteinformationen</li>
                 <li>Zeitstempel der Übermittlung</li>
             </ul>
-            
+
             <p style="margin-top: 1.5rem;"><strong>English:</strong> Automatically collected by Kwes Forms (our form service):</p>
             <ul>
                 <li>IP address</li>
@@ -248,50 +248,71 @@
             </ul>
         </div>
 
+        <!-- ═══ 3. PURPOSE ═══ -->
         <div class="legal-content">
             <h2>3. Zweck der Datenverarbeitung / Purpose of Data Processing</h2>
-            
+
             <div class="highlight-box">
                 <p><strong>Deutsch:</strong> Wir verwenden Ihre Daten NUR, um auf Ihre Anfragen zu antworten. Wir nutzen Ihre Daten nicht für Marketing, Newsletter oder andere Zwecke.</p>
-            
                 <p style="margin-top: 1.5rem;"><strong>English:</strong> We use your data ONLY to respond to your inquiries. We do not use your data for marketing, newsletters, or any other purposes.</p>
             </div>
         </div>
 
+        <!-- ═══ 4. LEGAL BASIS ═══ -->
         <div class="legal-content">
             <h2>4. Rechtsgrundlage / Legal Basis</h2>
-            
+
             <p><strong>Deutsch:</strong> Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen).</p>
-            
             <p style="margin-top: 1.5rem;"><strong>English:</strong> Processing is based on Article 6 (1) (f) GDPR (legitimate interest in responding to inquiries).</p>
         </div>
 
+        <!-- ═══ 5. THIRD-PARTY SERVICES ═══ -->
         <div class="legal-content">
-            <h2>5. Drittanbieter-Dienst / Third-Party Service</h2>
-            
+            <h2>5. Drittanbieter-Dienste / Third-Party Services</h2>
+
             <h3>Kwes Forms</h3>
-            <p><strong>Deutsch:</strong> Unser Kontaktformular wird von <strong>Kwes Forms</strong> verarbeitet, einem Drittanbieter für die Formularabwicklung. Sie speichern Übermittlungen in unserem Auftrag. Kwes Forms ist DSGVO-konform.</p>
-            
+            <p><strong>Deutsch:</strong> Unser Kontaktformular wird von <strong>Kwes Forms</strong> verarbeitet, einem Drittanbieter für die Formularabwicklung. Kwes Forms speichert Übermittlungen in unserem Auftrag und ist DSGVO-konform.</p>
             <p><strong>Datenschutzerklärung:</strong> <a href="https://kwesforms.com/privacy" target="_blank">https://kwesforms.com/privacy</a></p>
-            
-            <p style="margin-top: 1.5rem;"><strong>English:</strong> Our contact form is processed by <strong>Kwes Forms</strong>, a third-party form handling service. They store submissions on our behalf. Kwes Forms is GDPR compliant.</p>
-            
+
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> Our contact form is processed by <strong>Kwes Forms</strong>, a third-party form handling service. They store submissions on our behalf and are GDPR compliant.</p>
             <p><strong>Privacy Policy:</strong> <a href="https://kwesforms.com/privacy" target="_blank">https://kwesforms.com/privacy</a></p>
+
+            <h3>Google Fonts</h3>
+            <p><strong>Deutsch:</strong> Diese Website lädt Schriftarten über <strong>Google Fonts</strong> (fonts.googleapis.com), einen Dienst der Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. Dabei wird Ihre IP-Adresse beim Laden der Seite automatisch an Server von Google in den USA übertragen. Dies erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer einheitlichen und technisch optimierten Darstellung der Website). Google LLC ist unter dem EU-US Data Privacy Framework zertifiziert.</p>
+            <p><strong>Datenschutzerklärung Google:</strong> <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
+
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> This website loads fonts via <strong>Google Fonts</strong> (fonts.googleapis.com), a service of Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. Your IP address is automatically transmitted to Google servers in the USA when the page loads. This is based on Art. 6 (1) (f) GDPR (legitimate interest in a consistent and technically optimised website presentation). Google LLC is certified under the EU-US Data Privacy Framework.</p>
+            <p><strong>Google Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
+
+            <h3>Cloudflare</h3>
+            <p><strong>Deutsch:</strong> Diese Website wird über <strong>Cloudflare, Inc.</strong> (101 Townsend St, San Francisco, CA 94107, USA) als Content Delivery Network (CDN) und Sicherheitsdienst bereitgestellt. Cloudflare verarbeitet dabei alle Seitenaufrufe als Intermediär und kann dabei technische Daten wie IP-Adressen, Browser-Informationen und Seitenaufrufe erfassen, um die Sicherheit und Verfügbarkeit der Website zu gewährleisten. Die Datenverarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Cloudflare ist unter dem EU-US Data Privacy Framework zertifiziert.</p>
+            <p><strong>Datenschutzerklärung Cloudflare:</strong> <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">https://www.cloudflare.com/privacypolicy/</a></p>
+
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> This website is delivered via <strong>Cloudflare, Inc.</strong> (101 Townsend St, San Francisco, CA 94107, USA) as a Content Delivery Network (CDN) and security service. Cloudflare processes all page visits as an intermediary and may collect technical data such as IP addresses, browser information, and page views to ensure security and availability. Processing is based on Art. 6 (1) (f) GDPR. Cloudflare is certified under the EU-US Data Privacy Framework.</p>
+            <p><strong>Cloudflare Privacy Policy:</strong> <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">https://www.cloudflare.com/privacypolicy/</a></p>
+
+            <h3>GitHub Pages</h3>
+            <p><strong>Deutsch:</strong> Diese Website wird auf <strong>GitHub Pages</strong> gehostet (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA). GitHub kann beim Abruf der Website technische Daten wie IP-Adressen in Server-Logs erfassen. GitHub ist unter dem EU-US Data Privacy Framework zertifiziert.</p>
+            <p><strong>Datenschutzerklärung GitHub:</strong> <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank">GitHub Privacy Statement</a></p>
+
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> This website is hosted on <strong>GitHub Pages</strong> (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA). GitHub may collect technical data such as IP addresses in server logs when the site is accessed. GitHub is certified under the EU-US Data Privacy Framework.</p>
+            <p><strong>GitHub Privacy Policy:</strong> <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank">GitHub Privacy Statement</a></p>
         </div>
 
+        <!-- ═══ 6. DATA RETENTION ═══ -->
         <div class="legal-content">
             <h2>6. Datenspeicherung / Data Retention</h2>
-            
+
             <div class="highlight-box">
                 <p><strong>Deutsch:</strong> Kontaktformular-Übermittlungen werden bis zu <strong>6 Monate</strong> nach Lösung Ihrer Anfrage aufbewahrt und dann dauerhaft gelöscht. Wir speichern Formulardaten nicht auf eigenen Servern.</p>
-                
                 <p style="margin-top: 1.5rem;"><strong>English:</strong> Contact form submissions are retained for up to <strong>6 months</strong> after your inquiry is resolved, then permanently deleted. We do not store form data on our own servers.</p>
             </div>
         </div>
 
+        <!-- ═══ 7. COOKIES & TRACKING ═══ -->
         <div class="legal-content">
-            <h2>7. Keine Cookies oder Tracking / No Cookies or Tracking</h2>
-            
+            <h2>7. Cookies und Tracking / Cookies and Tracking</h2>
+
             <p><strong>Deutsch:</strong> Diese Website nutzt NICHT:</p>
             <ul>
                 <li>❌ Marketing-Cookies</li>
@@ -301,8 +322,9 @@
                 <li>❌ Werbe- oder Verhaltens-Tracking</li>
             </ul>
 
-            <p><strong>Nur technisch notwendige Cookies</strong> für die Kontaktformularfunktion (Sitzungs-Cookies) werden verwendet. Diese erfordern keine Einwilligung gemäß § 25 TTDSG.</p>
-            
+            <p><strong>Technisch notwendige Cookies</strong> werden ausschließlich für die Kontaktformularfunktion (Kwes Forms Sitzungs-Cookies) verwendet. Diese erfordern keine Einwilligung gemäß § 25 TTDSG.</p>
+            <p>Cloudflare kann zur Absicherung vor Missbrauch einen technisch notwendigen Cookie (<code>__cf_bm</code>) setzen. Dieser ist rein sicherheitsbezogen und erfordert ebenfalls keine Einwilligung.</p>
+
             <p style="margin-top: 1.5rem;"><strong>English:</strong> This website does NOT use:</p>
             <ul>
                 <li>❌ Marketing cookies</li>
@@ -312,30 +334,32 @@
                 <li>❌ Any advertising or behavioral tracking</li>
             </ul>
 
-            <p><strong>Only technically necessary cookies</strong> for the contact form functionality (session cookies) are used. These do not require consent under § 25 TTDSG.</p>
+            <p><strong>Technically necessary cookies</strong> are used solely for the contact form functionality (Kwes Forms session cookies). These do not require consent under § 25 TTDSG.</p>
+            <p>Cloudflare may set a technically necessary security cookie (<code>__cf_bm</code>) to protect against abuse. This is purely security-related and also requires no consent.</p>
         </div>
 
+        <!-- ═══ 8. YOUR RIGHTS ═══ -->
         <div class="legal-content">
             <h2>8. Ihre Rechte / Your Rights (DSGVO / GDPR)</h2>
-            
+
             <p><strong>Deutsch:</strong> Sie haben folgende Rechte:</p>
             <ul>
-                <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO) - Kopien Ihrer Daten anfordern</li>
-                <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO) - Unrichtige Daten korrigieren</li>
-                <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO) - Löschung Ihrer Daten verlangen</li>
-                <li><strong>Recht auf Einschränkung</strong> (Art. 18 DSGVO) - Nutzung Ihrer Daten einschränken</li>
-                <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO) - Daten in maschinenlesbarem Format erhalten</li>
-                <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO) - Datenverarbeitung widersprechen</li>
+                <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO) — Kopien Ihrer Daten anfordern</li>
+                <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO) — Unrichtige Daten korrigieren</li>
+                <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO) — Löschung Ihrer Daten verlangen</li>
+                <li><strong>Recht auf Einschränkung</strong> (Art. 18 DSGVO) — Nutzung Ihrer Daten einschränken</li>
+                <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO) — Daten in maschinenlesbarem Format erhalten</li>
+                <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO) — Datenverarbeitung widersprechen</li>
             </ul>
 
             <p style="margin-top: 1.5rem;"><strong>English:</strong> You have the following rights:</p>
             <ul>
-                <li><strong>Right to access</strong> (Art. 15 GDPR) - Request copies of your data</li>
-                <li><strong>Right to correction</strong> (Art. 16 GDPR) - Correct inaccurate data</li>
-                <li><strong>Right to deletion</strong> (Art. 17 GDPR) - Request deletion of your data</li>
-                <li><strong>Right to restriction</strong> (Art. 18 GDPR) - Limit how we use your data</li>
-                <li><strong>Right to data portability</strong> (Art. 20 GDPR) - Receive your data in machine-readable format</li>
-                <li><strong>Right to object</strong> (Art. 21 GDPR) - Object to data processing</li>
+                <li><strong>Right to access</strong> (Art. 15 GDPR) — Request copies of your data</li>
+                <li><strong>Right to correction</strong> (Art. 16 GDPR) — Correct inaccurate data</li>
+                <li><strong>Right to deletion</strong> (Art. 17 GDPR) — Request deletion of your data</li>
+                <li><strong>Right to restriction</strong> (Art. 18 GDPR) — Limit how we use your data</li>
+                <li><strong>Right to data portability</strong> (Art. 20 GDPR) — Receive your data in machine-readable format</li>
+                <li><strong>Right to object</strong> (Art. 21 GDPR) — Object to data processing</li>
             </ul>
 
             <div class="highlight-box" style="margin-top: 2rem;">
@@ -345,31 +369,33 @@
             </div>
         </div>
 
+        <!-- ═══ 9. COMPLAINTS ═══ -->
         <div class="legal-content">
             <h2>9. Beschwerderecht / Right to Lodge a Complaint</h2>
-            
-            <p><strong>Deutsch:</strong> Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. In Hamburg:</p>
-            
+
+            <p><strong>Deutsch:</strong> Sie haben das Recht, sich bei jeder zuständigen EU-Datenschutzaufsichtsbehörde zu beschweren. Zuständige Behörde für unseren Sitz in Hamburg:</p>
+
             <div style="margin: 1rem 0; padding: 1rem; background: rgba(90, 143, 111, 0.05); border-radius: 8px;">
                 <strong>Der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit</strong><br>
                 Kurt-Schumacher-Allee 3<br>
-                20097 Hamburg, Germany<br>
-                Website: <a href="https://datenschutz-hamburg.de" target="_blank">datenschutz-hamburg.de</a>
+                20097 Hamburg, Deutschland<br>
+                Website: <a href="https://datenschutz.hamburg.de" target="_blank">datenschutz.hamburg.de</a>
             </div>
-            
-            <p style="margin-top: 1.5rem;"><strong>English:</strong> You have the right to lodge a complaint with a data protection supervisory authority. In Hamburg:</p>
-            
+
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> You have the right to lodge a complaint with any EU supervisory authority. The competent authority for our registered address in Hamburg is:</p>
+
             <div style="margin: 1rem 0; padding: 1rem; background: rgba(90, 143, 111, 0.05); border-radius: 8px;">
                 <strong>Hamburg Commissioner for Data Protection and Freedom of Information</strong><br>
                 Kurt-Schumacher-Allee 3<br>
                 20097 Hamburg, Germany<br>
-                Website: <a href="https://datenschutz-hamburg.de" target="_blank">datenschutz-hamburg.de</a>
+                Website: <a href="https://datenschutz.hamburg.de" target="_blank">datenschutz.hamburg.de</a>
             </div>
         </div>
 
+        <!-- ═══ 10. IMPORTANT NOTES ═══ -->
         <div class="legal-content">
             <h2>10. Wichtige Hinweise / Important Notes</h2>
-            
+
             <div class="highlight-box">
                 <p><strong>Deutsch:</strong></p>
                 <ul>
@@ -379,7 +405,7 @@
                     <li>Für Käufe besuchen Sie bitte unsere eBay- und Etsy-Shops</li>
                     <li>Marktplatz-Transaktionen unterliegen deren jeweiligen Datenschutzrichtlinien</li>
                 </ul>
-                
+
                 <p style="margin-top: 1.5rem;"><strong>English:</strong></p>
                 <ul>
                     <li>This website is <strong>NOT</strong> an e-commerce shop</li>
@@ -391,17 +417,17 @@
             </div>
         </div>
 
+        <!-- ═══ 11. CHANGES ═══ -->
         <div class="legal-content">
             <h2>11. Änderungen dieser Datenschutzerklärung / Changes to This Privacy Policy</h2>
-            
+
             <p><strong>Deutsch:</strong> Wir behalten uns vor, diese Datenschutzerklärung zu aktualisieren. Die aktuelle Version finden Sie immer auf dieser Seite.</p>
-            
-            <p style="margin-top: 1.5rem;"><strong>English:</strong> We reserve the right to update this privacy policy. The current version will always be available on this page.</p>
+            <p style="margin-top: 1.5rem;"><strong>English:</strong> We reserve the right to update this privacy policy. The current version is always available on this page.</p>
         </div>
 
         <footer>
             <p>© 2026 CultivaNova. All rights reserved.</p>
-            <p style="margin-top: 0.5rem;">Last updated: January 2026</p>
+            <p style="margin-top: 0.5rem;">Zuletzt aktualisiert / Last updated: März / March 2026</p>
         </footer>
     </div>
 </body>
