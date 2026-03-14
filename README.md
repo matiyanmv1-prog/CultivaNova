@@ -1,2 +1,0 @@
-# CultivaNova
-Affordable Mycology Supplies
