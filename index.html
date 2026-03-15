@@ -1602,15 +1602,20 @@
         // CREATE PRODUCT CARD (extracted for reusability)
         // IMAGE FORMAT FALLBACK
         // Tries jpg → jpeg → png → webp in order, removes img if all fail
-        function loadImageWithFormats(img, basePath) {
+        // Calls onSettled() once image either loads or is removed
+        function loadImageWithFormats(img, basePath, onSettled) {
             const formats = ['jpg', 'jpeg', 'png', 'webp'];
             let fi = 0;
+            img.onload = function() {
+                if (onSettled) onSettled();
+            };
             img.onerror = function() {
                 fi++;
                 if (fi < formats.length) {
                     img.src = basePath + '.' + formats[fi];
                 } else {
                     img.remove();
+                    if (onSettled) onSettled();
                 }
             };
             img.src = basePath + '.' + formats[0];
@@ -1667,13 +1672,21 @@
             const counter = card.querySelector('.product-image-counter');
             const maxImages = 10;
 
+            // Track settled images and rebuild rotation as each one loads/fails
+            const totalImages = product.category === 'mushroom' ? maxImages + 2 : maxImages + 1;
+            let settledCount = 0;
+            function onOneSettled() {
+                settledCount++;
+                rebuildRotation(card);
+            }
+
             // Individual product images (up to 10)
             for (let i = 1; i <= maxImages; i++) {
                 const img = document.createElement('img');
                 img.alt = product.name;
                 if (i === 1) img.className = 'active';
                 imageContainer.insertBefore(img, counter);
-                loadImageWithFormats(img, `images/products/product-${product.id}-${i}`);
+                loadImageWithFormats(img, `images/products/product-${product.id}-${i}`, onOneSettled);
             }
 
             // Shared fallback images — always appended after individual photos
@@ -1681,27 +1694,95 @@
                 const img10 = document.createElement('img');
                 img10.alt = product.name + ' 10ml syringe';
                 imageContainer.insertBefore(img10, counter);
-                loadImageWithFormats(img10, 'images/products/syringe-10ml');
+                loadImageWithFormats(img10, 'images/products/syringe-10ml', onOneSettled);
 
                 const img20 = document.createElement('img');
                 img20.alt = product.name + ' 20ml syringe';
                 imageContainer.insertBefore(img20, counter);
-                loadImageWithFormats(img20, 'images/products/syringe-20ml');
+                loadImageWithFormats(img20, 'images/products/syringe-20ml', onOneSettled);
             } else {
                 const imgPip = document.createElement('img');
                 imgPip.alt = product.name + ' pipette';
                 imageContainer.insertBefore(imgPip, counter);
-                loadImageWithFormats(imgPip, 'images/products/pipette');
+                loadImageWithFormats(imgPip, 'images/products/pipette', onOneSettled);
             }
 
-            // Setup image rotation
-            setTimeout(() => setupImageRotation(card), 100);
+            // Initial rotation setup
+            setTimeout(() => rebuildRotation(card), 300);
 
             return card;
         }
 
-        // AUTOMATIC IMAGE ROTATION ON HOVER
+        // REBUILD ROTATION — called each time an image loads/fails
+        // Uses a flag to avoid adding duplicate event listeners
+        function rebuildRotation(card) {
+            const imageContainer = card.querySelector('.product-image');
+            const counter = imageContainer.querySelector('.product-image-counter');
+            const placeholder = imageContainer.querySelector('.product-image-placeholder');
+
+            const validImages = Array.from(imageContainer.querySelectorAll('img')).filter(img =>
+                img.parentElement && img.naturalWidth > 0
+            );
+
+            if (validImages.length === 0) return;
+
+            // Ensure first valid image is active
+            validImages.forEach((img, idx) => {
+                img.classList.toggle('active', idx === 0);
+            });
+
+            // Hide placeholder
+            if (placeholder) placeholder.style.display = 'none';
+
+            // Update counter
+            if (validImages.length > 1) {
+                counter.textContent = `1/${validImages.length}`;
+            } else {
+                counter.textContent = '';
+            }
+
+            // Only add hover listeners once
+            if (!card._rotationSetup) {
+                card._rotationSetup = true;
+                let currentIndex = 0;
+                let interval;
+
+                imageContainer.addEventListener('mouseenter', () => {
+                    // Recalculate valid images at hover time (all should be loaded by then)
+                    const imgs = Array.from(imageContainer.querySelectorAll('img')).filter(img =>
+                        img.parentElement && img.naturalWidth > 0
+                    );
+                    if (imgs.length <= 1) return;
+                    currentIndex = 0;
+                    counter.textContent = `1/${imgs.length}`;
+                    interval = setInterval(() => {
+                        imgs[currentIndex].classList.remove('active');
+                        currentIndex = (currentIndex + 1) % imgs.length;
+                        imgs[currentIndex].classList.add('active');
+                        counter.textContent = `${currentIndex + 1}/${imgs.length}`;
+                    }, 800);
+                });
+
+                imageContainer.addEventListener('mouseleave', () => {
+                    clearInterval(interval);
+                    const imgs = Array.from(imageContainer.querySelectorAll('img')).filter(img =>
+                        img.parentElement && img.naturalWidth > 0
+                    );
+                    imgs.forEach((img, idx) => {
+                        img.classList.toggle('active', idx === 0);
+                    });
+                    currentIndex = 0;
+                    if (imgs.length > 1) counter.textContent = `1/${imgs.length}`;
+                });
+            }
+        }
+
+        // AUTOMATIC IMAGE ROTATION ON HOVER (kept for compatibility)
         function setupImageRotation(card) {
+            rebuildRotation(card);
+        }
+
+        function _setupImageRotation_UNUSED(card) {
             const imageContainer = card.querySelector('.product-image');
             const images = imageContainer.querySelectorAll('img');
             const counter = imageContainer.querySelector('.product-image-counter');
