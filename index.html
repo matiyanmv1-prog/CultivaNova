@@ -5,7 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="CultivaNova - Premium Mushroom Liquid Cultures & Slime Mold Starter Kits. Professional cultivation supplies.">
     <meta name="language" content="English">
-    <title>CultivaNova - Premium Mushroom Cultures & Slime Molds</title>
+    <meta name="robots" content="index, follow">
+    <title>CultivaNova - Premium Mushroom Cultures &amp; Slime Molds</title>
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cultivanova.com/">
+    <meta property="og:title" content="CultivaNova - Premium Mushroom Cultures &amp; Slime Molds">
+    <meta property="og:description" content="Premium mushroom liquid cultures and slime mold starter kits. Hand-cultivated, sustainably sourced, shipped worldwide.">
+    <meta property="og:image" content="https://cultivanova.com/images/logo.png">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="CultivaNova - Premium Mushroom Cultures &amp; Slime Molds">
+    <meta name="twitter:description" content="Premium mushroom liquid cultures and slime mold starter kits. Hand-cultivated, sustainably sourced, shipped worldwide.">
+    <meta name="twitter:image" content="https://cultivanova.com/images/logo.png">
+    <link rel="canonical" href="https://cultivanova.com/">
     
     <!--
     ============================================================================
@@ -1340,7 +1353,7 @@
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="https://www.ebay.com/usr/cultivanova" target="_blank">eBay</a></li>
                     <li><a href="https://www.etsy.com/shop/CultivaNova" target="_blank">Etsy</a></li>
-                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="impressum.html">Legal Notice</a></li>
                     <li><a href="datenschutz.html">Privacy</a></li>
                     <li><a href="agb.html">Terms</a></li>
                     <li><a href="widerruf.html">Cancellation</a></li>
@@ -1486,7 +1499,7 @@
                 Sustainably sourced, professionally prepared, and shipped worldwide with care.
             </p>
             <div class="footer-links">
-                <a href="impressum.html">Impressum</a>
+                <a href="impressum.html">Legal Notice</a>
                 <a href="datenschutz.html">Privacy</a>
                 <a href="agb.html">Terms</a>
                 <a href="widerruf.html">Cancellation</a>
@@ -1673,7 +1686,6 @@
             const maxImages = 10;
 
             // Track settled images and rebuild rotation as each one loads/fails
-            const totalImages = product.category === 'mushroom' ? maxImages + 2 : maxImages + 1;
             let settledCount = 0;
             function onOneSettled() {
                 settledCount++;
@@ -1684,6 +1696,9 @@
             for (let i = 1; i <= maxImages; i++) {
                 const img = document.createElement('img');
                 img.alt = product.name;
+                img.loading = 'lazy';
+                img.width = 400;
+                img.height = 300;
                 if (i === 1) img.className = 'active';
                 imageContainer.insertBefore(img, counter);
                 loadImageWithFormats(img, `images/products/product-${product.id}-${i}`, onOneSettled);
@@ -1693,16 +1708,25 @@
             if (product.category === 'mushroom') {
                 const img10 = document.createElement('img');
                 img10.alt = product.name + ' 10ml syringe';
+                img10.loading = 'lazy';
+                img10.width = 400;
+                img10.height = 300;
                 imageContainer.insertBefore(img10, counter);
                 loadImageWithFormats(img10, 'images/products/syringe-10ml', onOneSettled);
 
                 const img20 = document.createElement('img');
                 img20.alt = product.name + ' 20ml syringe';
+                img20.loading = 'lazy';
+                img20.width = 400;
+                img20.height = 300;
                 imageContainer.insertBefore(img20, counter);
                 loadImageWithFormats(img20, 'images/products/syringe-20ml', onOneSettled);
             } else {
                 const imgPip = document.createElement('img');
                 imgPip.alt = product.name + ' pipette';
+                imgPip.loading = 'lazy';
+                imgPip.width = 400;
+                imgPip.height = 300;
                 imageContainer.insertBefore(imgPip, counter);
                 loadImageWithFormats(imgPip, 'images/products/pipette', onOneSettled);
             }
@@ -1781,63 +1805,6 @@
         function setupImageRotation(card) {
             rebuildRotation(card);
         }
-
-        function _setupImageRotation_UNUSED(card) {
-            const imageContainer = card.querySelector('.product-image');
-            const images = imageContainer.querySelectorAll('img');
-            const counter = imageContainer.querySelector('.product-image-counter');
-            const placeholder = imageContainer.querySelector('.product-image-placeholder');
-            
-            // Wait for images to load
-            setTimeout(() => {
-                const validImages = Array.from(images).filter(img => 
-                    img.parentElement && img.naturalWidth > 0
-                );
-                
-                if (validImages.length === 0) {
-                    // No images, keep placeholder
-                    return;
-                }
-
-                // Ensure first valid image is active (handles case where
-                // individual product images failed and only shared images remain)
-                validImages.forEach((img, idx) => {
-                    img.classList.toggle('active', idx === 0);
-                });
-
-                // Hide placeholder
-                if (placeholder) placeholder.style.display = 'none';
-
-                if (validImages.length === 1) {
-                    // Only one image, no rotation needed
-                    return;
-                }
-                
-                // Multiple images - set up rotation
-                counter.textContent = `1/${validImages.length}`;
-                let currentIndex = 0;
-                let interval;
-
-                imageContainer.addEventListener('mouseenter', () => {
-                    interval = setInterval(() => {
-                        validImages[currentIndex].classList.remove('active');
-                        currentIndex = (currentIndex + 1) % validImages.length;
-                        validImages[currentIndex].classList.add('active');
-                        counter.textContent = `${currentIndex + 1}/${validImages.length}`;
-                    }, 800);
-                });
-
-                imageContainer.addEventListener('mouseleave', () => {
-                    clearInterval(interval);
-                    validImages.forEach((img, idx) => {
-                        img.classList.toggle('active', idx === 0);
-                    });
-                    currentIndex = 0;
-                    counter.textContent = `1/${validImages.length}`;
-                });
-            }, 500);
-        }
-
         // MYCELIUM NETWORK CANVAS ANIMATION
         function initMyceliumCanvas() {
             const canvas = document.getElementById('myceliumCanvas');
@@ -1905,10 +1872,19 @@
                     }
                 }
 
-                requestAnimationFrame(animate);
+                return requestAnimationFrame(animate);
             }
 
-            animate();
+            let animationId = animate();
+
+            // Pause animation when tab is hidden to save CPU
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    cancelAnimationFrame(animationId);
+                } else {
+                    animationId = animate();
+                }
+            });
 
             window.addEventListener('resize', () => {
                 canvas.width = window.innerWidth;
